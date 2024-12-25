@@ -5,7 +5,6 @@ import { usePathname } from 'next/navigation';
 import { menuSlide } from '../animation';
 import LinkComponent from './Link';
 import Curve from './Curve';
-import Footer from './Footer';
 
 interface NavItem {
   title: string;
@@ -14,20 +13,24 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   {
-    title: 'Home',
-    href: '/',
+    title: "Home",
+    href: "/",
   },
   {
-    title: 'Work',
-    href: '/work',
+    title: "Work",
+    href: "/work",
   },
   {
-    title: 'About',
-    href: '/about',
+    title: "About",
+    href: "/about",
   },
   {
-    title: 'Contact',
-    href: '/contact',
+    title: "Blog",
+    href: "/blog",
+  },
+  {
+    title: "Contact",
+    href: "/contact",
   },
 ];
 
@@ -62,7 +65,6 @@ const Menu: React.FC = () => {
             />
           ))}
         </div>
-        <Footer />
       </div>
       <Curve />
     </motion.div>
