@@ -9,7 +9,7 @@ import Landing from "../components/Landing";
 import Preloader from "../components/Preloader";
 import { AnimatePresence } from "framer-motion";
 import Description from "../components/Description";
-import SlidingImages from "../components/SlidingImages";
+import SlidingImages from "../components/Projects";
 import Contact from "../components/Contact";
 import Image from "next/image"; // Import next/image
 import { motion } from "framer-motion"; // Import motion for animations

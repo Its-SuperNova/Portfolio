@@ -1,0 +1,19 @@
+.title {
+    font-size: 60px;
+    line-height: 70px;
+    text-align: left;
+
+    div {
+        margin-bottom: 10px; // Space between lines
+    }
+
+    span {
+        margin-right: 5px;
+    }
+
+    .mask {
+        position: relative;
+        overflow: hidden;
+        display: inline-flex;
+    }
+}

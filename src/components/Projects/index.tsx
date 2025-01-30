@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { useScroll, useTransform, motion } from 'framer-motion';
 import styles from './style.module.scss';
 import Image from 'next/image';
-
+import Comp from "./course"
 interface SliderItem {
   color: string;
   src: string;
@@ -59,11 +59,9 @@ const SlidingImages: React.FC = () => {
   const height = useTransform(scrollYProgress, [0, 0.9], [50, 0]);
 
   return (
+    
     <div ref={container} className={styles.slidingImages}>
-      <motion.div style={{ x: x1 }} className={styles.slider}>
-      </motion.div>
-      <motion.div style={{ x: x2 }} className={styles.slider}>
-      </motion.div>
+      <Comp/>
       <motion.div style={{ height }} className={styles.circleContainer}>
         <div className={styles.circle}></div>
       </motion.div>

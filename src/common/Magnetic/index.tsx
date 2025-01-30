@@ -45,6 +45,7 @@ export default function Index({ children }: MagneticProps) {
   }, []);
 
   return cloneElement(children, {
-    ref: magnetic, // Use ':' instead of '='
+    ref: magnetic, // This causes the error
   });
+
 }
