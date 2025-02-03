@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/buttons/magnetic/framer.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/buttons/magnetic/framer.jsx", "src/common/gridBG/index.jsx", "src/components/TextAnimations/split/index.tsx"],
   "exclude": ["node_modules"]
 }

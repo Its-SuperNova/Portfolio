@@ -7,24 +7,19 @@ import Card from "../card";
 const CardGrid = () => {
   const cardData = [
     {
-      image: "/images/courseCover/ai.jpg",
-      title: "AI Essentials & Beyond",
-      link: "/course/pages/ai-essentials",
+      image: "/images/courseCover/Learnlogicify.png",
+      title: "Learnlogicify Landing Page",
+      link: "https://learnlogicify-rebuild-beta.vercel.app/",
     },
     {
-      image: "/images/courseCover/ml.png",
-      title: "Machine Learning Mastery",
-      link: "/course/pages/ml-mastery",
+      image: "/images/courseCover/spotify.png",
+      title: "Spotify Clone",
+      link: "https://spotify-clone-frontend-jy0d.onrender.com/",
     },
     {
-      image: "/images/courseCover/web.png",
-      title: "Full-Stack Web Development",
+      image: "/images/courseCover/winzee.png",
+      title: "WinZee Chatting app",
       link: "/course/pages/web-dev",
-    },
-    {
-      image: "/images/courseCover/app.png",
-      title: "Next-Gen App Development",
-      link: "/course/pages/app-dev",
     },
   ];
 

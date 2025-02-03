@@ -57,9 +57,9 @@ export default function Index() {
     };
   }, [offsetMultiplier]);
 
-  const title = ["Explore Our Programs"];
+  const title = ["Impressive Works"];
   const subTitle = [
-    "A CURATED SELECTION OF COURSES TO EMPOWER LEARNERS WITH ADVANCED SKILLS AND KNOWLEDGE.",
+    "HERE’S A SELECTION OF PROJECTS THAT SHOWCASE MY PASSION FOR DESIGN AND DEVELOPMENT, REFLECTING CREATIVITY AND INNOVATION.",
   ];
 
   return (

@@ -1,0 +1,58 @@
+import styles from "./style.module.scss";
+import Rounded from "../../common/RoundedButton";
+import { useRef } from "react";
+import { useScroll, motion, useTransform, MotionValue } from "framer-motion";
+import TextPressure from "../TextAnimations/Pressure";
+import Image from "next/image";
+import Squares from "../../common/gridBG"; // Ensure correct import path
+
+const Index: React.FC = () => {
+  const container = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start end", "end end"],
+  });
+
+  const y: MotionValue<number> = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [-500, 0]
+  );
+
+  return (
+    <motion.div ref={container} style={{ y }} className={styles.contact}>
+      <div className={styles.body}>
+        <div className={styles.header}>
+          <div className={styles.title}>
+            <TextPressure
+              text="your friendly chaos creator"
+              flex={true}
+              alpha={false}
+              stroke={true}
+              width={true}
+              weight={true}
+              italic={true}
+              textColor="#ffffff"
+              strokeColor="#6A56FF"
+              minFontSize={70}
+            />
+          </div>
+          <div className={styles.arrow}>
+            <Image
+              src="/icons/arrow-curve.svg"
+              alt="Home"
+              width={45}
+              height={45}
+            />
+          </div>
+        </div>
+        <div className={styles.name}>
+          <h2>Ashhhhhh </h2>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+export default Index;

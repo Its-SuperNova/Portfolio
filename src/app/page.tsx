@@ -12,8 +12,8 @@ import Description from "../components/Description";
 import SlidingImages from "../components/Projects";
 import Contact from "../components/Contact";
 import Image from "next/image"; // Import next/image
-import { motion } from "framer-motion"; // Import motion for animations
-import { FiGithub } from "react-icons/fi";
+import { motion } from "framer-motion"; 
+import Footer from "../components/Contact copy"
 export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -178,7 +178,7 @@ export default function Home() {
       <Landing />
       <Description />
       <SlidingImages />
-      <Contact />
+      <Footer />
     </main>
   );
 }
