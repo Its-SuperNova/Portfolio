@@ -13,7 +13,7 @@ import SlidingImages from "../components/Projects";
 import Contact from "../components/Contact";
 import Image from "next/image"; // Import next/image
 import { motion } from "framer-motion"; 
-import Footer from "../components/Contact copy"
+import Footer from "../components/Footer"
 export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
