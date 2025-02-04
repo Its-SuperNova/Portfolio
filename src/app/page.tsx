@@ -102,7 +102,7 @@ export default function Home() {
       title: "Asshhh",
       icon: (
         <Image
-          src="/images/Assssshh.jpeg"
+          src="/images/ashh.jpeg"
           alt="Blog"
           fill
           className="object-cover rounded-full"
