@@ -1,10 +1,8 @@
 import styles from "./style.module.scss";
-import Rounded from "../../common/RoundedButton";
 import { useRef } from "react";
 import { useScroll, motion, useTransform, MotionValue } from "framer-motion";
 import TextPressure from "../TextAnimations/Pressure";
 import Image from "next/image";
-import Squares from "../../common/gridBG"; // Ensure correct import path
 
 const Index: React.FC = () => {
   const container = useRef<HTMLDivElement>(null);

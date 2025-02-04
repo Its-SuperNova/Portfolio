@@ -1,29 +1,30 @@
-import React, { useEffect, useRef, ReactElement, cloneElement } from "react";
+import { useEffect, useRef, ReactElement, cloneElement } from "react";
 import gsap from "gsap";
 
 interface MagneticProps {
-  children: ReactElement; // Ensures children are a valid React element
+  children: ReactElement<{ ref?: React.Ref<HTMLDivElement> }>; // ✅ Properly typed children
 }
 
 export default function Index({ children }: MagneticProps) {
-  const magnetic = useRef<HTMLDivElement>(null);
+  const magnetic = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!magnetic.current) return;
 
-    const xTo = gsap.quickTo(magnetic.current, "x", {
+    const element = magnetic.current;
+
+    const xTo = gsap.quickTo(element, "x", {
       duration: 1,
       ease: "elastic.out(1, 0.3)",
     });
-    const yTo = gsap.quickTo(magnetic.current, "y", {
+    const yTo = gsap.quickTo(element, "y", {
       duration: 1,
       ease: "elastic.out(1, 0.3)",
     });
 
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e;
-      const { height, width, left, top } =
-        magnetic.current!.getBoundingClientRect();
+      const { height, width, left, top } = element.getBoundingClientRect();
       const x = clientX - (left + width / 2);
       const y = clientY - (top + height / 2);
       xTo(x * 0.35);
@@ -35,17 +36,16 @@ export default function Index({ children }: MagneticProps) {
       yTo(0);
     };
 
-    magnetic.current.addEventListener("mousemove", handleMouseMove);
-    magnetic.current.addEventListener("mouseleave", handleMouseLeave);
+    element.addEventListener("mousemove", handleMouseMove);
+    element.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      magnetic.current?.removeEventListener("mousemove", handleMouseMove);
-      magnetic.current?.removeEventListener("mouseleave", handleMouseLeave);
+      element.removeEventListener("mousemove", handleMouseMove);
+      element.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, []);
 
   return cloneElement(children, {
-    ref: magnetic, // This causes the error
+    ref: magnetic,
   });
-
 }

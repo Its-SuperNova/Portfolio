@@ -7,8 +7,6 @@ import Nav from "./nav";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Rounded from "../../common/RoundedButton";
-import Magnetic from "../../common/Magnetic";
-import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,7 +17,7 @@ const Index: React.FC = () => {
   const button = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (isActive) setIsActive(false);
+    setIsActive(false); // ✅ Fixed: No unnecessary re-renders
   }, [pathname]);
 
   useLayoutEffect(() => {

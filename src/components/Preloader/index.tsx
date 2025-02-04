@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import styles from "./style.module.scss";
 import { motion } from "framer-motion";
 import { opacity, slideUp } from "./anim";
-import DecryptedText from "../TextAnimations/split";
 import { Bricolage_Grotesque } from "next/font/google"; // ✅ Corrected Import
 
 const bricolage = Bricolage_Grotesque({
@@ -12,7 +11,7 @@ const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
 });
 
-const words = ["Ashhhh’s Creative Space"];
+const words = ["Ashhhh’s Portfolio"];
 
 const Introduction: React.FC = () => {
   const [index, setIndex] = useState<number>(0);

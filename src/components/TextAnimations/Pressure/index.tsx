@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 interface TextPressureProps {
   text?: string;
@@ -83,7 +83,7 @@ const TextPressure: React.FC<TextPressureProps> = ({
     };
   }, []);
 
-  const setSize = () => {
+  const setSize = useCallback(() => {
     if (!containerRef.current || !titleRef.current) return;
 
     const { width: containerW, height: containerH } =
@@ -106,13 +106,13 @@ const TextPressure: React.FC<TextPressureProps> = ({
         setLineHeight(yRatio);
       }
     });
-  };
+  }, [chars.length, minFontSize, scale]); // Only re-create when these values change
 
   useEffect(() => {
     setSize();
     window.addEventListener("resize", setSize);
     return () => window.removeEventListener("resize", setSize);
-  }, [scale, text]);
+  }, [scale, text, setSize]); // setSize is now stable
 
   useEffect(() => {
     let rafId: number;

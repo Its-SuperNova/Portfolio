@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, SVGMotionProps } from 'framer-motion';
+import { motion } from 'framer-motion';
 import styles from './styles.module.scss';
 
 const Index: React.FC = () => {
