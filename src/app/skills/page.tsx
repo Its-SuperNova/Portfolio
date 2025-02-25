@@ -1,8 +1,10 @@
 import React from 'react'
+import Hero from "./components/hero"
 import Grid from "./components/bentoGrid"
 const skills = () => {
   return (
-    <div className='bg-black h-[200vh]'>
+    <div className='bg-black'>
+      <Hero/>
       <Grid/>
     </div>
   )
