@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { FloatingDock } from "../components/dock";
 import Landing from "../components/Landing";
 import Preloader from "../components/Preloader";
@@ -11,29 +11,16 @@ import Image from "next/image"; // Import next/image
 import { motion } from "framer-motion";
 import Footer from "../components/Contact copy";
 import { FaFigma } from "react-icons/fa6";
-// Import LocomotiveScroll types
-import LocomotiveScroll from "locomotive-scroll";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const scrollRef = useRef<LocomotiveScroll | null>(null);
 
   useEffect(() => {
-    (async () => {
-      const LocomotiveScroll = (await import("locomotive-scroll")).default;
-      scrollRef.current = new LocomotiveScroll();
-
-      setTimeout(() => {
-        setIsLoading(false);
-        document.body.style.cursor = "default";
-        window.scrollTo(0, 0);
-      }, 2000);
-    })();
-
-    return () => {
-      // Cleanup to avoid memory leaks
-      scrollRef.current?.destroy();
-    };
+    setTimeout(() => {
+      setIsLoading(false);
+      document.body.style.cursor = "default";
+      window.scrollTo(0, 0);
+    }, 2000);
   }, []);
 
   // ✅ Updated items array with custom SVG icon inside motion.div
@@ -139,7 +126,7 @@ export default function Home() {
           transition={{ stiffness: 200 }}
           className="flex items-center justify-center"
         >
-          <FaFigma size={20}/>
+          <FaFigma size={20} />
         </motion.div>
       ),
       href: "/figma",
