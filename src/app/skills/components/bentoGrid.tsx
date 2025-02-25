@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef,useEffect,useState } from "react";
 import Card from "./card"
 import { SiExpress } from "react-icons/si";
 import { FaNodeJs } from "react-icons/fa";
@@ -73,31 +73,131 @@ const bentoGrid = () => {
        const frontendRef = useRef(null);
        const backendRef = useRef(null);
        const databaseRef = useRef(null);
-       const animationVariants = {
-         hidden: { opacity: 0, y: 50 },
+       const uiuxRef = useRef(null);
+       const stylingRef = useRef(null);
+       const programmingRef = useRef(null);
+       const versionControlRef = useRef(null);
+       const webAnimationsRef = useRef(null);
+       const cloudRef = useRef(null);
+       const coreCSRef = useRef(null);
+       const personalDevRef = useRef(null);
+       const mobileDevRef = useRef(null);
+       const testingRef = useRef(null);
+       const graphicDesignRef = useRef(null);
+
+       // **Track Scroll Direction (true = scrolling down, false = scrolling up)**
+       const [scrollDirection, setScrollDirection] = useState(true);
+
+       useEffect(() => {
+         let lastScrollY = window.scrollY;
+         const updateScrollDirection = () => {
+           setScrollDirection(window.scrollY > lastScrollY);
+           lastScrollY = window.scrollY;
+         };
+         window.addEventListener("scroll", updateScrollDirection);
+         return () =>
+           window.removeEventListener("scroll", updateScrollDirection);
+       }, []);
+
+       // **Dynamic Animation Variants based on Scroll Direction**
+       const getAnimationVariants = (scrollingDown: boolean) => ({
+         hidden: scrollingDown ? { opacity: 0, y: 50 } : { opacity: 0, y: -50 },
          visible: {
            opacity: 1,
            y: 0,
            transition: { duration: 0.6, ease: "easeOut" },
          },
-       };
+         exit: scrollingDown
+           ? {
+               opacity: 0,
+               y: 50,
+               transition: { duration: 0.4, ease: "easeIn" },
+             }
+           : {
+               opacity: 0,
+               y: -50,
+               transition: { duration: 0.4, ease: "easeIn" },
+             },
+       });
 
+       // **Detect when each component is in view**
        const frontendInView = useInView(frontendRef, {
-         once: true,
+         once: false,
+         margin: "-10% 0px",
        });
        const backendInView = useInView(backendRef, {
-         once: true,
+         once: false,
+         margin: "-10% 0px",
        });
        const databaseInView = useInView(databaseRef, {
-         once: true,
+         once: false,
+         margin: "-10% 0px",
+       });
+       const uiuxInView = useInView(uiuxRef, {
+         once: false,
+         margin: "-10% 0px",
+       });
+       const stylingInView = useInView(stylingRef, {
+         once: false,
+         margin: "-10% 0px",
+       });
+       const programmingInView = useInView(programmingRef, {
+         once: false,
+         margin: "-10% 0px",
+       });
+       const versionControlInView = useInView(versionControlRef, {
+         once: false,
+         margin: "-10% 0px",
+       });
+       const webAnimationsInView = useInView(webAnimationsRef, {
+         once: false,
+         margin: "-10% 0px",
+       });
+       const cloudInView = useInView(cloudRef, {
+         once: false,
+         margin: "-10% 0px",
+       });
+       const coreCSInView = useInView(coreCSRef, {
+         once: false,
+         margin: "-10% 0px",
+       });
+       const personalDevInView = useInView(personalDevRef, {
+         once: false,
+         margin: "-10% 0px",
+       });
+       const mobileDevInView = useInView(mobileDevRef, {
+         once: false,
+         margin: "-10% 0px",
+       });
+       const testingInView = useInView(testingRef, {
+         once: false,
+         margin: "-10% 0px",
+       });
+       const graphicDesignInView = useInView(graphicDesignRef, {
+         once: false,
+         margin: "-10% 0px",
        });
   return (
     <div className="h-full  w-full flex items-center justify-center">
       <div className="hidden md:grid grid-cols-12 grid-rows-[repeat(20,minmax(0,1fr))] gap-5 h-full w-full p-20">
-        <div className="col-span-5 row-span-5 rounded-[20px] bg-[#1E1E1E]  text-white ">
+        <motion.div
+          ref={uiuxRef}
+          initial="hidden"
+          animate={uiuxInView ? "visible" : "hidden"}
+          exit="exit"
+          variants={getAnimationVariants(scrollDirection)}
+          className="col-span-5 row-span-5 rounded-[20px] bg-[#1E1E1E]  text-white "
+        >
           <Card />
-        </div>
-        <div className="col-span-4 row-span-5 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
+        </motion.div>
+        <motion.div
+          ref={frontendRef}
+          initial="hidden"
+          animate={frontendInView ? "visible" : "hidden"}
+          exit="exit"
+          variants={getAnimationVariants(scrollDirection)}
+          className="col-span-4 row-span-5 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between"
+        >
           <div className="flex flex-col gap-2 px-2">
             <div className="grid grid-cols-[70px_70px_70px] justify-between grid-rows-1 items-center pr-[60px]  ">
               {frontendSkills.map((skill, index) => (
@@ -145,9 +245,16 @@ const bentoGrid = () => {
               frameworks and technologies.
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="col-span-3 row-span-6 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
+        <motion.div
+          ref={stylingRef}
+          initial="hidden"
+          animate={stylingInView ? "visible" : "hidden"}
+          exit="exit"
+          variants={getAnimationVariants(scrollDirection)}
+          className="col-span-3 row-span-6 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between"
+        >
           <div className="flex flex-col gap-2 px-2">
             <div className="grid grid-cols-[70px_70px_70px] justify-between grid-rows-1 items-center">
               {styleSkills.map((skill, index) => (
@@ -195,9 +302,16 @@ const bentoGrid = () => {
               tools and frameworks, ensuring a smooth user experience.
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="col-span-4 row-span-4 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
+        <motion.div
+          ref={backendRef}
+          initial="hidden"
+          animate={backendInView ? "visible" : "hidden"}
+          exit="exit"
+          variants={getAnimationVariants(scrollDirection)}
+          className="col-span-4 row-span-4 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between"
+        >
           <div className="flex flex-col gap-2">
             <div className="grid grid-cols-[70px_70px_70px_70px] justify-between grid-rows-1 items-center">
               {backend.map((skill, index) => (
@@ -221,8 +335,15 @@ const bentoGrid = () => {
               dynamic and scalable web applications.
             </p>
           </div>
-        </div>
-        <div className="col-span-3 row-span-4 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
+        </motion.div>
+        <motion.div
+          ref={databaseRef}
+          initial="hidden"
+          animate={databaseInView ? "visible" : "hidden"}
+          exit="exit"
+          variants={getAnimationVariants(scrollDirection)}
+          className="col-span-3 row-span-4 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between"
+        >
           <div className="flex flex-col gap-2">
             <div className="grid grid-cols-[70px_70px_70px] justify-between grid-rows-1 items-center">
               {program.map((skill, index) => (
@@ -252,8 +373,15 @@ const bentoGrid = () => {
               data structures and algorithms.
             </p>
           </div>
-        </div>
-        <div className="col-span-2 row-span-5 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
+        </motion.div>
+        <motion.div
+          ref={programmingRef}
+          initial="hidden"
+          animate={programmingInView ? "visible" : "hidden"}
+          exit="exit"
+          variants={getAnimationVariants(scrollDirection)}
+          className="col-span-2 row-span-5 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between"
+        >
           <div className="flex flex-col gap-2">
             <div className="grid grid-cols-[70px_70px] justify-between grid-rows-1 items-center">
               {vcs.map((skill, index) => (
@@ -285,8 +413,15 @@ const bentoGrid = () => {
               seamless teamwork.
             </p>
           </div>
-        </div>
-        <div className="col-span-3 row-span-4 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
+        </motion.div>
+        <motion.div
+          ref={versionControlRef}
+          initial="hidden"
+          animate={versionControlInView ? "visible" : "hidden"}
+          exit="exit"
+          variants={getAnimationVariants(scrollDirection)}
+          className="col-span-3 row-span-4 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between"
+        >
           <div className="flex flex-col gap-2">
             <div className="grid grid-cols-[70px_70px_70px] justify-between grid-rows-1 items-center">
               {webAnimation.map((skill, index) => (
@@ -316,8 +451,15 @@ const bentoGrid = () => {
               engagement and interactivity.
             </p>
           </div>
-        </div>
-        <div className="col-span-4 row-span-4 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
+        </motion.div>
+        <motion.div
+          ref={webAnimationsRef}
+          initial="hidden"
+          animate={webAnimationsInView ? "visible" : "hidden"}
+          exit="exit"
+          variants={getAnimationVariants(scrollDirection)}
+          className="col-span-4 row-span-4 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between"
+        >
           <div className="flex flex-col gap-2">
             <div className="grid grid-cols-[70px_70px_70px_70px] justify-between grid-rows-1 items-center">
               {db.map((skill, index) => (
@@ -341,8 +483,15 @@ const bentoGrid = () => {
               efficient data storage, retrieval, and optimization.
             </p>
           </div>
-        </div>
-        <div className="col-span-3 row-span-5 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
+        </motion.div>
+        <motion.div
+          ref={cloudRef}
+          initial="hidden"
+          animate={cloudInView ? "visible" : "hidden"}
+          exit="exit"
+          variants={getAnimationVariants(scrollDirection)}
+          className="col-span-3 row-span-5 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between"
+        >
           <div className="flex flex-col gap-2 px-2">
             <div className="grid grid-cols-[70px_70px_70px] justify-between grid-rows-1 items-center">
               {cloud.map((skill, index) => (
@@ -390,8 +539,15 @@ const bentoGrid = () => {
               cloud platforms and tools.
             </p>
           </div>
-        </div>
-        <div className="col-span-5 row-span-4 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
+        </motion.div>
+        <motion.div
+          ref={coreCSRef}
+          initial="hidden"
+          animate={coreCSInView ? "visible" : "hidden"}
+          exit="exit"
+          variants={getAnimationVariants(scrollDirection)}
+          className="col-span-5 row-span-4 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between"
+        >
           <div className="flex flex-col gap-2">
             <div className="flex gap-2">
               <div className="rounded-full text-md font-thin py-2 px-5 bg-[#141414]">
@@ -424,8 +580,15 @@ const bentoGrid = () => {
               system design, and efficient computing for scalable solutions.
             </p>
           </div>
-        </div>
-        <div className="col-span-4 row-span-5 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
+        </motion.div>
+        <motion.div
+          ref={personalDevRef}
+          initial="hidden"
+          animate={personalDevInView ? "visible" : "hidden"}
+          exit="exit"
+          variants={getAnimationVariants(scrollDirection)}
+          className="col-span-4 row-span-5 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between"
+        >
           <div className="flex flex-col gap-3 mt-4">
             <div className="flex gap-3">
               <div className="rounded-full text-md font-thin py-2 px-5 bg-[#141414]">
@@ -455,8 +618,15 @@ const bentoGrid = () => {
               environments.
             </p>
           </div>
-        </div>
-        <div className="col-span-3 row-span-4 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
+        </motion.div>
+        <motion.div
+          ref={mobileDevRef}
+          initial="hidden"
+          animate={mobileDevInView ? "visible" : "hidden"}
+          exit="exit"
+          variants={getAnimationVariants(scrollDirection)}
+          className="col-span-3 row-span-4 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between"
+        >
           <div className="flex flex-col gap-2">
             <div className="grid grid-cols-[70px] justify-between grid-rows-1 items-center">
               {mobile.map((skill, index) => (
@@ -486,8 +656,15 @@ const bentoGrid = () => {
               functionality.
             </p>
           </div>
-        </div>
-        <div className="col-span-3 row-span-4 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
+        </motion.div>
+        <motion.div
+          ref={testingRef}
+          initial="hidden"
+          animate={testingInView ? "visible" : "hidden"}
+          exit="exit"
+          variants={getAnimationVariants(scrollDirection)}
+          className="col-span-3 row-span-4 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between"
+        >
           <div className="flex flex-col gap-2">
             <div className="grid grid-cols-[70px_70px_70px] justify-between grid-rows-1 items-center">
               {webAnimation.map((skill, index) => (
@@ -517,8 +694,15 @@ const bentoGrid = () => {
               debugging processes.
             </p>
           </div>
-        </div>
-        <div className="col-span-2 row-span-4 rounded-[20px] bg-[url('/images/ashh.jpeg')] bg-cover bg-center text-white flex flex-col justify-between"></div>
+        </motion.div>
+        <motion.div
+          ref={graphicDesignRef}
+          initial="hidden"
+          animate={graphicDesignInView ? "visible" : "hidden"}
+          exit="exit"
+          variants={getAnimationVariants(scrollDirection)}
+          className="col-span-2 row-span-4 rounded-[20px] bg-[url('/images/ashh.jpeg')] bg-cover bg-center text-white flex flex-col justify-between"
+        ></motion.div>
       </div>
     </div>
   );
