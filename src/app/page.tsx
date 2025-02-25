@@ -10,7 +10,7 @@ import SlidingImages from "../components/Projects";
 import Image from "next/image"; // Import next/image
 import { motion } from "framer-motion";
 import Footer from "../components/Contact copy";
-
+import { FaFigma } from "react-icons/fa6";
 // Import LocomotiveScroll types
 import LocomotiveScroll from "locomotive-scroll";
 
@@ -76,7 +76,7 @@ export default function Home() {
           />
         </motion.div>
       ),
-      href: "/work",
+      href: "/skills",
     },
     {
       title: "Projects",
@@ -139,16 +139,10 @@ export default function Home() {
           transition={{ stiffness: 200 }}
           className="flex items-center justify-center"
         >
-          <Image
-            src="/icons/github.svg"
-            alt="About"
-            width={24}
-            height={24}
-            className="text-white"
-          />
+          <FaFigma size={20}/>
         </motion.div>
       ),
-      href: "/contact",
+      href: "/figma",
     },
     {
       title: "Contact",
@@ -173,7 +167,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="main">
+    <main className="main overflow-hidden m-0">
       <AnimatePresence mode="wait">
         {isLoading && <Preloader />}
       </AnimatePresence>
