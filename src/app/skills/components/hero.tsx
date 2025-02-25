@@ -1,21 +1,32 @@
-import React from 'react'
+import React from "react";
 import Header from "../../../components/Header";
-import BlurText from "@/components/ui/blurtext"
-const hero = () => {
+import BlurText from "@/components/ui/blurtext";
+
+const Hero = () => {
   return (
     <div className="h-screen">
       <Header />
-      <div className='flex h-screen w-full justify-center items-center'>
+      <div className="flex h-screen w-full flex-col justify-center items-center">
+        {/* First line */}
         <BlurText
-          text="Isn't this so cool?!"
+          text="Skills that fuel my"
           delay={150}
           animateBy="words"
           direction="top"
-          className="text-[100px] mb-8 text-white"
+          className="text-[100px] text-white text-center"
+        />
+
+        {/* Second line - "passion" */}
+        <BlurText
+          text="passion"
+          delay={150}
+          animateBy="words"
+          direction="top"
+          className="text-[100px] text-white text-center"
         />
       </div>
     </div>
   );
-}
+};
 
-export default hero
+export default Hero;

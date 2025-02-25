@@ -1,12 +1,12 @@
 import React from 'react'
 import styles from "./styles.module.css"
 import Image from "next/image";
-
+import BlurText from "@/components/ui/blurtext";
 import { motion } from "framer-motion";
 const index = () => {
   return (
+    
     <div className={styles.card}>
-      <div className={styles.card__border}></div>
       <div className="flex h-full flex-col justify-between">
         <div className="flex w-full justify-between gap-2 ">
           <motion.div

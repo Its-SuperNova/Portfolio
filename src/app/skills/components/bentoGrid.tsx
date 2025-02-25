@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import Card from "./card"
 import { SiExpress } from "react-icons/si";
 import { FaNodeJs } from "react-icons/fa";
@@ -11,7 +12,6 @@ import { BiLogoPostgresql } from "react-icons/bi";
 import { SiMongodb } from "react-icons/si";
 import { IoLogoFirebase } from "react-icons/io5";
 import Image from "next/image";
-
 const bentoGrid = () => {
   const frontendSkills = [
     { src: "/icons/skills/frontend/html.svg", alt: "HTML" },
@@ -70,13 +70,34 @@ const bentoGrid = () => {
        const mobile = [
          { src: "/icons/skills/react-native.png", alt: "react" },
        ];
+       const frontendRef = useRef(null);
+       const backendRef = useRef(null);
+       const databaseRef = useRef(null);
+       const animationVariants = {
+         hidden: { opacity: 0, y: 50 },
+         visible: {
+           opacity: 1,
+           y: 0,
+           transition: { duration: 0.6, ease: "easeOut" },
+         },
+       };
+
+       const frontendInView = useInView(frontendRef, {
+         once: true,
+       });
+       const backendInView = useInView(backendRef, {
+         once: true,
+       });
+       const databaseInView = useInView(databaseRef, {
+         once: true,
+       });
   return (
     <div className="h-full  w-full flex items-center justify-center">
       <div className="hidden md:grid grid-cols-12 grid-rows-[repeat(20,minmax(0,1fr))] gap-5 h-full w-full p-20">
-        <div className="col-span-5 row-span-5 rounded-xl bg-[#1E1E1E]  text-white ">
+        <div className="col-span-5 row-span-5 rounded-[20px] bg-[#1E1E1E]  text-white ">
           <Card />
         </div>
-        <div className="col-span-4 row-span-5 rounded-xl bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
+        <div className="col-span-4 row-span-5 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
           <div className="flex flex-col gap-2 px-2">
             <div className="grid grid-cols-[70px_70px_70px] justify-between grid-rows-1 items-center pr-[60px]  ">
               {frontendSkills.map((skill, index) => (
@@ -126,7 +147,7 @@ const bentoGrid = () => {
           </div>
         </div>
 
-        <div className="col-span-3 row-span-6 rounded-xl bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
+        <div className="col-span-3 row-span-6 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
           <div className="flex flex-col gap-2 px-2">
             <div className="grid grid-cols-[70px_70px_70px] justify-between grid-rows-1 items-center">
               {styleSkills.map((skill, index) => (
@@ -176,7 +197,7 @@ const bentoGrid = () => {
           </div>
         </div>
 
-        <div className="col-span-4 row-span-4 rounded-xl bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
+        <div className="col-span-4 row-span-4 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
           <div className="flex flex-col gap-2">
             <div className="grid grid-cols-[70px_70px_70px_70px] justify-between grid-rows-1 items-center">
               {backend.map((skill, index) => (
@@ -201,7 +222,7 @@ const bentoGrid = () => {
             </p>
           </div>
         </div>
-        <div className="col-span-3 row-span-4 rounded-xl bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
+        <div className="col-span-3 row-span-4 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
           <div className="flex flex-col gap-2">
             <div className="grid grid-cols-[70px_70px_70px] justify-between grid-rows-1 items-center">
               {program.map((skill, index) => (
@@ -232,7 +253,7 @@ const bentoGrid = () => {
             </p>
           </div>
         </div>
-        <div className="col-span-2 row-span-5 rounded-xl bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
+        <div className="col-span-2 row-span-5 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
           <div className="flex flex-col gap-2">
             <div className="grid grid-cols-[70px_70px] justify-between grid-rows-1 items-center">
               {vcs.map((skill, index) => (
@@ -265,7 +286,7 @@ const bentoGrid = () => {
             </p>
           </div>
         </div>
-        <div className="col-span-3 row-span-4 rounded-xl bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
+        <div className="col-span-3 row-span-4 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
           <div className="flex flex-col gap-2">
             <div className="grid grid-cols-[70px_70px_70px] justify-between grid-rows-1 items-center">
               {webAnimation.map((skill, index) => (
@@ -296,7 +317,7 @@ const bentoGrid = () => {
             </p>
           </div>
         </div>
-        <div className="col-span-4 row-span-4 rounded-xl bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
+        <div className="col-span-4 row-span-4 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
           <div className="flex flex-col gap-2">
             <div className="grid grid-cols-[70px_70px_70px_70px] justify-between grid-rows-1 items-center">
               {db.map((skill, index) => (
@@ -321,7 +342,7 @@ const bentoGrid = () => {
             </p>
           </div>
         </div>
-        <div className="col-span-3 row-span-5 rounded-xl bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
+        <div className="col-span-3 row-span-5 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
           <div className="flex flex-col gap-2 px-2">
             <div className="grid grid-cols-[70px_70px_70px] justify-between grid-rows-1 items-center">
               {cloud.map((skill, index) => (
@@ -370,7 +391,7 @@ const bentoGrid = () => {
             </p>
           </div>
         </div>
-        <div className="col-span-5 row-span-4 rounded-xl bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
+        <div className="col-span-5 row-span-4 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
           <div className="flex flex-col gap-2">
             <div className="flex gap-2">
               <div className="rounded-full text-md font-thin py-2 px-5 bg-[#141414]">
@@ -404,7 +425,7 @@ const bentoGrid = () => {
             </p>
           </div>
         </div>
-        <div className="col-span-4 row-span-5 rounded-xl bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
+        <div className="col-span-4 row-span-5 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
           <div className="flex flex-col gap-3 mt-4">
             <div className="flex gap-3">
               <div className="rounded-full text-md font-thin py-2 px-5 bg-[#141414]">
@@ -435,7 +456,7 @@ const bentoGrid = () => {
             </p>
           </div>
         </div>
-        <div className="col-span-3 row-span-4 rounded-xl bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
+        <div className="col-span-3 row-span-4 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
           <div className="flex flex-col gap-2">
             <div className="grid grid-cols-[70px] justify-between grid-rows-1 items-center">
               {mobile.map((skill, index) => (
@@ -466,7 +487,7 @@ const bentoGrid = () => {
             </p>
           </div>
         </div>
-        <div className="col-span-3 row-span-4 rounded-xl bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
+        <div className="col-span-3 row-span-4 rounded-[20px] bg-[#1E1E1E] text-white p-7 flex flex-col justify-between">
           <div className="flex flex-col gap-2">
             <div className="grid grid-cols-[70px_70px_70px] justify-between grid-rows-1 items-center">
               {webAnimation.map((skill, index) => (
@@ -497,7 +518,7 @@ const bentoGrid = () => {
             </p>
           </div>
         </div>
-        <div className="col-span-2 row-span-4 rounded-xl bg-[url('/images/ashh.jpeg')] bg-cover bg-center text-white flex flex-col justify-between"></div>
+        <div className="col-span-2 row-span-4 rounded-[20px] bg-[url('/images/ashh.jpeg')] bg-cover bg-center text-white flex flex-col justify-between"></div>
       </div>
     </div>
   );
