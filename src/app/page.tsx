@@ -11,6 +11,7 @@ import Image from "next/image"; // Import next/image
 import { motion } from "framer-motion";
 import Footer from "../components/Contact copy";
 import { FaFigma } from "react-icons/fa6";
+import Course from "../components/course";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -33,6 +34,7 @@ export default function Home() {
       <FloatingDock/>
       <Landing />
       <Description />
+      <Course />
       <SlidingImages />
       <Footer />
     </main>

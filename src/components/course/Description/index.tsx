@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
-import SlideUpWord from "../../../TextAnimations/SlideUpWord";
+import SlideUpWord from "@/components/TextAnimations/SlideUpWord"
 import { DM_Sans } from "next/font/google"; // Correct import name
 import styles from "./styles.module.css";
 

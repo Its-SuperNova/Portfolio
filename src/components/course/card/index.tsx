@@ -7,7 +7,7 @@ import Image from "next/image";
 import { gsap } from "gsap";
 
 
-import SlideUpWord from "../../../TextAnimations/SlideUpWord";
+import SlideUpWord from "@/components/TextAnimations/SlideUpWord";
 import { ScrollTrigger } from "gsap/ScrollTrigger"; // Import ScrollTrigger
 import Styles from "./styles.module.css";
 import { HiArrowRight } from "react-icons/hi2";

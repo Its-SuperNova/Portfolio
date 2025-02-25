@@ -1,3 +1,4 @@
+"use client"
 import styles from "./style.module.scss";
 import Rounded from "../../common/RoundedButton";
 import { useRef } from "react";
