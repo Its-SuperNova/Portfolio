@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from "./styles.module.css"
+import Image from "next/image";
 
 import { motion } from "framer-motion";
 const index = () => {
@@ -13,7 +14,7 @@ const index = () => {
             whileTap={{ scale: 0.9 }}
             className="flex justify-center items-center bg-[#141414] rounded-full p-3 w-[80px] h-[80px] shadow-[0_0_15px_#D4B0FF,0_0_30px_#C940FF]"
           >
-            <img src="/icons/skills/figma.svg" className="w-10 h-10" />
+            <Image alt="" src="/icons/skills/figma.svg" className="w-10 h-10" />
           </motion.div>
           <div className="flex gap-2">
             <div className="flex flex-col gap-2">
