@@ -65,7 +65,7 @@ const dock = () => {
           />
         </motion.div>
       ),
-      href: "/about",
+      href: "/page-is-being-cooked",
     },
     {
       title: "Asshhh",
@@ -77,7 +77,7 @@ const dock = () => {
           className="object-cover rounded-full"
         />
       ),
-      href: "/blog",
+      href: "/page-is-being-cooked",
     },
     {
       title: "Blog",
@@ -97,10 +97,10 @@ const dock = () => {
           />
         </motion.div>
       ),
-      href: "/contact",
+      href: "/page-is-being-cooked",
     },
     {
-      title: "Github",
+      title: "Figma",
       icon: (
         <motion.div
           initial={{ scale: 1 }}
@@ -111,7 +111,7 @@ const dock = () => {
           <FaFigma size={20} />
         </motion.div>
       ),
-      href: "/figma",
+      href: "https://www.figma.com/@ashhhh",
     },
     {
       title: "Contact",
