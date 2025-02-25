@@ -86,7 +86,13 @@ const bentoGrid = () => {
                   whileTap={{ scale: 0.9 }}
                   className="flex justify-center items-center bg-[#141414] rounded-full p-3 w-[70px] h-[70px]"
                 >
-                  <Image src={skill.src} alt={skill.alt} className="w-9 h-9" />
+                  <Image
+                    src={skill.src}
+                    alt={skill.alt}
+                    width={100}
+                    height={100}
+                    className="w-9 h-9"
+                  />
                 </motion.div>
               ))}
             </div>
@@ -98,7 +104,13 @@ const bentoGrid = () => {
                   whileTap={{ scale: 0.9 }}
                   className="flex justify-center items-center bg-[#141414] rounded-full p-3 w-[70px] h-[70px]"
                 >
-                  <Image src={skill.src} alt={skill.alt} className="w-9 h-9" />
+                  <Image
+                    src={skill.src}
+                    alt={skill.alt}
+                    width={100}
+                    height={100}
+                    className="w-9 h-9"
+                  />
                 </motion.div>
               ))}
             </div>
@@ -124,7 +136,13 @@ const bentoGrid = () => {
                   whileTap={{ scale: 0.9 }}
                   className="flex justify-center items-center bg-[#141414] rounded-full p-3 w-[70px] h-[70px]"
                 >
-                  <Image src={skill.src} alt={skill.alt} className="w-9 h-9" />
+                  <Image
+                    src={skill.src}
+                    alt={skill.alt}
+                    width={100}
+                    height={100}
+                    className="w-9 h-9"
+                  />
                 </motion.div>
               ))}
             </div>
@@ -136,7 +154,13 @@ const bentoGrid = () => {
                   whileTap={{ scale: 0.9 }}
                   className="flex justify-center items-center bg-[#141414] rounded-full p-3 w-[70px] h-[70px]"
                 >
-                  <Image src={skill.src} alt={skill.alt} className="w-9 h-9" />
+                  <Image
+                    src={skill.src}
+                    alt={skill.alt}
+                    width={100}
+                    height={100}
+                    className="w-9 h-9"
+                  />
                 </motion.div>
               ))}
             </div>
@@ -187,7 +211,13 @@ const bentoGrid = () => {
                   whileTap={{ scale: 0.9 }}
                   className="flex justify-center items-center bg-[#141414] rounded-full p-3 w-[70px] h-[70px]"
                 >
-                  <Image src={skill.src} alt={skill.alt} className="w-9 h-9" />
+                  <Image
+                    src={skill.src}
+                    alt={skill.alt}
+                    width={100}
+                    height={100}
+                    className="w-9 h-9"
+                  />
                 </motion.div>
               ))}
             </div>
@@ -212,7 +242,13 @@ const bentoGrid = () => {
                   whileTap={{ scale: 0.9 }}
                   className="flex justify-center items-center bg-[#141414] rounded-full p-3 w-[70px] h-[70px]"
                 >
-                  <Image src={skill.src} alt={skill.alt} className="w-9 h-9" />
+                  <Image
+                    src={skill.src}
+                    alt={skill.alt}
+                    width={100}
+                    height={100}
+                    className="w-9 h-9"
+                  />
                 </motion.div>
               ))}
             </div>
@@ -239,7 +275,13 @@ const bentoGrid = () => {
                   whileTap={{ scale: 0.9 }}
                   className="flex justify-center items-center bg-[#141414] rounded-full p-3 w-[70px] h-[70px]"
                 >
-                  <Image src={skill.src} alt={skill.alt} className="w-9 h-9" />
+                  <Image
+                    src={skill.src}
+                    alt={skill.alt}
+                    width={100}
+                    height={100}
+                    className="w-9 h-9"
+                  />
                 </motion.div>
               ))}
             </div>
@@ -289,7 +331,13 @@ const bentoGrid = () => {
                   whileTap={{ scale: 0.9 }}
                   className="flex justify-center items-center bg-[#141414] rounded-full p-3 w-[70px] h-[70px]"
                 >
-                  <Image src={skill.src} alt={skill.alt} className="w-9 h-9" />
+                  <Image
+                    src={skill.src}
+                    alt={skill.alt}
+                    width={100}
+                    height={100}
+                    className="w-9 h-9"
+                  />
                 </motion.div>
               ))}
             </div>
@@ -301,7 +349,13 @@ const bentoGrid = () => {
                   whileTap={{ scale: 0.9 }}
                   className="flex justify-center items-center bg-[#141414] rounded-full p-3 w-[70px] h-[70px]"
                 >
-                  <Image src={skill.src} alt={skill.alt} className="w-9 h-9" />
+                  <Image
+                    src={skill.src}
+                    alt={skill.alt}
+                    width={100}
+                    height={100}
+                    className="w-9 h-9"
+                  />
                 </motion.div>
               ))}
             </div>
@@ -391,7 +445,13 @@ const bentoGrid = () => {
                   whileTap={{ scale: 0.9 }}
                   className="flex justify-center items-center bg-[#141414] rounded-full p-3 w-[70px] h-[70px]"
                 >
-                  <Image src={skill.src} alt={skill.alt} className="w-9 h-9" />
+                  <Image
+                    src={skill.src}
+                    alt={skill.alt}
+                    width={100}
+                    height={100}
+                    className="w-9 h-9"
+                  />
                 </motion.div>
               ))}
             </div>
@@ -416,7 +476,13 @@ const bentoGrid = () => {
                   whileTap={{ scale: 0.9 }}
                   className="flex justify-center items-center bg-[#141414] rounded-full p-3 w-[70px] h-[70px]"
                 >
-                  <Image src={skill.src} alt={skill.alt} className="w-9 h-9" />
+                  <Image
+                    src={skill.src}
+                    alt={skill.alt}
+                    width={100}
+                    height={100}
+                    className="w-9 h-9"
+                  />
                 </motion.div>
               ))}
             </div>
