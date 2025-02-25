@@ -9,7 +9,7 @@ const CardGrid = () => {
     {
       image: "/images/courseCover/Learnlogicify.png",
       title: "Learnlogicify Landing Page",
-      link: "https://learnlogicify-rebuild-beta.vercel.app/",
+      link: "https://learnlogicify-beta.vercel.app/",
     },
     {
       image: "/images/courseCover/spotify.png",
