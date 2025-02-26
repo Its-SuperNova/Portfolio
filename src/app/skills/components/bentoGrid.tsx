@@ -178,7 +178,7 @@ const BentoGrid = () => {
          margin: "-10% 0px",
        });
   return (
-    <div className="h-[200vh] w-full max-w-[1536px] max-h-[1552px] ">
+    <div className="w-full max-w-[1536px] max-h-[1552px] ">
       <div className="h-full  w-full flex items-center justify-center">
         <div className="hidden md:grid grid-cols-12 grid-rows-[repeat(20,minmax(0,1fr))] gap-5 h-full w-full p-20">
           <motion.div

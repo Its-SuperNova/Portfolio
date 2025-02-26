@@ -8,7 +8,7 @@ import Footer from "../../components/Contact copy";
 const skills = () => {
   return (
     <>
-      <div className="bg-black">
+      <div className="bg-black overflow-hidden">
         <FloatingDock />
         <Hero />
         <div className="flex items-center justify-center ">
