@@ -17,20 +17,28 @@ const navItems: NavItem[] = [
     href: "/",
   },
   {
-    title: "Work",
-    href: "/work",
+    title: "Skills",
+    href: "/skills",
+  },
+  {
+    title: "Projects",
+    href: "/page-is-being-cooked",
   },
   {
     title: "About",
-    href: "/about",
+    href: "/page-is-being-cooked",
   },
   {
     title: "Blog",
-    href: "/blog",
+    href: "/page-is-being-cooked",
+  },
+  {
+    title: "Figma",
+    href: "https://www.figma.com/@ashhhh",
   },
   {
     title: "Contact",
-    href: "/contact",
+    href: "/page-is-being-cooked",
   },
 ];
 
@@ -60,8 +68,10 @@ const Index: React.FC = () => {
             <Link
               key={index}
               data={{ ...data, index }}
-              isActive={selectedIndicator === data.href}
-              setSelectedIndicator={setSelectedIndicator}
+              isActive={selectedIndicator === `${data.href}-${index}`} // Ensure uniqueness
+              setSelectedIndicator={() =>
+                setSelectedIndicator(`${data.href}-${index}`)
+              } 
             />
           ))}
         </div>

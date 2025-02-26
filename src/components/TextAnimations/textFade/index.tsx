@@ -19,6 +19,7 @@ export default function FadeTransition({
       variants={fadeIn}
       initial="initial"
       animate={isInView ? "open" : "initial"} 
+      className={className} // Optional className prop if provided in props
     >
       {description}
     </motion.p>

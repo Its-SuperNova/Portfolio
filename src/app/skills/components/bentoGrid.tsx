@@ -12,7 +12,7 @@ import { BiLogoPostgresql } from "react-icons/bi";
 import { SiMongodb } from "react-icons/si";
 import { IoLogoFirebase } from "react-icons/io5";
 import Image from "next/image";
-const bentoGrid = () => {
+const BentoGrid = () => {
   const frontendSkills = [
     { src: "/icons/skills/frontend/html.svg", alt: "HTML" },
     { src: "/icons/skills/frontend/js.svg", alt: "JavaScript" },
@@ -708,4 +708,4 @@ const bentoGrid = () => {
   );
 };
 
-export default bentoGrid;
+export default BentoGrid;

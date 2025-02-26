@@ -6,10 +6,7 @@ import { motion } from "framer-motion";
 import {
   gridSlideUp,
   gridFadeIn,
-  buttonReveal,
 } from "@/components/TextAnimations/animation";
-import Rounded from "@/components/buttons/roundButton";
-import Link from "next/link";
 
 export default function GetToKnow() {
   const { ref: descriptionRef, inView: isInView } = useInView({
@@ -17,10 +14,6 @@ export default function GetToKnow() {
     threshold: 0.1,
   });
   const { ref: gridRef, inView: isGridInView } = useInView({
-    triggerOnce: false,
-    threshold: 0.1,
-  });
-  const { ref: buttonRef, inView: isButtonInView } = useInView({
     triggerOnce: false,
     threshold: 0.1,
   });
