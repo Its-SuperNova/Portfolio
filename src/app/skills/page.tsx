@@ -11,7 +11,9 @@ const skills = () => {
       <div className="bg-black">
         <FloatingDock />
         <Hero />
-        <Grid />
+        <div className="flex items-center justify-center ">
+          <Grid />
+        </div>
         <Hire />
         <SlidingImages />
         <Footer />
