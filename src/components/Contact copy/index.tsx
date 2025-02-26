@@ -2,9 +2,7 @@
 import styles from "./style.module.scss";
 import { useRef } from "react";
 import { useScroll, motion, useTransform, MotionValue } from "framer-motion";
-import TextPressure from "../TextAnimations/Pressure";
 import Image from "next/image";
-
 const Index: React.FC = () => {
   const container = useRef<HTMLDivElement>(null);
 
@@ -23,20 +21,8 @@ const Index: React.FC = () => {
     <motion.div ref={container} style={{ y }} className={styles.contact}>
       <div className={styles.body}>
         <div className={styles.header}>
-          <div className={styles.title}>
-            <TextPressure
-              text="your friendly chaos creator"
-              flex={true}
-              alpha={false}
-              stroke={true}
-              width={true}
-              weight={true}
-              italic={true}
-              textColor="#ffffff"
-              strokeColor="#6A56FF"
-              minFontSize={70}
-            />
-          </div>
+          <div className="text-[70px] ml-5">
+            Your friendly chaos creator</div>
           <div className={styles.arrow}>
             <Image
               src="/icons/arrow-curve.svg"
