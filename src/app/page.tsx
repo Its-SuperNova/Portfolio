@@ -7,10 +7,7 @@ import Preloader from "../components/Preloader";
 import { AnimatePresence } from "framer-motion";
 import Description from "../components/Description";
 import SlidingImages from "../components/Projects";
-import Image from "next/image"; // Import next/image
-import { motion } from "framer-motion";
 import Footer from "../components/Contact copy";
-import { FaFigma } from "react-icons/fa6";
 import Course from "../components/course";
 import GetToKnow from "@/components/GetToKnow";
 export default function Home() {

@@ -22,7 +22,7 @@ const CourseNotFound = () => {
           showBorder={false}
           className="custom-class"
         >
-          I'm cooking up something awesome—stay tuned while these pages get
+          I&apos;m cooking up something awesome—stay tuned while these pages get
           prepped, seasoned, and served fresh!
         </ShinyText>
       </h2>

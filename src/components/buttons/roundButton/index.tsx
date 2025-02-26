@@ -18,7 +18,8 @@ const RoundButton: React.FC<RoundButtonProps> = ({
 }) => {
   const circle = useRef<HTMLDivElement>(null);
   const timeline = useRef<gsap.core.Timeline | null>(null);
-  let timeoutId = useRef<NodeJS.Timeout | null>(null);
+  const timeoutId = useRef<NodeJS.Timeout | null>(null);
+
 
   useEffect(() => {
     timeline.current = gsap.timeline({ paused: true });
