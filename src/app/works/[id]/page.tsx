@@ -16,7 +16,7 @@ export default function ProjectPage() {
   const { id } = useParams();
   const router = useRouter();
 
-  const project = projects.find((p) => p.id === parseInt(id as string));
+  const project = projects.find((p) => p.url === id);
 
   if (!project) {
     return (
@@ -24,7 +24,7 @@ export default function ProjectPage() {
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">Project not found</h1>
           <button
-            onClick={() => router.push("/projects")}
+            onClick={() => router.push("/works")}
             className="text-blue-500 hover:text-blue-600 flex items-center gap-2"
           >
             <IoArrowBack /> Back to Projects
@@ -35,7 +35,7 @@ export default function ProjectPage() {
   }
 
   return (
-    <div>
+    <div className="overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -43,7 +43,7 @@ export default function ProjectPage() {
         className="container mx-auto px-4 py-12 max-w-[1200px]"
       >
         <button
-          onClick={() => router.push("/projects")}
+          onClick={() => router.push("/works")}
           className="flex items-center gap-2 text-gray-600 hover:text-gray-800 mb-8 transition-colors"
         >
           <IoArrowBack /> Back to Projects
@@ -122,7 +122,7 @@ export default function ProjectPage() {
           </div>
         </div>
 
-        <div className="relative aspect-[16/9] mb-8 rounded-2xl overflow-hidden">
+        <div className="relative aspect-[16/9] mb-8 rounded-[24px] overflow-hidden">
           <Image
             src={project.image}
             alt={project.title}
@@ -155,44 +155,7 @@ export default function ProjectPage() {
             </div>
           )}
 
-          <div className="grid grid-cols-3 gap-4 mt-12">
-            <div className="bg-[#e3ffdf] rounded-2xl p-8 col-span-2 transition-all duration-300 hover:scale-[102%] min-h-[420px] flex flex-col">
-              <h3 className="text-[#1aa811] font-medium text-xl mb-4">
-                Tech Stack
-              </h3>
-              <p className="text-[#1aa811]/80 text-lg">
-                Next.js · React · TypeScript · Tailwind CSS · Framer Motion
-              </p>
-            </div>
-
-            <div className="bg-[#ffefd6] rounded-2xl p-8 col-span-1 transition-all duration-300 hover:scale-[102%] min-h-[420px] flex flex-col">
-              <h3 className="text-[#ff8303] font-medium text-xl mb-4">
-                Project Type
-              </h3>
-              <p className="text-[#ff8303]/80 text-lg">{project.category}</p>
-            </div>
-
-            <div className="bg-[#ffe1f9] rounded-2xl p-8 col-span-1 transition-all duration-300 hover:scale-[102%] min-h-[420px] flex flex-col">
-              <h3 className="text-[#d800b6] font-medium text-xl mb-4">
-                Timeline
-              </h3>
-              <p className="text-[#d800b6]/80 text-lg">2 Months</p>
-            </div>
-
-            <div className="bg-[#ddf7ff] rounded-2xl p-8 col-span-1 transition-all duration-300 hover:scale-[102%] min-h-[420px] flex flex-col">
-              <h3 className="text-[#0098cc] font-medium text-xl mb-4">Role</h3>
-              <p className="text-[#0098cc]/80 text-lg">Full Stack Developer</p>
-            </div>
-
-            <div className="bg-[#fff2d9] rounded-2xl p-8 col-span-1 transition-all duration-300 hover:scale-[102%] min-h-[420px] flex flex-col">
-              <h3 className="text-[#e69500] font-medium text-xl mb-4">
-                Status
-              </h3>
-              <p className="text-[#e69500]/80 text-lg">Completed</p>
-            </div>
-          </div>
-
-          <div className="mt-16">
+          <div className="mt-10">
             <h2 className="text-2xl font-semibold mb-6 text-black/90">
               Why I Built This
             </h2>
@@ -236,7 +199,7 @@ export default function ProjectPage() {
             </h2>
             <div className="space-y-12">
               <div>
-                <h3 className="text-xl font-medium text-[#0077cc] mb-3">
+                <h3 className="text-xl font-medium text-[#000000] mb-3">
                   1. Responsive Design Techniques
                 </h3>
                 <p className="text-gray-700 text-lg leading-relaxed">
@@ -247,7 +210,7 @@ export default function ProjectPage() {
               </div>
 
               <div>
-                <h3 className="text-xl font-medium text-[#ff8800] mb-3">
+                <h3 className="text-xl font-medium text-[#000000] mb-3">
                   2. Performance Optimization
                 </h3>
                 <p className="text-gray-700 text-lg leading-relaxed">
@@ -258,7 +221,7 @@ export default function ProjectPage() {
               </div>
 
               <div>
-                <h3 className="text-xl font-medium text-[#9333ea] mb-3">
+                <h3 className="text-xl font-medium text-[#000000] mb-3">
                   3. Animation Timing
                 </h3>
                 <p className="text-gray-700 text-lg leading-relaxed">
@@ -393,6 +356,17 @@ export default function ProjectPage() {
                 </p>
               </div>
             </div>
+          </div>
+
+          <div className="relative mt-16 aspect-[1920/1080] my-12 rounded-[24px] overflow-hidden">
+            <video
+              src="/videos/project/apple.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="object-cover w-full h-full"
+            />
           </div>
         </div>
       </motion.div>

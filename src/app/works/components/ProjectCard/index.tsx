@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 
 export interface Project {
   id: number;
+  url: string;
   title: string;
   tags: string[];
   category: "Frontend" | "Full Stack" | "Design";
