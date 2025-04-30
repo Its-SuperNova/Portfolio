@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import { IoArrowForwardSharp } from "react-icons/io5";
+import { useRouter } from "next/navigation";
 
 export interface Project {
   id: number;
@@ -12,10 +13,28 @@ export interface Project {
   category: "Frontend" | "Full Stack" | "Design";
   image: string;
   link?: string;
+  description?: string;
+  technologies?: string[];
+  features?: string[];
+  challenges?: string;
+  solution?: string;
+  sourceCode?: string;
+  livePreview?: string;
 }
 
 export default function ProjectCard({ project }: { project: Project }) {
   const [imageError, setImageError] = useState(false);
+  const router = useRouter();
+
+  const handleClick = () => {
+    if (project.link) {
+      if (project.link.startsWith("http")) {
+        window.open(project.link, "_blank");
+      } else {
+        router.push(project.link);
+      }
+    }
+  };
 
   return (
     <motion.div
@@ -23,6 +42,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       className="group cursor-pointer"
+      onClick={handleClick}
     >
       <div className="overflow-hidden rounded-2xl mb-5 relative aspect-[16/9]">
         {!imageError ? (

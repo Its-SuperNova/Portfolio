@@ -6,49 +6,14 @@ import { Inter_Tight } from "next/font/google";
 import { LuListFilter } from "react-icons/lu";
 import RoundButton from "@/components/buttons/roundButton";
 import { motion, AnimatePresence } from "framer-motion";
-import ProjectCard, { Project } from "./ProjectCard";
+import ProjectCard from "./ProjectCard";
+import { projects } from "../data/projects";
 
 // Import Inter Tight font with specific weights
 const interTight = Inter_Tight({
   subsets: ["latin"],
   weight: ["400"],
 });
-
-// Sample project data
-const projects: Project[] = [
-  {
-    id: 1,
-    title: "Portfolio Website",
-    tags: ["Next.js", "React", "Framer Motion", "TailwindCSS"],
-    category: "Frontend",
-    image: "/images/project/image.png",
-    link: "https://portfolio.com",
-  },
-  {
-    id: 4,
-    title: "Portfolio Website",
-    tags: ["Next.js", "React", "Framer Motion", "TailwindCSS"],
-    category: "Frontend",
-    image: "/images/project/image.png",
-    link: "https://portfolio.com",
-  },
-  {
-    id: 2,
-    title: "E-commerce Platform",
-    tags: ["Next.js", "Node.js", "PostgreSQL", "Stripe"],
-    category: "Full Stack",
-    image: "/images/courseCover/winzee.png",
-    link: "https://ecommerce.com",
-  },
-  {
-    id: 3,
-    title: "UI Design System",
-    tags: ["Figma", "Design System", "Components"],
-    category: "Design",
-    image: "/images/courseCover/spotify.png",
-    link: "https://design.com",
-  },
-];
 
 type Category = "Frontend" | "Full Stack" | "Design";
 
