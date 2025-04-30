@@ -7,10 +7,15 @@ import Nav from "./nav";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Rounded from "../../common/RoundedButton";
+import React from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Index: React.FC = () => {
+interface HeaderProps {
+  textColor?: "white" | "black";
+}
+
+const Index: React.FC<HeaderProps> = ({ textColor = "white" }) => {
   const header = useRef<HTMLDivElement | null>(null);
   const [isActive, setIsActive] = useState(false);
   const pathname = usePathname();
@@ -49,7 +54,11 @@ const Index: React.FC = () => {
 
   return (
     <>
-      <div ref={header} className={styles.header}>
+      <div
+        ref={header}
+        className={styles.header}
+        style={{ color: textColor === "white" ? "#fff" : "#000" }}
+      >
         <div className={styles.logo}>
           <p className={styles.copyright}>©</p>
           <div className={styles.name}>

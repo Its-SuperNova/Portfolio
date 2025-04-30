@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-export default {
+const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,6 +8,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        intertight: ['"Inter Tight"', "sans-serif"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
@@ -24,15 +27,17 @@ export default {
       },
       keyframes: {
         gradient: {
-           '0%': { backgroundPosition: '0% 50%' },
-           '50%': { backgroundPosition: '100% 50%' },
-           '100%': { backgroundPosition: '0% 50%' },
-         },
-       },
-       animation: {
-         gradient: 'gradient 8s linear infinite'
-       },
+          "0%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
+        },
+      },
+      animation: {
+        gradient: "gradient 8s linear infinite",
+      },
     },
   },
   plugins: [],
-} satisfies Config;
+};
+
+export default config;

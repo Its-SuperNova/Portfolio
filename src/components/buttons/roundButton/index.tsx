@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useRef } from "react";
 import styles from "./styles.module.scss";
 import gsap from "gsap";
@@ -7,6 +8,8 @@ type RoundButtonProps = {
   className?: string;
   backgroundColor?: string;
   type?: "button" | "submit" | "reset";
+  style?: React.CSSProperties;
+  onClick?: () => void;
 };
 
 const RoundButton: React.FC<RoundButtonProps> = ({
@@ -14,12 +17,13 @@ const RoundButton: React.FC<RoundButtonProps> = ({
   className = "",
   backgroundColor = "#455CE9",
   type = "button",
+  style,
+  onClick,
   ...attributes
 }) => {
   const circle = useRef<HTMLDivElement>(null);
   const timeline = useRef<gsap.core.Timeline | null>(null);
   const timeoutId = useRef<NodeJS.Timeout | null>(null);
-
 
   useEffect(() => {
     timeline.current = gsap.timeline({ paused: true });
@@ -59,11 +63,13 @@ const RoundButton: React.FC<RoundButtonProps> = ({
           "--button-width": "150px",
           "--button-height": "50px",
           overflow: "hidden",
+          ...style,
         } as React.CSSProperties
-      } // Casting to allow CSS variables
+      }
       onMouseEnter={manageMouseEnter}
       onMouseLeave={manageMouseLeave}
       type={type}
+      onClick={onClick}
       {...attributes}
     >
       {children}
