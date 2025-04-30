@@ -45,7 +45,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       className="group cursor-pointer"
       onClick={handleClick}
     >
-      <div className="overflow-hidden rounded-2xl mb-5 relative aspect-[16/9]">
+      <div className="overflow-hidden shadow-lg rounded-2xl mb-5 relative aspect-[16/9]">
         {!imageError ? (
           <Image
             src={project.image || "/placeholder.svg"}

@@ -203,7 +203,7 @@ export const projects: Project[] = [
       {
         title: "Minimalist Aesthetic",
         description:
-          "A clean, minimalist design was adopted to maintain focus on the content and brand message. Thoughtful use of white space, modern typography, and consistent color palettes contributed to a sleek and professional interface that aligns with LearnLogicify’s branding.",
+          "A clean, minimalist design was adopted to maintain focus on the content and brand message. Thoughtful use of white space, modern typography, and consistent color palettes contributed to a sleek and professional interface that aligns with LearnLogicify's branding.",
         icon: "/svg/design-priciple/minimalism.svg",
         iconColor: "#9c27b0",
       },
@@ -236,7 +236,108 @@ export const projects: Project[] = [
         iconColor: "#4caf50",
       },
     ],
-
     videoUrl: "/videos/project/apple.mp4",
+  },
+  {
+    id: 3,
+    url: "quarto",
+    title: "Quarto",
+    tags: ["Next.js", "React", "TailwindCSS", "E-commerce UI"],
+    category: "Frontend",
+    image: "/images/project/quarto.png",
+    link: "/works/quarto",
+    description:
+      "Quarto is a modern e-commerce front-end platform designed for a dress shop. It features a premium and minimalistic user interface that beautifully showcases clothing collections. Focused on delivering the best user experience, Quarto emphasizes smooth interactions, responsive design, and elegant visual presentation across all devices.",
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "TailwindCSS",
+      "Framer Motion",
+    ],
+    sourceCode: "https://github.com/Its-SuperNova/quarto",
+    livePreview: "https://quarto-theta.vercel.app/",
+    whyIBuiltThis: {
+      description:
+        "I built Quarto to improve my front-end development skills while designing a modern, elegant shopping interface. Fashion-based UIs need to feel luxurious and clean, so I took this as an opportunity to focus on premium design aesthetics, animation, responsiveness, and user experience.",
+      cards: [
+        {
+          title: "Design Showcase",
+          description:
+            "I wanted to create a visually pleasing layout that highlights fashion items in a premium way, similar to high-end e-commerce stores.",
+          bgColor: "#f0f7ff",
+          textColor: "#0066cc",
+        },
+        {
+          title: "Front-end Skills",
+          description:
+            "This project helped me strengthen my skills in React, Next.js, TailwindCSS, and animations using Framer Motion, especially for crafting smooth, responsive user experiences.",
+          bgColor: "#fff0f0",
+          textColor: "#cc3366",
+        },
+      ],
+    },
+    whatILearned: [
+      {
+        title: "Responsive UI Design",
+        description:
+          "I learned how to craft layouts that adapt beautifully across desktop, tablet, and mobile devices using TailwindCSS and modern CSS techniques.",
+      },
+      {
+        title: "Framer Motion",
+        description:
+          "I explored how to use Framer Motion to create subtle animations and micro-interactions that enhance the feel of the app without overwhelming the user.",
+      },
+      {
+        title: "Component Reusability",
+        description:
+          "Creating reusable and clean components improved the maintainability of the code and made the project scalable for future features like filtering or cart.",
+      },
+    ],
+    designPrinciples: [
+      {
+        title: "Visual Hierarchy",
+        description:
+          "Carefully designed product displays with strategic use of typography and spacing to guide the user's attention to key elements and calls-to-action.",
+        icon: "/svg/design-priciple/typo.svg",
+        iconColor: "#ff4757",
+      },
+      {
+        title: "Whitespace Utilization",
+        description:
+          "Generous use of whitespace creates a clean, uncluttered shopping environment that emphasizes quality and allows each product to stand out.",
+        icon: "/svg/design-priciple/white-space.svg",
+        iconColor: "#2ed573",
+      },
+      {
+        title: "Responsive Product Displays",
+        description:
+          "Adaptive product layouts that retain visual balance and clarity across all devices — from widescreen monitors to compact mobile screens.",
+        icon: "/svg/design-priciple/minimalism.svg",
+        iconColor: "#1e90ff",
+      },
+      {
+        title: "Micro-interactions",
+        description:
+          "Smooth hover effects, animated transitions, and scroll-based interactions that make the UI feel dynamic and polished.",
+        icon: "/svg/design-priciple/animation.svg",
+        iconColor: "#ffa502",
+      },
+      {
+        title: "Color Psychology",
+        description:
+          "A soft, neutral palette with accent colors used purposefully to evoke trust, luxury, and guide user attention toward key actions.",
+        icon: "/svg/design-priciple/performance.svg",
+        iconColor: "#7bed9f",
+      },
+      {
+        title: "Intuitive Navigation",
+        description:
+          "Simple and clean navigation structure to help users effortlessly explore collections without any distractions.",
+        icon: "/svg/design-priciple/user-experience.svg",
+        iconColor: "#a29bfe",
+      },
+    ],
+    videoUrl: "/videos/project/quarto.mp4",
   },
 ];
