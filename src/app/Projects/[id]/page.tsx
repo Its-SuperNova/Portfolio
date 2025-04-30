@@ -8,8 +8,8 @@ import { IoArrowBack } from "react-icons/io5";
 import { useRouter } from "next/navigation";
 import { FiGithub } from "react-icons/fi";
 import RoundButton from "@/components/buttons/roundButton";
-import Footer from "@/components/Contact copy";
-import SlidingImages from "@/components/Projects";
+// import Footer from "@/components/Contact copy";
+// import SlidingImages from "@/components/Projects";
 export default function ProjectPage() {
   const { id } = useParams();
   const router = useRouter();
