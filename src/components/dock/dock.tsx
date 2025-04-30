@@ -65,7 +65,7 @@ const dock = () => {
           />
         </motion.div>
       ),
-      href: "/projects",
+      href: "/works",
     },
     {
       title: "Asshhh",
