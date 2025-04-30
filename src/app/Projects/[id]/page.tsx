@@ -195,14 +195,14 @@ export default function ProjectPage() {
               Why I Built This
             </h2>
             <p className="text-gray-700 text-lg leading-relaxed mb-8">
-              Apple's website is widely recognized for its clean, minimalist
-              design, meticulous attention to detail, and exceptionally smooth
-              user experience. Inspired by this benchmark of quality, I set out
-              to challenge myself by recreating a similar standard of
-              excellence. This project became an opportunity not only to push my
-              design and development skills but also to deepen my understanding
-              of modern frontend techniques, best practices, and the principles
-              that drive world-class user interfaces.
+              Apple&apos;s website is widely recognized for its clean,
+              minimalist design, meticulous attention to detail, and
+              exceptionally smooth user experience. Inspired by this benchmark
+              of quality, I set out to challenge myself by recreating a similar
+              standard of excellence. This project became an opportunity not
+              only to push my design and development skills but also to deepen
+              my understanding of modern frontend techniques, best practices,
+              and the principles that drive world-class user interfaces.
             </p>
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-[#f0f0ff] rounded-2xl p-8 transition-all duration-300 hover:scale-[101%]">
@@ -285,10 +285,10 @@ export default function ProjectPage() {
                 </div>
                 <h3 className="text-xl font-medium mb-3">Minimalism</h3>
                 <p className="text-gray-700 text-lg leading-relaxed">
-                  Embracing Apple's philosophy of 'less is more' by removing
-                  unnecessary elements and focusing on what truly matters. Clean
-                  interfaces with purposeful design choices create a more
-                  focused user experience.
+                  Embracing Apple&apos;s philosophy of &apos;less is more&apos;
+                  by removing unnecessary elements and focusing on what truly
+                  matters. Clean interfaces with purposeful design choices
+                  create a more focused user experience.
                 </p>
               </div>
 
@@ -306,8 +306,8 @@ export default function ProjectPage() {
                 <p className="text-gray-700 text-lg leading-relaxed">
                   Strategic use of negative space to create visual hierarchy,
                   improve readability, and give content room to breathe. White
-                  space isn't empty space—it's a powerful design element that
-                  guides the user's eye.
+                  space isn&apos;t empty space—it&apos;s a powerful design
+                  element that guides the user&apos;s eye.
                 </p>
               </div>
 
@@ -326,7 +326,7 @@ export default function ProjectPage() {
                   Implementing physics-based scrolling that feels natural and
                   responsive. Smooth scrolling creates a sense of fluidity and
                   control, making navigation feel like an extension of the
-                  user's intentions.
+                  user&apos;s intentions.
                 </p>
               </div>
 
@@ -364,9 +364,9 @@ export default function ProjectPage() {
                 </h3>
                 <p className="text-gray-700 text-lg leading-relaxed">
                   Careful attention to font sizes, weights, and spacing to
-                  create clear visual hierarchy. Typography isn't just about
-                  readability—it's about creating structure and guiding users
-                  through content.
+                  create clear visual hierarchy. Typography isn&apos;t just
+                  about readability—it&apos;s about creating structure and
+                  guiding users through content.
                 </p>
               </div>
 
