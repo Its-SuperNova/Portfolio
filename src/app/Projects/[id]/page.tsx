@@ -394,8 +394,7 @@ export default function ProjectPage() {
           </div>
         </div>
       </motion.div>
-      <SlidingImages />
-      <Footer />
+
     </div>
   );
 }
