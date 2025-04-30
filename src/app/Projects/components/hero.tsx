@@ -21,7 +21,15 @@ const projects: Project[] = [
     title: "Portfolio Website",
     tags: ["Next.js", "React", "Framer Motion", "TailwindCSS"],
     category: "Frontend",
-    image: "/images/portfolio.png",
+    image: "/images/project/image.png",
+    link: "https://portfolio.com",
+  },
+  {
+    id: 4,
+    title: "Portfolio Website",
+    tags: ["Next.js", "React", "Framer Motion", "TailwindCSS"],
+    category: "Frontend",
+    image: "/images/project/image.png",
     link: "https://portfolio.com",
   },
   {
@@ -29,7 +37,7 @@ const projects: Project[] = [
     title: "E-commerce Platform",
     tags: ["Next.js", "Node.js", "PostgreSQL", "Stripe"],
     category: "Full Stack",
-    image: "/images/ecommerce.png",
+    image: "/images/courseCover/winzee.png",
     link: "https://ecommerce.com",
   },
   {
@@ -37,7 +45,7 @@ const projects: Project[] = [
     title: "UI Design System",
     tags: ["Figma", "Design System", "Components"],
     category: "Design",
-    image: "/images/design.png",
+    image: "/images/courseCover/spotify.png",
     link: "https://design.com",
   },
 ];
@@ -77,31 +85,31 @@ const Hero = () => {
         {/* Tab buttons */}
         <div className="flex gap-4 mt-12 items-center w-full">
           <RoundButton
-            className={`w-[130px] h-[56px] transition-all duration-300 ${
-              activeTab === "Frontend"
-                ? "bg-black text-white"
-                : "bg-white text-black"
-            }`}
+            className="w-[130px] h-[56px] transition-all duration-300"
+            style={{
+              backgroundColor: activeTab === "Frontend" ? "black" : "white",
+              color: activeTab === "Frontend" ? "white" : "black",
+            }}
             onClick={() => setActiveTab("Frontend")}
           >
             <p className="z-10">Frontend</p>
           </RoundButton>
           <RoundButton
-            className={`w-[130px] h-[56px] transition-all duration-300 ${
-              activeTab === "Full Stack"
-                ? "bg-black text-white"
-                : "bg-white text-black"
-            }`}
+            className="w-[130px] h-[56px] transition-all duration-300"
+            style={{
+              backgroundColor: activeTab === "Full Stack" ? "black" : "white",
+              color: activeTab === "Full Stack" ? "white" : "black",
+            }}
             onClick={() => setActiveTab("Full Stack")}
           >
             <p className="z-10">Full Stack</p>
           </RoundButton>
           <RoundButton
-            className={`w-[100px] h-[56px] transition-all duration-300 ${
-              activeTab === "Design"
-                ? "bg-black text-white"
-                : "bg-white text-black"
-            }`}
+            className="w-[100px] h-[56px] transition-all duration-300"
+            style={{
+              backgroundColor: activeTab === "Design" ? "black" : "white",
+              color: activeTab === "Design" ? "white" : "black",
+            }}
             onClick={() => setActiveTab("Design")}
           >
             <p className="z-10">Design</p>
@@ -120,7 +128,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
             >
               {filteredProjects.map((project) => (
                 <ProjectCard key={project.id} project={project} />
