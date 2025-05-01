@@ -50,8 +50,8 @@ export const projects: Project[] = [
       "Framer Motion",
       "TailwindCSS",
     ],
-    sourceCode: "https://github.com/yourusername/apple-clone",
-    livePreview: "https://apple-clone.vercel.app",
+    sourceCode: "https://github.com/Its-SuperNova/apple-clone",
+    livePreview: "https://ashhhh-apple.vercel.app/",
     whyIBuiltThis: {
       description:
         "Apple's website is widely recognized for its clean, minimalist design, meticulous attention to detail, and exceptionally smooth user experience. Inspired by this benchmark of quality, I set out to challenge myself by recreating a similar standard of excellence. This project became an opportunity not only to push my design and development skills but also to deepen my understanding of modern frontend techniques, best practices, and the principles that drive world-class user interfaces.",
