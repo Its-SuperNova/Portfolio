@@ -39,7 +39,7 @@ export const projects: Project[] = [
     title: "Apple Clone",
     tags: ["Next.js", "React", "Framer Motion", "TailwindCSS"],
     category: "Frontend",
-    image: "/images/project/image.png",
+    image: "/images/project/apple.png",
     link: "/works/apple-clone",
     description:
       "This project is a meticulous recreation of Apple's official website, with a focus on capturing the distinctive minimalist aesthetic, smooth animations, and responsive design that Apple is known for. I challenged myself to replicate not just the visual elements, but also the subtle interactions and performance optimizations that make Apple's site feel so polished.",
@@ -133,6 +133,110 @@ export const projects: Project[] = [
         iconColor: "#ffaa00",
       },
     ],
+    videoUrl: "/videos/project/apple.mp4",
+  },
+  {
+    id: 2,
+    url: "learnlogicify-landing-lms",
+    title: "LearnLogicify Landing & LMS",
+    tags: ["Next.js", "React", "TailwindCSS", "Framer Motion", "GSAP", "Lenis"],
+    category: "Frontend",
+    image: "/images/project/learnlogicify.png",
+    link: "/works/learnlogicify-landing-lms",
+    description:
+      "This project is a full-fledged company website built for LearnLogicify Technologies during my frontend development internship. It includes multiple dynamic pages like Home, About, Team, Courses, Contact, and more — with a strong focus on clean UI, interactivity, and smooth UX. The courses page features 50+ course cards with filtering and dynamic content rendering for each course, making it an end-to-end functional and scalable LMS frontend.",
+    technologies: [
+      "Next.js",
+      "React",
+      "TailwindCSS",
+      "Framer Motion",
+      "GSAP",
+      "Lenis",
+    ],
+    sourceCode: "Private (Internship Project)",
+    livePreview: "https://learnlogicify.com",
+    whyIBuiltThis: {
+      description:
+        "As a frontend intern at LearnLogicify, I took ownership of building their official website from scratch. The goal was to deliver a professional, high-performance, and scalable frontend architecture that reflects the company's brand and enables users to explore courses easily. This project helped me understand how real-world production websites are designed and deployed, and taught me how to collaborate in a company environment.",
+      cards: [
+        {
+          title: "Real-World Internship Experience",
+          description:
+            "This was a live project for an actual company where I was trusted with complete frontend development responsibilities. It gave me deep insight into professional workflows and communication.",
+          bgColor: "#f0fff0",
+          textColor: "#2e7d32",
+        },
+        {
+          title: "Dynamic & Scalable LMS",
+          description:
+            "From course filtering to certificate previews, I developed a scalable structure to handle 50+ courses with dynamic routing, reusable components, and smooth transitions.",
+          bgColor: "#f9f0ff",
+          textColor: "#8e44ad",
+        },
+      ],
+    },
+    whatILearned: [
+      {
+        title: "Production-Ready Frontend Development",
+        description:
+          "Learned how to structure a real company site with modular components, scalable routing, and proper UI/UX architecture under real deadlines.",
+      },
+      {
+        title: "Smooth Scroll & Advanced Animations",
+        description:
+          "Worked with Lenis and GSAP to create buttery-smooth scrolling effects and engaging animations to enhance user engagement and polish.",
+      },
+      {
+        title: "Dynamic Routing & Filtering Logic",
+        description:
+          "Implemented dynamic routes for each course and built reusable filtering components to make the LMS intuitive and user-friendly.",
+      },
+    ],
+    designPrinciples: [
+      {
+        title: "User-Friendly Navigation",
+        description:
+          "The website was designed with an intuitive navigation structure to ensure a seamless browsing experience. Sticky headers, clearly defined sections, and smooth page transitions guide the user effortlessly through the site, making it easy to find relevant information without confusion.",
+        icon: "/svg/design-priciple/user-experience.svg",
+        iconColor: "#00bcd4",
+      },
+      {
+        title: "Minimalist Aesthetic",
+        description:
+          "A clean, minimalist design was adopted to maintain focus on the content and brand message. Thoughtful use of white space, modern typography, and consistent color palettes contributed to a sleek and professional interface that aligns with LearnLogicify’s branding.",
+        icon: "/svg/design-priciple/minimalism.svg",
+        iconColor: "#9c27b0",
+      },
+      {
+        title: "Lottie Animations",
+        description:
+          "Lottie animations were strategically integrated across key sections of the site to create interactive and visually appealing moments. These animations enhance user engagement by bringing static content to life while maintaining performance and responsiveness.",
+        icon: "/svg/design-priciple/animation.svg",
+        iconColor: "#ff7043",
+      },
+      {
+        title: "Smooth Scrolling",
+        description:
+          "Using GSAP in combination with Lenis, smooth scrolling and scroll-based animations were implemented to elevate the user experience. These subtle but powerful effects ensure a fluid and immersive interaction as users move through the site.",
+        icon: "/svg/design-priciple/smooth-scroll.svg",
+        iconColor: "#ff9800",
+      },
+      {
+        title: "Responsive",
+        description:
+          "The layout was crafted with a mobile-first approach to ensure optimal usability across all devices. From large desktops to small smartphones, every element adjusts gracefully, preserving visual consistency and functionality regardless of screen size.",
+        icon: "/svg/design-priciple/white-space.svg",
+        iconColor: "#00bfa5",
+      },
+      {
+        title: "Performance-Focused",
+        description:
+          "Performance optimization was prioritized from the beginning — leveraging Next.js image optimization, efficient animations, and modular component structures to ensure fast load times, reduced layout shifts, and a smooth browsing experience for all users.",
+        icon: "/svg/design-priciple/performance.svg",
+        iconColor: "#4caf50",
+      },
+    ],
+
     videoUrl: "/videos/project/apple.mp4",
   },
 ];

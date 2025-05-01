@@ -160,36 +160,29 @@ export default function ProjectPage() {
               Why I Built This
             </h2>
             <p className="text-gray-700 text-lg leading-relaxed mb-8">
-              Apple&apos;s website is widely recognized for its clean,
-              minimalist design, meticulous attention to detail, and
-              exceptionally smooth user experience. Inspired by this benchmark
-              of quality, I set out to challenge myself by recreating a similar
-              standard of excellence. This project became an opportunity not
-              only to push my design and development skills but also to deepen
-              my understanding of modern frontend techniques, best practices,
-              and the principles that drive world-class user interfaces.
+              {project.whyIBuiltThis.description}
             </p>
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-[#f0f0ff] rounded-2xl p-8 transition-all duration-300 hover:scale-[101%]">
-                <h3 className="text-[#4b4bce] font-medium text-xl mb-4">
-                  Design Excellence
-                </h3>
-                <p className="text-[#4b4bce]/80 text-lg leading-relaxed">
-                  Apple sets the gold standard for digital design. Recreating
-                  their website allowed me to study and implement their design
-                  principles firsthand.
-                </p>
-              </div>
-              <div className="bg-[#fff0f9] rounded-2xl p-8 transition-all duration-300 hover:scale-[101%]">
-                <h3 className="text-[#cc4ba6] font-medium text-xl mb-4">
-                  Technical Challenge
-                </h3>
-                <p className="text-[#cc4ba6]/80 text-lg leading-relaxed">
-                  The Apple website incorporates subtle animations, responsive
-                  layouts, and performance optimizations that presented an
-                  excellent learning opportunity.
-                </p>
-              </div>
+              {project.whyIBuiltThis.cards.map((card, index) => (
+                <div
+                  key={index}
+                  className="rounded-2xl p-8 transition-all duration-300 hover:scale-[101%]"
+                  style={{ backgroundColor: card.bgColor }}
+                >
+                  <h3
+                    className="font-medium text-xl mb-4"
+                    style={{ color: card.textColor }}
+                  >
+                    {card.title}
+                  </h3>
+                  <p
+                    className="text-lg leading-relaxed"
+                    style={{ color: card.textColor + "cc" }}
+                  >
+                    {card.description}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -198,38 +191,16 @@ export default function ProjectPage() {
               What I Learned
             </h2>
             <div className="space-y-12">
-              <div>
-                <h3 className="text-xl font-medium text-[#000000] mb-3">
-                  1. Responsive Design Techniques
-                </h3>
-                <p className="text-gray-700 text-lg leading-relaxed">
-                  I learned how to create truly responsive designs that maintain
-                  visual integrity across all device sizes, using modern CSS
-                  techniques like clamp() and container queries.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-medium text-[#000000] mb-3">
-                  2. Performance Optimization
-                </h3>
-                <p className="text-gray-700 text-lg leading-relaxed">
-                  I implemented various performance optimizations including
-                  image lazy loading, code splitting, and efficient animations
-                  to achieve a high Lighthouse score.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-medium text-[#000000] mb-3">
-                  3. Animation Timing
-                </h3>
-                <p className="text-gray-700 text-lg leading-relaxed">
-                  I gained a deeper understanding of how subtle timing
-                  differences in animations can dramatically impact the
-                  perceived smoothness and quality of a user interface.
-                </p>
-              </div>
+              {project.whatILearned.map((item, index) => (
+                <div key={index}>
+                  <h3 className="text-xl font-medium text-[#000000] mb-3">
+                    {index + 1}. {item.title}
+                  </h3>
+                  <p className="text-gray-700 text-lg leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -238,136 +209,40 @@ export default function ProjectPage() {
               Design Principles
             </h2>
             <div className="grid grid-cols-3 gap-6">
-              <div className="bg-[#f7f7f7] p-8 rounded-2xl">
-                <div className="text-[#ff6b00] mb-4">
-                  <Image
-                    src="/svg/design-priciple/minimalism.svg"
-                    alt="Minimalism icon"
-                    width={24}
-                    height={24}
-                    className="h-8 w-8"
-                  />
+              {project.designPrinciples.map((principle, index) => (
+                <div key={index} className="bg-[#f7f7f7] p-8 rounded-2xl">
+                  <div className="mb-4" style={{ color: principle.iconColor }}>
+                    <Image
+                      src={principle.icon}
+                      alt={`${principle.title} icon`}
+                      width={24}
+                      height={24}
+                      className="h-8 w-8"
+                    />
+                  </div>
+                  <h3 className="text-xl font-medium mb-3">
+                    {principle.title}
+                  </h3>
+                  <p className="text-gray-700 text-lg leading-relaxed">
+                    {principle.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-medium mb-3">Minimalism</h3>
-                <p className="text-gray-700 text-lg leading-relaxed">
-                  Embracing Apple&apos;s philosophy of &apos;less is more&apos;
-                  by removing unnecessary elements and focusing on what truly
-                  matters. Clean interfaces with purposeful design choices
-                  create a more focused user experience.
-                </p>
-              </div>
-
-              <div className="bg-[#f7f7f7] p-8 rounded-2xl">
-                <div className="text-[#00bfff] mb-4">
-                  <Image
-                    src="/svg/design-priciple/white-space.svg"
-                    alt="White Space icon"
-                    width={24}
-                    height={24}
-                    className="h-8 w-8"
-                  />
-                </div>
-                <h3 className="text-xl font-medium mb-3">White Space</h3>
-                <p className="text-gray-700 text-lg leading-relaxed">
-                  Strategic use of negative space to create visual hierarchy,
-                  improve readability, and give content room to breathe. White
-                  space isn&apos;t empty space—it&apos;s a powerful design
-                  element that guides the user&apos;s eye.
-                </p>
-              </div>
-
-              <div className="bg-[#f7f7f7] p-8 rounded-2xl">
-                <div className="text-[#9333ea] mb-4">
-                  <Image
-                    src="/svg/design-priciple/smooth-scroll.svg"
-                    alt="Smooth Scroll icon"
-                    width={24}
-                    height={24}
-                    className="h-8 w-8"
-                  />
-                </div>
-                <h3 className="text-xl font-medium mb-3">Smooth Scroll</h3>
-                <p className="text-gray-700 text-lg leading-relaxed">
-                  Implementing physics-based scrolling that feels natural and
-                  responsive. Smooth scrolling creates a sense of fluidity and
-                  control, making navigation feel like an extension of the
-                  user&apos;s intentions.
-                </p>
-              </div>
-
-              <div className="bg-[#f7f7f7] p-8 rounded-2xl">
-                <div className="text-[#ff3366] mb-4">
-                  <Image
-                    src="/svg/design-priciple/animation.svg"
-                    alt="Subtle Animations icon"
-                    width={24}
-                    height={24}
-                    className="h-8 w-8"
-                  />
-                </div>
-                <h3 className="text-xl font-medium mb-3">Subtle Animations</h3>
-                <p className="text-gray-700 text-lg leading-relaxed">
-                  Thoughtful micro-interactions and smooth transitions that
-                  enhance the user experience without being distracting.
-                  Animations serve a purpose—they provide feedback, guide
-                  attention, and add delight.
-                </p>
-              </div>
-
-              <div className="bg-[#f7f7f7] p-8 rounded-2xl">
-                <div className="text-[#00cc88] mb-4">
-                  <Image
-                    src="/svg/design-priciple/typo.svg"
-                    alt="Typography Hierarchy icon"
-                    width={24}
-                    height={24}
-                    className="h-8 w-8"
-                  />
-                </div>
-                <h3 className="text-xl font-medium mb-3">
-                  Typography Hierarchy
-                </h3>
-                <p className="text-gray-700 text-lg leading-relaxed">
-                  Careful attention to font sizes, weights, and spacing to
-                  create clear visual hierarchy. Typography isn&apos;t just
-                  about readability—it&apos;s about creating structure and
-                  guiding users through content.
-                </p>
-              </div>
-
-              <div className="bg-[#f7f7f7] p-8 rounded-2xl">
-                <div className="text-[#ffaa00] mb-4">
-                  <Image
-                    src="/svg/design-priciple/user-experience.svg"
-                    alt="Smooth User Experience icon"
-                    width={24}
-                    height={24}
-                    className="h-8 w-8"
-                  />
-                </div>
-                <h3 className="text-xl font-medium mb-3">
-                  Smooth User Experience
-                </h3>
-                <p className="text-gray-700 text-lg leading-relaxed">
-                  Creating a frictionless journey through thoughtful interaction
-                  design and performance optimization. Every element is designed
-                  to work together harmoniously, ensuring users can accomplish
-                  their goals with ease and satisfaction.
-                </p>
-              </div>
+              ))}
             </div>
           </div>
 
-          <div className="relative mt-16 aspect-[1920/1080] my-12 rounded-[24px] overflow-hidden">
-            <video
-              src="/videos/project/apple.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="object-cover w-full h-full"
-            />
-          </div>
+          {project.videoUrl && (
+            <div className="relative mt-16 aspect-[1920/1080] my-12 rounded-[24px] overflow-hidden">
+              <video
+                src={project.videoUrl}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="object-cover w-full h-full"
+              />
+            </div>
+          )}
         </div>
       </motion.div>
       <SlidingImages />
