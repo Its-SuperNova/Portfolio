@@ -141,7 +141,7 @@ export const projects: Project[] = [
     title: "LearnLogicify Landing & LMS",
     tags: ["Next.js", "React", "TailwindCSS", "Framer Motion", "GSAP", "Lenis"],
     category: "Frontend",
-    image: "/images/project/learnlogicify.png",
+    image: "/images/project/Learnlogicify.png",
     link: "/works/learnlogicify-landing-lms",
     description:
       "This project is a full-fledged company website built for LearnLogicify Technologies during my frontend development internship. It includes multiple dynamic pages like Home, About, Team, Courses, Contact, and more — with a strong focus on clean UI, interactivity, and smooth UX. The courses page features 50+ course cards with filtering and dynamic content rendering for each course, making it an end-to-end functional and scalable LMS frontend.",
