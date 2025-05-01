@@ -10,6 +10,9 @@ import SlidingImages from "../components/Projects";
 import Footer from "../components/Contact copy";
 import Course from "../components/course";
 import GetToKnow from "@/components/GetToKnow";
+import Link from "next/link";
+import { GitHubContributionCard } from "@/components/GitHubContributions";
+
 export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -33,6 +36,20 @@ export default function Home() {
       <div className="h-screen px-[170px] mt-[50px] mb-[100px] ">
         <GetToKnow />
       </div>
+
+      {/* GitHub Contributions Section */}
+      <div className="px-[170px] py-12 bg-white w-full">
+        <h2 className="text-2xl font-semibold mb-6">GitHub Activity</h2>
+        <GitHubContributionCard
+          username="Its-SuperNova"
+          fallbackUsername="octocat"
+          showThemeToggle={false}
+          className="bg-white shadow-md rounded-lg w-full overflow-visible"
+          forceLightMode={true}
+          githubUrl="https://github.com/Its-SuperNova"
+        />
+      </div>
+
       <SlidingImages />
       <Footer />
     </main>
