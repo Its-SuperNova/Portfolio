@@ -53,13 +53,13 @@ export function GitHubContributionCard({
 
   // Force light mode styles
   const lightModeClass = forceLightMode
-    ? "bg-white text-gray-900 border border-gray-200"
+    ? "bg-white text-gray-900"
     : "";
 
   return (
     <ThemeProvider defaultTheme={forceLightMode ? "light" : "system"}>
       <div
-        className={`rounded-lg shadow-md p-6 ${lightModeClass} ${className} w-full`}
+        className={`rounded-lg p-6 ${lightModeClass} ${className} w-full`}
         style={
           forceLightMode ? { backgroundColor: "white", color: "#111" } : {}
         }

@@ -245,7 +245,7 @@ export default function GitHubContributionGraph({
           </a>
         </div>
 
-        <div className="w-full overflow-x-auto">
+        <div className="w-full overflow-visible">
           <div className="min-w-full">
             {/* Month labels - in the correct order (June to May) */}
             <div className="flex mb-2">
