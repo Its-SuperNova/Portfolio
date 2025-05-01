@@ -137,7 +137,6 @@ export default function GitHubContributionGraph({
         className={`flex flex-col items-center ${className}`}
         style={forceLightMode ? { color: "#111" } : {}}
       >
-        <h2 className="text-xl font-semibold mb-4">GitHub Contributions</h2>
         <div
           className="animate-pulse w-full h-32 rounded"
           style={forceLightMode ? { backgroundColor: "#f0f0f0" } : {}}
@@ -226,25 +225,6 @@ export default function GitHubContributionGraph({
       style={forceLightMode ? { color: "#111" } : {}}
     >
       <div className="w-full overflow-visible">
-        <div className="flex items-center justify-between mb-2 w-full">
-          <h2
-            className="text-xl font-semibold"
-            style={forceLightMode ? { color: "#111" } : {}}
-          >
-            GitHub Contributions
-          </h2>
-          <a
-            href={githubUrl || `https://github.com/${username}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm flex items-center gap-1"
-            style={forceLightMode ? { color: "#555" } : {}}
-          >
-            <IconGitFork size={16} />
-            {username}
-          </a>
-        </div>
-
         <div className="w-full overflow-visible">
           <div className="min-w-full">
             {/* Month labels - in the correct order (June to May) */}
@@ -318,7 +298,6 @@ export default function GitHubContributionGraph({
             </div>
           </div>
         </div>
-
         {/* Legend */}
         <div className="flex justify-between items-center mt-4 text-xs w-full">
           <div

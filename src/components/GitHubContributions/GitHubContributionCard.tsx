@@ -64,62 +64,6 @@ export function GitHubContributionCard({
           forceLightMode ? { backgroundColor: "white", color: "#111" } : {}
         }
       >
-        <div className="flex items-center justify-between mb-4 w-full">
-          <h2
-            className="text-xl font-semibold"
-            style={forceLightMode ? { color: "#111" } : {}}
-          >
-            {title}
-          </h2>
-          <div className="flex items-center gap-2">
-            {isEditing ? (
-              <form onSubmit={handleSubmit} className="flex">
-                <input
-                  type="text"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  className="px-2 py-1 text-sm border border-gray-300 rounded-md 
-                           bg-white text-gray-900
-                           focus:outline-none focus:ring-1 focus:ring-gray-400"
-                  style={
-                    forceLightMode
-                      ? {
-                          backgroundColor: "white",
-                          color: "#111",
-                          borderColor: "#ddd",
-                        }
-                      : {}
-                  }
-                  placeholder="GitHub username"
-                  aria-label="GitHub username"
-                />
-                <button
-                  type="submit"
-                  className="ml-2 px-2 py-1 text-xs bg-gray-800 text-white rounded-md
-                           hover:bg-gray-700"
-                  style={
-                    forceLightMode
-                      ? { backgroundColor: "#333", color: "white" }
-                      : {}
-                  }
-                >
-                  View
-                </button>
-              </form>
-            ) : (
-              <button
-                onClick={() => setIsEditing(true)}
-                className="text-xs text-gray-500 hover:text-gray-700"
-                style={forceLightMode ? { color: "#555" } : {}}
-              >
-                Change user
-              </button>
-            )}
-
-            {showThemeToggle && !forceLightMode && <ThemeToggle />}
-          </div>
-        </div>
-
         <GitHubContributionGraph
           username={username}
           onError={handleError}
