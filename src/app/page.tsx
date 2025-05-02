@@ -81,7 +81,6 @@ export default function Home() {
         <GitHubContributionCard
           username="Its-SuperNova"
           fallbackUsername="octocat"
-          showThemeToggle={false}
           className="bg-white w-full"
           forceLightMode={true}
           githubUrl="https://github.com/Its-SuperNova"
