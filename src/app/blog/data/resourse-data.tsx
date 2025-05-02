@@ -46,4 +46,36 @@ export const resourceData: ResourceCategory[] = [
       },
     ],
   },
+  {
+    categoryTitle: "Animated Icons & Lottie Files",
+    items: [
+      {
+        id: 1,
+        title: "Lord Icons",
+        subtitle: "Check it out",
+        badge: "Free & Open Source",
+        image: "/images/blog/resourses/Lordicon.png",
+        slug: "lucide-icons",
+        link: "https://lucide.dev/",
+      },
+      {
+        id: 2,
+        title: "Creattie",
+        subtitle: "Check it out",
+        badge: "Free & Open Source",
+        image: "/images/blog/resourses/Creattie.png",
+        slug: "lucide-icons",
+        link: "https://lucide.dev/",
+      },
+      {
+        id: 3,
+        title: "Creattie",
+        subtitle: "Check it out",
+        badge: "Free & Open Source",
+        image: "/images/blog/resourses/Lottie.png",
+        slug: "lucide-icons",
+        link: "https://lucide.dev/",
+      },
+    ],
+  },
 ];
