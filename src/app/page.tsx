@@ -83,7 +83,6 @@ export default function Home() {
           fallbackUsername="octocat"
           className="bg-white w-full"
           forceLightMode={true}
-          githubUrl="https://github.com/Its-SuperNova"
         />
       </div>
       <SlidingImages />

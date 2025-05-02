@@ -9,7 +9,6 @@ interface GitHubContributionCardProps {
   className?: string;
   forceLightMode?: boolean;
   fallbackUsername?: string;
-  githubUrl?: string;
 }
 
 export function GitHubContributionCard({
@@ -17,7 +16,6 @@ export function GitHubContributionCard({
   className = "",
   forceLightMode = false,
   fallbackUsername = "octocat",
-  githubUrl,
 }: GitHubContributionCardProps) {
   const [username, setUsername] = useState(initialUsername);
   const [error, setError] = useState<string | null>(null);
@@ -49,7 +47,6 @@ export function GitHubContributionCard({
           username={username}
           onError={handleError}
           forceLightMode={forceLightMode}
-          githubUrl={githubUrl}
           className="w-full"
         />
       </div>

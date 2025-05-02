@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 
 // Define interfaces for type safety
 interface ContributionDay {
@@ -35,11 +35,16 @@ function getContributionLevel(count: number): 0 | 1 | 2 | 3 | 4 {
   return 4;
 }
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { username: string } }
-) {
-  const username = params.username;
+// Updated type for context params - params is now a Promise
+type RouteParams = {
+  params: Promise<{
+    username: string;
+  }>;
+};
+
+export async function GET(request: NextRequest, context: RouteParams) {
+  // Await params before accessing its properties
+  const { username } = await context.params;
 
   if (!username) {
     return NextResponse.json(
@@ -117,6 +122,7 @@ export async function GET(
 
     const calendarData =
       data.data.user.contributionsCollection.contributionCalendar;
+
     const weeks = calendarData.weeks.map((week) => ({
       days: week.contributionDays.map((day) => ({
         date: day.date,

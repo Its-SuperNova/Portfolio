@@ -4,7 +4,7 @@ import { useTheme } from "./ThemeProvider";
 import { IconSun, IconMoon } from "@tabler/icons-react";
 
 export function ThemeToggle() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
 
   return (
     <button
