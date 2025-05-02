@@ -1,5 +1,31 @@
 import { NextRequest, NextResponse } from "next/server";
 
+// Define interfaces for type safety
+interface ContributionDay {
+  date: string;
+  contributionCount: number;
+}
+
+interface ContributionWeek {
+  contributionDays: ContributionDay[];
+}
+
+interface ContributionCalendar {
+  totalContributions: number;
+  weeks: ContributionWeek[];
+}
+
+interface GitHubResponse {
+  data: {
+    user: {
+      contributionsCollection: {
+        contributionCalendar: ContributionCalendar;
+      };
+    } | null;
+  };
+  errors?: { message: string }[];
+}
+
 // Helper function to determine contribution level based on count
 function getContributionLevel(count: number): 0 | 1 | 2 | 3 | 4 {
   if (count === 0) return 0;
@@ -13,7 +39,6 @@ export async function GET(
   request: NextRequest,
   { params }: { params: { username: string } }
 ) {
-  // In Next.js 15, params is already resolved, no need to await it
   const username = params.username;
 
   if (!username) {
@@ -23,7 +48,6 @@ export async function GET(
     );
   }
 
-  // Check if GitHub token is available
   const githubToken = process.env.GITHUB_TOKEN;
 
   if (!githubToken) {
@@ -31,19 +55,15 @@ export async function GET(
   }
 
   try {
-    // GitHub's GraphQL API endpoint
     const endpoint = "https://api.github.com/graphql";
 
-    // Get the last year of contributions
     const today = new Date();
     const oneYearAgo = new Date();
     oneYearAgo.setFullYear(today.getFullYear() - 1);
 
-    // Format dates in ISO format for GraphQL
     const fromDate = oneYearAgo.toISOString();
     const toDate = today.toISOString();
 
-    // GraphQL query to fetch contribution data
     const query = `
       query {
         user(login: "${username}") {
@@ -62,18 +82,15 @@ export async function GET(
       }
     `;
 
-    // Prepare headers
     const headers: HeadersInit = {
       "Content-Type": "application/json",
       "User-Agent": "GitHub-Contribution-Graph",
     };
 
-    // Add authorization header if token is available
     if (githubToken) {
       headers["Authorization"] = `Bearer ${githubToken}`;
     }
 
-    // Fetch data from GitHub API
     const response = await fetch(endpoint, {
       method: "POST",
       headers,
@@ -84,15 +101,13 @@ export async function GET(
       throw new Error(`GitHub API responded with status: ${response.status}`);
     }
 
-    const data = await response.json();
+    const data: GitHubResponse = await response.json();
 
-    // Check for errors in the GraphQL response
     if (data.errors) {
-      const errorMessage = data.errors.map((e: any) => e.message).join(", ");
+      const errorMessage = data.errors.map((e) => e.message).join(", ");
       throw new Error(`GraphQL Error: ${errorMessage}`);
     }
 
-    // Check if user exists and has contribution data
     if (!data.data?.user) {
       return NextResponse.json(
         { error: "User not found or no contribution data available" },
@@ -100,11 +115,10 @@ export async function GET(
       );
     }
 
-    // Process the contribution data
     const calendarData =
       data.data.user.contributionsCollection.contributionCalendar;
-    const weeks = calendarData.weeks.map((week: any) => ({
-      days: week.contributionDays.map((day: any) => ({
+    const weeks = calendarData.weeks.map((week) => ({
+      days: week.contributionDays.map((day) => ({
         date: day.date,
         count: day.contributionCount,
         level: getContributionLevel(day.contributionCount),
