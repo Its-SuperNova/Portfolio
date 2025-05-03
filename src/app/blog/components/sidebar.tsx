@@ -2,10 +2,9 @@
 
 import type React from "react";
 
-import { useState, createContext, useContext } from "react";
+import { useState, createContext, useContext, useRef } from "react";
 import { CgMenuLeft } from "react-icons/cg";
 import { IoClose } from "react-icons/io5";
-
 // Define tab items
 export const tabItems = [
   { name: "Blog", id: "blog" },
@@ -49,19 +48,21 @@ export function useSidebar() {
 
 export function SidebarToggle() {
   const { isOpen, setIsOpen } = useSidebar();
-
+  const header = useRef<HTMLDivElement | null>(null);
   return (
-    <button
-      onClick={() => setIsOpen(!isOpen)}
-      className="fixed top-6 left-6 z-20 p-2 rounded-lg bg-[#faf9f5] shadow-sm border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
-      aria-label="Toggle menu"
-    >
-      {isOpen ? (
-        <IoClose className="w-5 h-5 text-gray-600" />
-      ) : (
-        <CgMenuLeft className="w-5 h-5 text-gray-600" />
-      )}
-    </button>
+    <div className="z-20">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="fixed top-6 z-30 left-6 p-2 rounded-lg  shadow-sm border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
+        aria-label="Toggle menu"
+      >
+        {isOpen ? (
+          <IoClose className="w-5 h-5 text-gray-600" />
+        ) : (
+          <CgMenuLeft className="w-5 h-5 text-gray-600" />
+        )}
+      </button>
+    </div>
   );
 }
 
@@ -70,10 +71,11 @@ export function Sidebar() {
 
   return (
     <aside
-      className={`fixed left-0 top-0 h-full bg-[#faf9f5] border-r border-gray-200 transition-all duration-300 ease-in-out z-10 ${
+      className={`fixed left-0 top-0 h-full  border-r border-gray-200 transition-all duration-300 ease-in-out z-10 ${
         isOpen ? "w-64" : "w-0"
       } overflow-hidden`}
     >
+
       <div className="w-64 p-8 pt-20">
         <nav>
           <ul className="space-y-3">

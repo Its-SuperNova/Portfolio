@@ -97,7 +97,7 @@ const dock = () => {
           />
         </motion.div>
       ),
-      href: "/page-is-being-cooked",
+      href: "/blog",
     },
     {
       title: "Figma",

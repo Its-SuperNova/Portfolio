@@ -12,7 +12,7 @@ export function BlogCard({ post }: BlogCardProps) {
       <Link href={`/blog/${post.slug}`} className="block">
         <div className="transition-all duration-300">
           {/* Image - now separate with its own rounded corners */}
-          <div className="relative aspect-[16/10] overflow-hidden rounded-2xl mb-4 border border-gray-200/50 hover:shadow-lg hover:shadow-gray-200/50">
+          <div className="relative aspect-[16/9] overflow-hidden rounded-2xl mb-4 border border-gray-200/50 hover:shadow-lg hover:shadow-gray-200/50">
             <Image
               src={post.image || "/placeholder.svg"}
               alt={post.title}

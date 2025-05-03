@@ -6,7 +6,6 @@ import { AnimatePresence } from "framer-motion";
 import Nav from "./nav";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Rounded from "../../common/RoundedButton";
 import React from "react";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -74,20 +73,6 @@ const Index: React.FC<HeaderProps> = ({ textColor = "white" }) => {
             modern technologies
           </p>
         </div>
-      </div>
-      <div ref={button} className={styles.headerButtonContainer}>
-        <Rounded
-          onClick={() => {
-            setIsActive(!isActive);
-          }}
-          className={`${styles.button}`}
-        >
-          <div
-            className={`${styles.burger} ${
-              isActive ? styles.burgerActive : ""
-            }`}
-          ></div>
-        </Rounded>
       </div>
       <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence>
     </>

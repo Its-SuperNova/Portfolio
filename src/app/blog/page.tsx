@@ -8,51 +8,27 @@ import {
 } from "./components/sidebar";
 import { blogPosts } from "./data/blog-data";
 import FloatingDock from "@/components/dock/dock";
+import SlideUpWord from "@/components/TextAnimations/SlideUpWord";
+import { useInView } from "react-intersection-observer";
+import { ResourcesContent } from "./components/resourses-tabs";
+
 // Tab content components
 function BlogContent() {
+  const { ref: inViewRef, inView: titleInView } = useInView();
   return (
     <>
       <div className="mb-16">
-        <h1 className="text-4xl lg:text-5xl font-light text-gray-900 mb-4 tracking-tight">
-          Welcome to ashhhh's documentation.
-        </h1>
+        <div ref={inViewRef}>
+          <SlideUpWord
+            title={["Welcome to Ashhhh's", " Documentation."]} // Pass the title as an array for animation
+            isInView={titleInView} // Trigger animation based on visibility
+          />
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
         {blogPosts.map((post) => (
           <BlogCard key={post.id} post={post} />
-        ))}
-      </div>
-    </>
-  );
-}
-
-function ResourcesContent() {
-  return (
-    <>
-      <div className="mb-16">
-        <h1 className="text-4xl lg:text-5xl font-light text-gray-900 mb-4 tracking-tight">
-          Resources
-        </h1>
-        <p className="text-lg text-gray-600 font-light max-w-2xl">
-          A collection of useful resources, tools, and references.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {[1, 2, 3, 4, 5, 6].map((i) => (
-          <div
-            key={i}
-            className="bg-white p-6 rounded-2xl border border-gray-200/50 hover:shadow-md transition-shadow"
-          >
-            <h3 className="text-lg font-medium mb-2">Resource {i}</h3>
-            <p className="text-gray-600 text-sm mb-4">
-              A helpful resource for designers and developers.
-            </p>
-            <button className="text-sm text-gray-900 font-medium hover:underline">
-              Learn more →
-            </button>
-          </div>
         ))}
       </div>
     </>
