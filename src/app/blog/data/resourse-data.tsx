@@ -13,6 +13,7 @@ export interface ResourceCategory {
   items: ResourceItem[];
 }
 
+// ✅ Used in <ResourceCard />
 export const resourceData: ResourceCategory[] = [
   {
     categoryTitle: "Icon Libraries",
@@ -50,7 +51,7 @@ export const resourceData: ResourceCategory[] = [
     categoryTitle: "Animated Icons & Lottie Files",
     items: [
       {
-        id: 1,
+        id: 4,
         title: "Lordicon",
         subtitle: "Check it out",
         badge: "Limited Free, Mostly Paid",
@@ -59,7 +60,7 @@ export const resourceData: ResourceCategory[] = [
         link: "https://lordicon.com/",
       },
       {
-        id: 2,
+        id: 5,
         title: "Creattie",
         subtitle: "Check it out",
         badge: "Limited Free, Mostly Paid",
@@ -68,7 +69,7 @@ export const resourceData: ResourceCategory[] = [
         link: "https://creattie.com/",
       },
       {
-        id: 3,
+        id: 6,
         title: "LottieFiles",
         subtitle: "Check it out",
         badge: "Large Resource – Mostly Free, Some Paid",
@@ -82,7 +83,7 @@ export const resourceData: ResourceCategory[] = [
     categoryTitle: "React Component Libraries",
     items: [
       {
-        id: 1,
+        id: 7,
         title: "React Bits",
         subtitle: "Check it out",
         badge: "Open Source & Free",
@@ -91,7 +92,7 @@ export const resourceData: ResourceCategory[] = [
         link: "https://reactbits.com/",
       },
       {
-        id: 2,
+        id: 8,
         title: "ShadCN UI",
         subtitle: "Check it out",
         badge: "Open Source & Free",
@@ -100,7 +101,7 @@ export const resourceData: ResourceCategory[] = [
         link: "https://ui.shadcn.com/",
       },
       {
-        id: 3,
+        id: 9,
         title: "Aceternity UI",
         subtitle: "Check it out",
         badge: "Open Source & Free",
@@ -109,7 +110,7 @@ export const resourceData: ResourceCategory[] = [
         link: "https://aceternity.com/",
       },
       {
-        id: 4,
+        id: 10,
         title: "DaisyUI",
         subtitle: "Check it out",
         badge: "Tailwind CSS Components",
@@ -118,7 +119,7 @@ export const resourceData: ResourceCategory[] = [
         link: "https://daisyui.com/",
       },
       {
-        id: 5,
+        id: 11,
         title: "Layout Components",
         subtitle: "Check it out",
         badge: "Open Source & Free",
@@ -127,7 +128,7 @@ export const resourceData: ResourceCategory[] = [
         link: "https://layout.com/",
       },
       {
-        id: 6,
+        id: 12,
         title: "Hero UI",
         subtitle: "Check it out",
         badge: "Open Source & Free",
@@ -141,7 +142,7 @@ export const resourceData: ResourceCategory[] = [
     categoryTitle: "Figma Components",
     items: [
       {
-        id: 1,
+        id: 13,
         title: "Figcomponents",
         subtitle: "Check it out",
         badge: "Free & Curated Library",
@@ -150,7 +151,7 @@ export const resourceData: ResourceCategory[] = [
         link: "https://figcomponents.com/",
       },
       {
-        id: 2,
+        id: 14,
         title: "FigmaElements",
         subtitle: "Check it out",
         badge: "Free & Paid Templates",
@@ -161,3 +162,53 @@ export const resourceData: ResourceCategory[] = [
     ],
   },
 ];
+
+// ✅ Used in <ResourceCard2 /> (image-only section)
+export const imageOnlyResources: ResourceItem[] = [
+  {
+    id: 101,
+    title: "Pinterest",
+    subtitle: "Visual discovery engine",
+    badge: "Inspiration Platform",
+    image: "/images/blog/resourses/pinterest.png",
+    slug: "pinterest",
+    link: "https://www.pinterest.com/",
+  },
+  {
+    id: 102,
+    title: "Dribbble",
+    subtitle: "Showcase your work",
+    badge: "Design Showcase",
+    image: "/images/blog/resourses/dribble.png",
+    slug: "dribbble",
+    link: "https://dribbble.com/",
+  },
+  {
+    id: 103,
+    title: "Behance",
+    subtitle: "Creative portfolio site",
+    badge: "Design Community",
+    image: "/images/blog/resourses/behance.png",
+    slug: "behance",
+    link: "https://www.behance.net/",
+  },
+  {
+    id: 104,
+    title: "Mobbin",
+    subtitle: "Design pattern inspiration",
+    badge: "UI Patterns",
+    image: "/images/blog/resourses/mobbin.png",
+    slug: "mobbin",
+    link: "https://mobbin.design/",
+  },
+  {
+    id: 105,
+    title: "Pttrns",
+    subtitle: "Mobile design patterns",
+    badge: "iOS & Android",
+    image: "/images/blog/resourses/pttrns.png",
+    slug: "pttrns",
+    link: "https://pttrns.com/",
+  },
+];
+

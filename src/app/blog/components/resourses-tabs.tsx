@@ -1,7 +1,8 @@
 import { ResourceCard } from "../components/resource-card";
-import { resourceData } from "../data/resourse-data";
+import { resourceData, imageOnlyResources } from "../data/resourse-data";
 import { useInView } from "react-intersection-observer";
 import SlideUpWord from "@/components/TextAnimations/SlideUpWord";
+import { SimpleImageCard } from "./resouce-card2";
 
 export function ResourcesContent() {
   const { ref: inViewRef, inView: titleInView } = useInView();
@@ -17,6 +18,7 @@ export function ResourcesContent() {
         </div>
       </div>
 
+      {/* ResourceCard (detailed) sections */}
       {resourceData.map((category) => (
         <div key={category.categoryTitle} className="mb-12">
           <h1 className="text-3xl pb-5">{category.categoryTitle}</h1>
@@ -27,6 +29,20 @@ export function ResourcesContent() {
           </div>
         </div>
       ))}
+
+      {/* ResourceCard2 (image-only) section */}
+      <div className="mb-16">
+        <h1 className="text-3xl pb-5">Design Inspiration</h1>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+          {imageOnlyResources.map((resource) => (
+            <SimpleImageCard
+              key={resource.id}
+              image={resource.image}
+              link={resource.link}
+            />
+          ))}
+        </div>
+      </div>
     </>
   );
 }
