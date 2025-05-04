@@ -2,16 +2,14 @@
 
 import type React from "react";
 
-import { useState, createContext, useContext, useRef } from "react";
+import { useState, createContext, useContext } from "react";
 import { CgMenuLeft } from "react-icons/cg";
 import { IoClose } from "react-icons/io5";
 // Define tab items
 export const tabItems = [
   { name: "Blog", id: "blog" },
   { name: "Resources", id: "resources" },
-  { name: "Components", id: "components" },
-  { name: "Code Snippets", id: "snippets" },
-  { name: "Tips & Tricks", id: "tips" },
+  { name: "Learning Paths", id: "learning-paths" },
 ];
 
 // Create context for sidebar and active tab
@@ -48,7 +46,6 @@ export function useSidebar() {
 
 export function SidebarToggle() {
   const { isOpen, setIsOpen } = useSidebar();
-  const header = useRef<HTMLDivElement | null>(null);
   return (
     <div className="z-20">
       <button
@@ -75,7 +72,6 @@ export function Sidebar() {
         isOpen ? "w-64" : "w-0"
       } overflow-hidden`}
     >
-
       <div className="w-64 p-8 pt-20">
         <nav>
           <ul className="space-y-3">
