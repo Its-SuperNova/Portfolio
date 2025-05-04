@@ -2,36 +2,21 @@
 
 import React from "react";
 import Styles from "./styles.module.css";
-import Card from "../card";
+import Card from "@/app/works/components/ProjectCard";
+import { projects } from "@/app/works/data/projects";
 
-const CardGrid = () => {
-  const cardData = [
-    {
-      image: "/images/courseCover/Learnlogicify.png",
-      title: "Learnlogicify Landing Page",
-      link: "https://learnlogicify-beta.vercel.app/",
-    },
-    {
-      image: "/images/courseCover/spotify.png",
-      title: "Spotify Clone",
-      link: "https://spotify-clone-frontend-jy0d.onrender.com/",
-    },
-    {
-      image: "/images/courseCover/winzee.png",
-      title: "WinZee Chatting app",
-      link: "/course/pages/web-dev",
-    },
-  ];
+// Process projects to ensure correct image paths
+const processedProjects = projects.map((project) => ({
+  ...project,
+  image: project.image.startsWith("/") ? project.image : `/${project.image}`,
+}));
 
+export default function ProjectGrid() {
   return (
-    <div className={Styles.grid}>
-      {cardData.map((data, index) => (
-        <div key={index} className={Styles.row}>
-          <Card image={data.image} title={data.title} link={data.link} />
-        </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {processedProjects.map((project) => (
+        <Card key={project.id} project={project} />
       ))}
     </div>
   );
-};
-
-export default CardGrid;
+}
