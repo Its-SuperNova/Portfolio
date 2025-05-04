@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Styles from "./styles.module.css";
 import Card from "@/app/works/components/ProjectCard";
 import { projects } from "@/app/works/data/projects";
 
