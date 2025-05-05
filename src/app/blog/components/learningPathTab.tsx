@@ -20,7 +20,7 @@ export function LearningPathsContent() {
       </div>
 
       <div className="mb-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6">
           {learningPaths.map((path) => (
             <LearningPathCard key={path.id} learningPath={path} />
           ))}

@@ -10,10 +10,8 @@ import { blogPosts } from "./data/blog-data";
 import FloatingDock from "@/components/dock/dock";
 import SlideUpWord from "@/components/TextAnimations/SlideUpWord";
 import { useInView } from "react-intersection-observer";
-import { ResourcesContent } from "./components/resourses-tabs";
-import { LearningPathsContent } from "./components/learningPathTab";
-
-// Tab content components
+import Cooking from "@/components/CookingCourse";
+// Blog content component
 function BlogContent() {
   const { ref: inViewRef, inView: titleInView } = useInView();
   return (
@@ -21,8 +19,8 @@ function BlogContent() {
       <div className="mb-16">
         <div ref={inViewRef}>
           <SlideUpWord
-            title={["Welcome to Ashhhh's", " Documentation."]} // Pass the title as an array for animation
-            isInView={titleInView} // Trigger animation based on visibility
+            title={["Welcome to Ashhhh's", " Documentation."]}
+            isInView={titleInView}
           />
         </div>
       </div>
@@ -36,23 +34,8 @@ function BlogContent() {
   );
 }
 
-
 function MainContent() {
-  const { isOpen, activeTab } = useSidebar();
-
-  // Render content based on active tab
-  const renderContent = () => {
-    switch (activeTab) {
-      case "blog":
-        return <BlogContent />;
-      case "resources":
-        return <ResourcesContent />;
-      case "learning-paths":
-        return <LearningPathsContent />;
-      default:
-        return <BlogContent />;
-    }
-  };
+  const { isOpen } = useSidebar();
 
   return (
     <main
@@ -61,7 +44,8 @@ function MainContent() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-12 lg:px-12 pt-20">
-        {renderContent()}
+        {/* <BlogContent /> */}
+        <Cooking />
       </div>
     </main>
   );

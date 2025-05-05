@@ -1,40 +1,35 @@
 "use client";
 
 import type React from "react";
-
 import { useState, createContext, useContext } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { CgMenuLeft } from "react-icons/cg";
 import { IoClose } from "react-icons/io5";
-// Define tab items
+
+// Define tab items with their routes
 export const tabItems = [
-  { name: "Blog", id: "blog" },
-  { name: "Resources", id: "resources" },
-  { name: "Learning Paths", id: "learning-paths" },
+  { name: "Blog", id: "blog", href: "/blog" },
+  { name: "Resources", id: "resources", href: "/blog/resources" },
+  { name: "Learning Paths", id: "learning-paths", href: "/blog/learningpath" },
 ];
 
-// Create context for sidebar and active tab
+// Create context for sidebar (only for open/close state now)
 interface SidebarContextType {
   isOpen: boolean;
   setIsOpen: (open: boolean) => void;
-  activeTab: string;
-  setActiveTab: (tab: string) => void;
 }
 
 const SidebarContext = createContext<SidebarContextType>({
   isOpen: false,
   setIsOpen: () => {},
-  activeTab: "blog",
-  setActiveTab: () => {},
 });
 
 export function SidebarProvider({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("blog");
 
   return (
-    <SidebarContext.Provider
-      value={{ isOpen, setIsOpen, activeTab, setActiveTab }}
-    >
+    <SidebarContext.Provider value={{ isOpen, setIsOpen }}>
       {children}
     </SidebarContext.Provider>
   );
@@ -64,7 +59,17 @@ export function SidebarToggle() {
 }
 
 export function Sidebar() {
-  const { isOpen, activeTab, setActiveTab } = useSidebar();
+  const { isOpen, setIsOpen } = useSidebar();
+  const pathname = usePathname();
+
+  // Determine active tab based on current pathname
+  const getActiveTab = () => {
+    if (pathname === "/blog/resources") return "resources";
+    if (pathname === "/blog/learningpath") return "learning-paths";
+    return "blog";
+  };
+
+  const activeTab = getActiveTab();
 
   return (
     <aside
@@ -77,8 +82,9 @@ export function Sidebar() {
           <ul className="space-y-3">
             {tabItems.map((item) => (
               <li key={item.name}>
-                <button
-                  onClick={() => setActiveTab(item.id)}
+                <Link
+                  href={item.href}
+                  onClick={() => setIsOpen(false)} // Close sidebar on navigation
                   className={`block w-full text-left py-2 px-3 rounded-lg text-sm font-light transition-colors duration-200 ${
                     activeTab === item.id
                       ? " text-black font-semibold"
@@ -86,7 +92,7 @@ export function Sidebar() {
                   }`}
                 >
                   {item.name}
-                </button>
+                </Link>
               </li>
             ))}
           </ul>
