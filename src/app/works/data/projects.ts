@@ -340,4 +340,106 @@ export const projects: Project[] = [
     ],
     videoUrl: "/videos/project/quarto.mp4",
   },
+  {
+    id: 4,
+    url: "cineflex",
+    title: "Cineflex",
+    tags: ["Next.js", "React", "TailwindCSS", "Dark Theme", "Movie Booking"],
+    category: "Frontend",
+    image: "/images/project/cineflex.png",
+    link: "/works/cineflex",
+    description:
+      "Cineflex is a modern movie booking application built with React and Next.js, featuring a sleek dark theme design. The app provides an immersive cinematic experience with intuitive seat selection, movie browsing, and ticket booking functionality. Designed with a focus on user experience, it offers smooth animations, responsive layouts, and an elegant interface that makes movie booking effortless and enjoyable.",
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "TailwindCSS",
+      "Framer Motion",
+    ],
+    sourceCode: "https://github.com/Its-SuperNova/Cineflex",
+    livePreview: "https://ashhhh-cineflex.vercel.app/",
+    whyIBuiltThis: {
+      description:
+        "I built Cineflex to explore the complexities of creating a real-world booking system interface while experimenting with dark theme design principles. Movie booking apps require careful consideration of user flow, state management, and visual hierarchy. This project allowed me to combine my passion for cinema with frontend development, creating an interface that feels both modern and intuitive.",
+      cards: [
+        {
+          title: "Complex UI Interactions",
+          description:
+            "Movie booking involves multiple steps - browsing, selecting seats, choosing showtimes, and payment flow. This complexity challenged me to create smooth, logical user journeys.",
+          bgColor: "#f8f9ff",
+          textColor: "#4338ca",
+        },
+        {
+          title: "Dark Theme Mastery",
+          description:
+            "Dark themes require careful attention to contrast, readability, and visual hierarchy. This project helped me understand how to create elegant dark interfaces that reduce eye strain.",
+          bgColor: "#f0fdf4",
+          textColor: "#166534",
+        },
+      ],
+    },
+    whatILearned: [
+      {
+        title: "Dark Theme Design Principles",
+        description:
+          "Learned how to implement effective dark themes with proper contrast ratios, subtle gradients, and appropriate color palettes that enhance readability and user comfort during extended use.",
+      },
+      {
+        title: "Complex State Management",
+        description:
+          "Managed complex booking states including seat selection, showtime scheduling, and user preferences while maintaining smooth performance and preventing booking conflicts.",
+      },
+      {
+        title: "Responsive Cinema Layouts",
+        description:
+          "Created responsive seat selection interfaces and movie grids that work seamlessly across devices, adapting cinema layouts for mobile, tablet, and desktop experiences.",
+      },
+    ],
+    designPrinciples: [
+      {
+        title: "Dark Theme Excellence",
+        description:
+          "Implemented a sophisticated dark theme with carefully chosen color palettes, proper contrast ratios, and subtle accent colors that create a premium cinematic atmosphere while ensuring accessibility.",
+        icon: "/svg/design-priciple/minimalism.svg",
+        iconColor: "#6366f1",
+      },
+      {
+        title: "Intuitive Booking Flow",
+        description:
+          "Designed a logical, step-by-step booking process that guides users naturally from movie selection to seat choice to payment, minimizing confusion and abandoned bookings.",
+        icon: "/svg/design-priciple/user-experience.svg",
+        iconColor: "#8b5cf6",
+      },
+      {
+        title: "Cinematic Animations",
+        description:
+          "Incorporated smooth transitions and micro-animations that evoke the excitement of cinema - from movie card hovers to seat selection feedback and loading states.",
+        icon: "/svg/design-priciple/animation.svg",
+        iconColor: "#f59e0b",
+      },
+      {
+        title: "Mobile-First Booking",
+        description:
+          "Prioritized mobile experience since many users book tickets on-the-go, ensuring seat selection and navigation work perfectly on touch devices.",
+        icon: "/svg/design-priciple/white-space.svg",
+        iconColor: "#10b981",
+      },
+      {
+        title: "Visual Hierarchy",
+        description:
+          "Used strategic typography, spacing, and color to guide users' attention to important information like showtimes, prices, and available seats.",
+        icon: "/svg/design-priciple/typo.svg",
+        iconColor: "#ef4444",
+      },
+      {
+        title: "Performance Optimization",
+        description:
+          "Optimized image loading for movie posters, implemented efficient seat map rendering, and used lazy loading to ensure fast performance even with large datasets.",
+        icon: "/svg/design-priciple/performance.svg",
+        iconColor: "#06b6d4",
+      },
+    ],
+    videoUrl: "/videos/project/cineflex.mp4",
+  },
 ];

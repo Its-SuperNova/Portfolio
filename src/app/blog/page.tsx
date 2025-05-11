@@ -11,28 +11,7 @@ import FloatingDock from "@/components/dock/dock";
 import SlideUpWord from "@/components/TextAnimations/SlideUpWord";
 import { useInView } from "react-intersection-observer";
 import Cooking from "@/components/CookingCourse";
-// Blog content component
-function BlogContent() {
-  const { ref: inViewRef, inView: titleInView } = useInView();
-  return (
-    <>
-      <div className="mb-16">
-        <div ref={inViewRef}>
-          <SlideUpWord
-            title={["Welcome to Ashhhh's", " Documentation."]}
-            isInView={titleInView}
-          />
-        </div>
-      </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-        {blogPosts.map((post) => (
-          <BlogCard key={post.id} post={post} />
-        ))}
-      </div>
-    </>
-  );
-}
 
 function MainContent() {
   const { isOpen } = useSidebar();
