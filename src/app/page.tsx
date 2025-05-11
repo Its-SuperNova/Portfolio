@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import FloatingDock from "../components/dock/dock";
 import Landing from "../components/Landing";
 import Preloader from "../components/Preloader";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Description from "../components/Description";
 import SlidingImages from "../components/Projects";
 import Footer from "../components/Contact copy";
@@ -16,18 +16,29 @@ import RoundButton from "@/components/buttons/roundButton";
 import { GitHubContributionCard } from "@/components/GitHubContributions";
 import SlideUpWord from "@/components/TextAnimations/SlideUpWord";
 import { useInView } from "react-intersection-observer";
-
+import Image from "next/image";
 export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [titleInView, setTitleInView] = useState(false); // Track title visibility
-    const { ref: inViewRef, inView } = useInView({
-      triggerOnce: false, // Allow the animation to repeat
-      threshold: 0.1, // Trigger animation when 10% of the title is visible
-    });
+  const [githubImageInView, setGitHubImageInView] = useState(false); // Track GitHub image visibility
 
-    useEffect(() => {
-      setTitleInView(inView); // Update state based on visibility
-    }, [inView]);
+  const { ref: inViewRef, inView } = useInView({
+    triggerOnce: false, // Allow the animation to repeat
+    threshold: 0.1, // Trigger animation when 10% of the title is visible
+  });
+
+  const { ref: githubImageRef, inView: githubImageInViewState } = useInView({
+    triggerOnce: true, // Only trigger once
+    threshold: 0.2, // Trigger animation when 20% of the image is visible
+  });
+
+  useEffect(() => {
+    setTitleInView(inView); // Update state based on visibility
+  }, [inView]);
+
+  useEffect(() => {
+    setGitHubImageInView(githubImageInViewState); // Update state based on visibility
+  }, [githubImageInViewState]);
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
@@ -48,7 +59,29 @@ export default function Home() {
       <div className="h-screen px-[170px] mt-[50px] mb-[100px] ">
         <GetToKnow />
       </div>
-
+      <div
+        className="w-full flex justify-center items-center mb-[100px]"
+        ref={githubImageRef}
+      >
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          animate={
+            githubImageInView ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }
+          }
+          transition={{
+            duration: 1.2,
+            ease: [0.25, 0.46, 0.45, 0.94],
+            opacity: { duration: 0.8, ease: "easeOut" },
+          }}
+        >
+          <Image
+            src="/images/github-bg.png"
+            alt="GitHub"
+            width={1200}
+            height={1000}
+          />
+        </motion.div>
+      </div>
       {/* GitHub Contributions Section */}
       <div className="px-[170px] py-12 bg-white w-full">
         <div className="flex justify-between items-center mb-6">
