@@ -1,17 +1,12 @@
 "use client";
-import { BlogCard } from "./components/blog-card";
 import {
   Sidebar,
   SidebarProvider,
   SidebarToggle,
   useSidebar,
 } from "./components/sidebar";
-import { blogPosts } from "./data/blog-data";
 import FloatingDock from "@/components/dock/dock";
-import SlideUpWord from "@/components/TextAnimations/SlideUpWord";
-import { useInView } from "react-intersection-observer";
 import Cooking from "@/components/CookingCourse";
-
 
 function MainContent() {
   const { isOpen } = useSidebar();

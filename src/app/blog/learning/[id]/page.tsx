@@ -5,13 +5,14 @@ import { ArrowLeft } from "lucide-react";
 import Cooking from "@/components/CookingCourse";
 
 interface PageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
-export default function LearningPathPage({ params }: PageProps) {
-  const learningPath = learningPaths.find((path) => path.id === params.id);
+export default async function LearningPathPage({ params }: PageProps) {
+  const { id } = await params;
+  const learningPath = learningPaths.find((path) => path.id === id);
 
   if (!learningPath) {
     notFound();
