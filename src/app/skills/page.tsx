@@ -11,7 +11,7 @@ import SlidingImages from "../../components/Projects";
 import Footer from "../../components/Contact copy";
 import Image from "next/image";
 
-const skills = () => {
+const Skills = () => {
   const githubImageRef = useRef(null);
   const githubImageInView = useInView(githubImageRef, { once: true });
 
@@ -54,4 +54,4 @@ const skills = () => {
   );
 };
 
-export default skills;
+export default Skills;
