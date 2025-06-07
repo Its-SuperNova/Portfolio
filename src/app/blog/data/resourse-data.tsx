@@ -137,4 +137,27 @@ export const resourceData: ResourceCategory[] = [
       },
     ],
   },
+  {
+    categoryTitle: "Figma Components",
+    items: [
+      {
+        id: 1,
+        title: "Figcomponents",
+        subtitle: "Check it out",
+        badge: "Free & Curated Library",
+        image: "/images/blog/resourses/FigComponents.png",
+        slug: "figcomponents",
+        link: "https://figcomponents.com/",
+      },
+      {
+        id: 2,
+        title: "FigmaElements",
+        subtitle: "Check it out",
+        badge: "Free & Paid Templates",
+        image: "/images/blog/resourses/FigmaElements.png",
+        slug: "figmaelements",
+        link: "https://figmaelements.com/",
+      },
+    ],
+  },
 ];
