@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { IoArrowForwardSharp } from "react-icons/io5";
 import { useRouter } from "next/navigation";
+import styled from "styled-components";
 
 export interface Project {
   id: number;
@@ -22,6 +23,43 @@ export interface Project {
   sourceCode?: string;
   livePreview?: string;
 }
+
+const StyledFreelanceTag = styled.div`
+  .freelance-tag {
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    background: #8b5cf6;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+    min-width: 120px;
+  }
+
+  .freelance-tag:hover {
+    background: #7c3aed;
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .freelance-tag svg {
+    fill: white;
+    transition: all 300ms ease;
+    width: 14px;
+    height: 14px;
+  }
+
+  .freelance-tag:hover svg {
+    transform: scale(1.1);
+  }
+`;
 
 export default function ProjectCard({ project }: { project: Project }) {
   const [imageError, setImageError] = useState(false);
@@ -64,23 +102,17 @@ export default function ProjectCard({ project }: { project: Project }) {
           </div>
         )}
 
-        {/* Freelancing Project Tag - Only for LearnLogicify (id: 2) */}
-        {project.id === 2 && (
+        {/* Freelancing Project Tag - For LearnLogicify (id: 2) and Duchess Pastry (id: 5) */}
+        {(project.id === 2 || project.id === 5) && (
           <div className="absolute top-4 left-4 z-10">
-            <span className="inline-flex items-center px-3 py-1.5 text-xs font-semibold bg-blue-600 text-white rounded-full shadow-lg">
-              <svg
-                className="w-3 h-3 mr-1.5"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              Freelancing Project
-            </span>
+            <StyledFreelanceTag>
+              <button className="freelance-tag">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z" />
+                </svg>
+                Freelance
+              </button>
+            </StyledFreelanceTag>
           </div>
         )}
       </div>
