@@ -11,9 +11,12 @@ const processedProjects = projects.map((project) => ({
 }));
 
 export default function ProjectGrid() {
+  // Only show the first 4 projects on the home page
+  const limitedProjects = processedProjects.slice(0, 4);
+  
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {processedProjects.map((project) => (
+      {limitedProjects.map((project) => (
         <Card key={project.id} project={project} />
       ))}
     </div>

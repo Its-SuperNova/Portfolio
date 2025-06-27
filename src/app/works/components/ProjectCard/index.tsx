@@ -22,6 +22,7 @@ export interface Project {
   solution?: string;
   sourceCode?: string;
   livePreview?: string;
+  freelance?: boolean;
 }
 
 const StyledFreelanceTag = styled.div`
@@ -102,8 +103,8 @@ export default function ProjectCard({ project }: { project: Project }) {
           </div>
         )}
 
-        {/* Freelancing Project Tag - For LearnLogicify (id: 2) and Duchess Pastry (id: 5) */}
-        {(project.id === 2 || project.id === 5) && (
+        {/* Freelancing Project Tag */}
+        {project.freelance && (
           <div className="absolute top-4 left-4 z-10">
             <StyledFreelanceTag>
               <button className="freelance-tag">
