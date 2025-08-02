@@ -7,7 +7,7 @@ import Preloader from "../components/Preloader";
 import { AnimatePresence, motion } from "framer-motion";
 import Description from "../components/Description";
 import SlidingImages from "../components/Projects";
-import Footer from "../components/Contact copy";
+import Footer from "../components/Footer";
 import Course from "../components/course";
 import GetToKnow from "@/components/GetToKnow";
 import Link from "next/link";

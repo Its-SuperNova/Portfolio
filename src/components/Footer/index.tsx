@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import styles from "./style.module.scss";
 import { useRef } from "react";
 import { useScroll, motion, useTransform, MotionValue } from "framer-motion";
@@ -21,14 +21,16 @@ const Index: React.FC = () => {
     <motion.div ref={container} style={{ y }} className={styles.contact}>
       <div className={styles.body}>
         <div className={styles.header}>
-          <div className="text-[70px] ml-5">
-            Your friendly chaos creator</div>
+          <div className="text-[24px] sm:text-[40px] md:text-[60px] lg:text-[70px] ml-2 md:ml-5">
+            Your friendly chaos creator
+          </div>
           <div className={styles.arrow}>
             <Image
               src="/icons/arrow-curve.svg"
               alt="Home"
               width={45}
               height={45}
+              className="w-6 h-6 md:w-[45px] md:h-[45px]"
             />
           </div>
         </div>

@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import { FiGithub } from "react-icons/fi";
 import RoundButton from "@/components/buttons/roundButton";
 import SlidingImages from "@/components/Projects";
-import Footer from "@/components/Contact copy";
+import Footer from "@/components/Footer";
 // import Footer from "@/components/Contact copy";
 // import SlidingImages from "@/components/Projects";
 export default function ProjectPage() {

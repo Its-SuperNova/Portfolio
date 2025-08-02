@@ -8,7 +8,7 @@ import Grid from "./components/bentoGrid";
 import FloatingDock from "@/components/dock/dock";
 import Hire from "./components/Hire";
 import SlidingImages from "../../components/Projects";
-import Footer from "../../components/Contact copy";
+import Footer from "../../components/Footer";
 import Image from "next/image";
 
 const Skills = () => {
