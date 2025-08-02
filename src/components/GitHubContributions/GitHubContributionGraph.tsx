@@ -238,12 +238,12 @@ export default function GitHubContributionGraph({
       className={`flex flex-col ${className} w-full`}
       style={forceLightMode ? { color: "#111" } : {}}
     >
-      <div className="w-full overflow-visible">
-        <div className="min-w-full">
+      <div className="w-full overflow-x-auto md:overflow-visible scrollbar-hide">
+        <div className="min-w-[800px] md:min-w-full">
           <div className="flex mb-2">
             <div className="w-12 flex-shrink-0"></div>
             <div
-              className="flex-1 flex justify-between text-xs px-1"
+              className="flex-1 flex justify-between text-xs px-1 min-w-[800px] md:min-w-full"
               style={forceLightMode ? { color: "#888" } : {}}
             >
               {getOrderedMonths().map((month, i) => (
@@ -265,7 +265,7 @@ export default function GitHubContributionGraph({
               <span>Fri</span>
             </div>
 
-            <div className="flex-1 flex gap-1 relative">
+            <div className="flex-1 flex gap-1 relative min-w-[800px] md:min-w-full">
               {contributions.map((week, weekIndex) => (
                 <div key={weekIndex} className="flex-1 flex flex-col gap-1">
                   {week.days.map((day, dayIndex) => {
@@ -306,7 +306,7 @@ export default function GitHubContributionGraph({
           </div>
         </div>
 
-        <div className="flex justify-between items-center mt-4 text-xs w-full">
+        <div className="flex justify-between items-center mt-4 text-xs w-full min-w-[800px] md:min-w-full">
           <div
             className="text-xs"
             style={forceLightMode ? { color: "#888" } : {}}

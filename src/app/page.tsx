@@ -78,11 +78,11 @@ export default function Home() {
       <Landing />
       <Description />
       <Course />
-      <div className="h-screen px-[170px] mt-[50px] mb-[100px] ">
+      <div className="min-h-screen md:px-[170px] mt-[50px] mb-16 md:mb-[100px] relative z-10">
         <GetToKnow />
       </div>
       <div
-        className="w-full flex justify-center items-center mb-[100px]"
+        className="w-full px-4 md:px-0 flex justify-center items-center mb-16 md:mb-[100px]"
         ref={githubImageRef}
       >
         <motion.div
@@ -105,8 +105,8 @@ export default function Home() {
         </motion.div>
       </div>
       {/* GitHub Contributions Section */}
-      <div className="px-[170px] py-12 bg-white w-full">
-        <div className="flex justify-between items-center mb-6">
+      <div className="px-5 md:px-[170px] py-8 md:py-12 bg-white w-full">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 md:gap-0 mb-6">
           <div ref={inViewRef}>
             <SlideUpWord
               title={["My GitHub Contributions"]} // Pass the title as an array for animation
@@ -126,7 +126,7 @@ export default function Home() {
               href="https://github.com/Its-SuperNova"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm z-10 h-fill w-fill group-hover:text-white transition-all duration-500 group-hover:duration-300"
+              className="flex items-center gap-2 text-sm z-10 h-fill w-fill group-hover:text-white transition-all duration-500 group-hover:duration-300 w-[146px] justify-center"
             >
               <FiGithub />
               Its-SuperNova
@@ -140,6 +140,8 @@ export default function Home() {
           forceLightMode={true}
         />
       </div>
+      {/* Add bottom spacing for mobile */}
+      <div className="h-16 md:h-0"></div>
       <SlidingImages />
       <Footer />
     </main>

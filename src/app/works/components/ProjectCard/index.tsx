@@ -53,10 +53,16 @@ const StyledFreelanceTag = styled.div`
     min-width: 120px;
   }
 
-  .freelance-tag:hover {
-    background: #7c3aed;
-    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
-    transform: translateY(-1px);
+  @media (min-width: 768px) {
+    .freelance-tag:hover {
+      background: #7c3aed;
+      box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .freelance-tag:hover svg {
+      transform: scale(1.1);
+    }
   }
 
   .freelance-tag svg {
@@ -64,10 +70,6 @@ const StyledFreelanceTag = styled.div`
     transition: all 300ms ease;
     width: 14px;
     height: 14px;
-  }
-
-  .freelance-tag:hover svg {
-    transform: scale(1.1);
   }
 `;
 
@@ -107,7 +109,7 @@ export default function ProjectCard({
             alt={project.title}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            className="object-cover transition-transform duration-700 md:group-hover:scale-105"
             onError={() => setImageError(true)}
             priority
             loading="eager"
@@ -144,10 +146,10 @@ export default function ProjectCard({
           ))}
         </div>
         <div className="relative">
-          <h3 className="text-2xl font-medium transition-all duration-300 group-hover:translate-x-8">
+          <h3 className="text-2xl font-medium transition-all duration-300 md:group-hover:translate-x-8">
             {project.title}
           </h3>
-          <IoArrowForwardSharp className="absolute left-0 top-1/2 -translate-y-1/2 w-5 h-5 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
+          <IoArrowForwardSharp className="absolute left-0 top-1/2 -translate-y-1/2 w-5 h-5 opacity-0 -translate-x-2 transition-all duration-300 md:group-hover:opacity-100 md:group-hover:translate-x-0" />
         </div>
       </div>
     </motion.div>

@@ -38,7 +38,7 @@ export function GitHubContributionCard({
   return (
     <ThemeProvider defaultTheme={forceLightMode ? "light" : "system"}>
       <div
-        className={`rounded-lg p-6 ${lightModeClass} ${className} w-full`}
+        className={`rounded-lg md:p-6 ${lightModeClass} ${className} w-full`}
         style={
           forceLightMode ? { backgroundColor: "white", color: "#111" } : {}
         }
