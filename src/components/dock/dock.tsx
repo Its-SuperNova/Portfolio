@@ -41,7 +41,7 @@ const dock = () => {
             alt="Work"
             width={24}
             height={24}
-            className="text-white"
+            className="text-white w-6 h-6"
           />
         </motion.div>
       ),
@@ -70,12 +70,15 @@ const dock = () => {
     {
       title: "Asshhh",
       icon: (
-        <Image
-          src="/images/ashh.jpeg"
-          alt="Blog"
-          fill
-          className="object-cover rounded-full"
-        />
+        <div className="relative w-12 h-12">
+          <Image
+            src="/images/ashh.jpeg"
+            alt="Blog"
+            fill
+            sizes="48px"
+            className="object-cover rounded-full"
+          />
+        </div>
       ),
       href: "/page-is-being-cooked",
     },

@@ -25,7 +25,7 @@ const Index: React.FC<HeaderProps> = ({ textColor = "white" }) => {
   }, [pathname]);
 
   useLayoutEffect(() => {
-    if (!button.current) return;
+    if (!button.current || typeof window === "undefined") return;
 
     gsap.to(button.current, {
       scrollTrigger: {
@@ -33,18 +33,22 @@ const Index: React.FC<HeaderProps> = ({ textColor = "white" }) => {
         start: "0",
         end: `${window.innerHeight}`,
         onLeave: () => {
-          gsap.to(button.current, {
-            scale: 1,
-            duration: 0.25,
-            ease: "power1.out",
-          });
+          if (button.current) {
+            gsap.to(button.current, {
+              scale: 1,
+              duration: 0.25,
+              ease: "power1.out",
+            });
+          }
         },
         onEnterBack: () => {
-          gsap.to(button.current, {
-            scale: 0,
-            duration: 0.25,
-            ease: "power1.out",
-          });
+          if (button.current) {
+            gsap.to(button.current, {
+              scale: 0,
+              duration: 0.25,
+              ease: "power1.out",
+            });
+          }
           setIsActive(false);
         },
       },
@@ -75,6 +79,16 @@ const Index: React.FC<HeaderProps> = ({ textColor = "white" }) => {
         </div>
       </div>
       <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence>
+      <div ref={button} className={styles.headerButtonContainer}>
+        <div
+          className={`${styles.button} ${
+            isActive ? styles.burgerActive : styles.burger
+          }`}
+          onClick={() => setIsActive(!isActive)}
+        >
+          <div className={styles.burger}></div>
+        </div>
+      </div>
     </>
   );
 };

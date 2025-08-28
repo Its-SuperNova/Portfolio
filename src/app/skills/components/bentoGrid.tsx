@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import { motion, useInView } from "framer-motion";
-import { useRef,useEffect,useState } from "react";
-import Card from "./card"
+import { useRef, useEffect, useState } from "react";
+import Card from "./card";
 import { SiExpress } from "react-icons/si";
 import { FaNodeJs } from "react-icons/fa";
 import { SiDjango } from "react-icons/si";
@@ -32,151 +32,148 @@ const BentoGrid = () => {
     { src: "/icons/skills/styles/sass.svg", alt: "react" },
     { src: "/icons/skills/styles/materialui.svg", alt: "Redux" },
   ];
-    const program = [
-      { src: "/icons/skills/program/c.svg", alt: "C" },
-      { src: "/icons/skills/program/py.svg", alt: "python" },
-      { src: "/icons/skills/program/cpp.png", alt: "cpp" },
-    ];
-     const backend = [
-       { src: <FaNodeJs size={30} />, tx: "green" },
-       { src: <SiExpress size={30} />, tx: "white" },
-       { src: <SiDjango size={30} />, tx: "#00F599" },
-       { src: <SiRubyonrails size={30} />, tx: "red" },
-     ];
-     const vcs = [
-       { src: "/icons/skills/git.svg", alt: "C" },
-       { src: "/icons/skills/github.svg", alt: "python" },
-     ];
-     const webAnimation = [
-       { src: "/icons/skills/framer-motion.png", alt: "C" },
-       { src: "/icons/skills/gsap.png", alt: "python" },
-       { src: "/icons/skills/lottie.png", alt: "python" },
-     ];
-      const db = [
-        { src: <SiMysql size={30} />, tx: "#00618A" },
-        { src: <BiLogoPostgresql size={30} />, tx: "#00618A" },
-        { src: <SiMongodb size={30} />, tx: "#4FAA41" },
-        { src: <IoLogoFirebase size={30} />, tx: "#F58220" },
-      ];
-       const cloud = [
-         { src: "/icons/skills/docker.svg", alt: "CSS" },
-         { src: "/icons/skills/aws.png", alt: "JavaScript" },
-         { src: "/icons/skills/azure.png", alt: "TypeScript" },
-       ];
-       const cloud2 = [
-         { src: "/icons/skills/gl.png", alt: "react" },
-         { src: "/icons/skills/vercel.png", alt: "Redux" },
-       ];
-       const mobile = [
-         { src: "/icons/skills/react-native.png", alt: "react" },
-       ];
-       const frontendRef = useRef(null);
-       const backendRef = useRef(null);
-       const databaseRef = useRef(null);
-       const uiuxRef = useRef(null);
-       const stylingRef = useRef(null);
-       const programmingRef = useRef(null);
-       const versionControlRef = useRef(null);
-       const webAnimationsRef = useRef(null);
-       const cloudRef = useRef(null);
-       const coreCSRef = useRef(null);
-       const personalDevRef = useRef(null);
-       const mobileDevRef = useRef(null);
-       const testingRef = useRef(null);
-       const graphicDesignRef = useRef(null);
+  const program = [
+    { src: "/icons/skills/program/c.svg", alt: "C" },
+    { src: "/icons/skills/program/py.svg", alt: "python" },
+    { src: "/icons/skills/program/cpp.png", alt: "cpp" },
+  ];
+  const backend = [
+    { src: <FaNodeJs size={30} />, tx: "green" },
+    { src: <SiExpress size={30} />, tx: "white" },
+    { src: <SiDjango size={30} />, tx: "#00F599" },
+    { src: <SiRubyonrails size={30} />, tx: "red" },
+  ];
+  const vcs = [
+    { src: "/icons/skills/git.svg", alt: "C" },
+    { src: "/icons/skills/github.svg", alt: "python" },
+  ];
+  const webAnimation = [
+    { src: "/icons/skills/framer-motion.png", alt: "C" },
+    { src: "/icons/skills/gsap.png", alt: "python" },
+    { src: "/icons/skills/lottie.png", alt: "python" },
+  ];
+  const db = [
+    { src: <SiMysql size={30} />, tx: "#00618A" },
+    { src: <BiLogoPostgresql size={30} />, tx: "#00618A" },
+    { src: <SiMongodb size={30} />, tx: "#4FAA41" },
+    { src: <IoLogoFirebase size={30} />, tx: "#F58220" },
+  ];
+  const cloud = [
+    { src: "/icons/skills/docker.svg", alt: "CSS" },
+    { src: "/icons/skills/aws.png", alt: "JavaScript" },
+    { src: "/icons/skills/azure.png", alt: "TypeScript" },
+  ];
+  const cloud2 = [
+    { src: "/icons/skills/gl.png", alt: "react" },
+    { src: "/icons/skills/vercel.png", alt: "Redux" },
+  ];
+  const mobile = [{ src: "/icons/skills/react-native.png", alt: "react" }];
+  const frontendRef = useRef(null);
+  const backendRef = useRef(null);
+  const databaseRef = useRef(null);
+  const uiuxRef = useRef(null);
+  const stylingRef = useRef(null);
+  const programmingRef = useRef(null);
+  const versionControlRef = useRef(null);
+  const webAnimationsRef = useRef(null);
+  const cloudRef = useRef(null);
+  const coreCSRef = useRef(null);
+  const personalDevRef = useRef(null);
+  const mobileDevRef = useRef(null);
+  const testingRef = useRef(null);
+  const graphicDesignRef = useRef(null);
 
-       // **Track Scroll Direction (true = scrolling down, false = scrolling up)**
-       const [scrollDirection, setScrollDirection] = useState(true);
+  // **Track Scroll Direction (true = scrolling down, false = scrolling up)**
+  const [scrollDirection, setScrollDirection] = useState(true);
 
-       useEffect(() => {
-         let lastScrollY = window.scrollY;
-         const updateScrollDirection = () => {
-           setScrollDirection(window.scrollY > lastScrollY);
-           lastScrollY = window.scrollY;
-         };
-         window.addEventListener("scroll", updateScrollDirection);
-         return () =>
-           window.removeEventListener("scroll", updateScrollDirection);
-       }, []);
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+    const updateScrollDirection = () => {
+      setScrollDirection(window.scrollY > lastScrollY);
+      lastScrollY = window.scrollY;
+    };
+    window.addEventListener("scroll", updateScrollDirection);
+    return () => window.removeEventListener("scroll", updateScrollDirection);
+  }, []);
 
-       // **Dynamic Animation Variants based on Scroll Direction**
-       const getAnimationVariants = (scrollingDown: boolean) => ({
-         hidden: scrollingDown ? { opacity: 0, y: 50 } : { opacity: 0, y: -50 },
-         visible: {
-           opacity: 1,
-           y: 0,
-           transition: { duration: 0.6, ease: "easeOut" },
-         },
-         exit: scrollingDown
-           ? {
-               opacity: 0,
-               y: 50,
-               transition: { duration: 0.4, ease: "easeIn" },
-             }
-           : {
-               opacity: 0,
-               y: -50,
-               transition: { duration: 0.4, ease: "easeIn" },
-             },
-       });
+  // **Dynamic Animation Variants based on Scroll Direction**
+  const getAnimationVariants = (scrollingDown: boolean) => ({
+    hidden: scrollingDown ? { opacity: 0, y: 50 } : { opacity: 0, y: -50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+    exit: scrollingDown
+      ? {
+          opacity: 0,
+          y: 50,
+          transition: { duration: 0.4, ease: "easeIn" },
+        }
+      : {
+          opacity: 0,
+          y: -50,
+          transition: { duration: 0.4, ease: "easeIn" },
+        },
+  });
 
-       // **Detect when each component is in view**
-       const frontendInView = useInView(frontendRef, {
-         once: false,
-         margin: "-10% 0px",
-       });
-       const backendInView = useInView(backendRef, {
-         once: false,
-         margin: "-10% 0px",
-       });
-       const databaseInView = useInView(databaseRef, {
-         once: false,
-         margin: "-10% 0px",
-       });
-       const uiuxInView = useInView(uiuxRef, {
-         once: false,
-         margin: "-10% 0px",
-       });
-       const stylingInView = useInView(stylingRef, {
-         once: false,
-         margin: "-10% 0px",
-       });
-       const programmingInView = useInView(programmingRef, {
-         once: false,
-         margin: "-10% 0px",
-       });
-       const versionControlInView = useInView(versionControlRef, {
-         once: false,
-         margin: "-10% 0px",
-       });
-       const webAnimationsInView = useInView(webAnimationsRef, {
-         once: false,
-         margin: "-10% 0px",
-       });
-       const cloudInView = useInView(cloudRef, {
-         once: false,
-         margin: "-10% 0px",
-       });
-       const coreCSInView = useInView(coreCSRef, {
-         once: false,
-         margin: "-10% 0px",
-       });
-       const personalDevInView = useInView(personalDevRef, {
-         once: false,
-         margin: "-10% 0px",
-       });
-       const mobileDevInView = useInView(mobileDevRef, {
-         once: false,
-         margin: "-10% 0px",
-       });
-       const testingInView = useInView(testingRef, {
-         once: false,
-         margin: "-10% 0px",
-       });
-       const graphicDesignInView = useInView(graphicDesignRef, {
-         once: false,
-         margin: "-10% 0px",
-       });
+  // **Detect when each component is in view**
+  const frontendInView = useInView(frontendRef, {
+    once: false,
+    margin: "-10% 0px",
+  });
+  const backendInView = useInView(backendRef, {
+    once: false,
+    margin: "-10% 0px",
+  });
+  const databaseInView = useInView(databaseRef, {
+    once: false,
+    margin: "-10% 0px",
+  });
+  const uiuxInView = useInView(uiuxRef, {
+    once: false,
+    margin: "-10% 0px",
+  });
+  const stylingInView = useInView(stylingRef, {
+    once: false,
+    margin: "-10% 0px",
+  });
+  const programmingInView = useInView(programmingRef, {
+    once: false,
+    margin: "-10% 0px",
+  });
+  const versionControlInView = useInView(versionControlRef, {
+    once: false,
+    margin: "-10% 0px",
+  });
+  const webAnimationsInView = useInView(webAnimationsRef, {
+    once: false,
+    margin: "-10% 0px",
+  });
+  const cloudInView = useInView(cloudRef, {
+    once: false,
+    margin: "-10% 0px",
+  });
+  const coreCSInView = useInView(coreCSRef, {
+    once: false,
+    margin: "-10% 0px",
+  });
+  const personalDevInView = useInView(personalDevRef, {
+    once: false,
+    margin: "-10% 0px",
+  });
+  const mobileDevInView = useInView(mobileDevRef, {
+    once: false,
+    margin: "-10% 0px",
+  });
+  const testingInView = useInView(testingRef, {
+    once: false,
+    margin: "-10% 0px",
+  });
+  const graphicDesignInView = useInView(graphicDesignRef, {
+    once: false,
+    margin: "-10% 0px",
+  });
   return (
     <div className="w-full max-w-[1536px] max-h-[1552px] ">
       <div className="h-full  w-full flex items-center justify-center">
@@ -703,8 +700,16 @@ const BentoGrid = () => {
             animate={graphicDesignInView ? "visible" : "hidden"}
             exit="exit"
             variants={getAnimationVariants(scrollDirection)}
-            className="col-span-2 row-span-4 rounded-[20px] bg-[url('/images/ashh.jpeg')] bg-cover bg-center text-white flex flex-col justify-between"
-          ></motion.div>
+            className="col-span-2 row-span-4 rounded-[20px] text-white flex flex-col justify-between relative overflow-hidden"
+          >
+            <Image
+              src="/images/ashh.jpeg"
+              alt="Graphic Design"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover -z-10"
+            />
+          </motion.div>
         </div>
       </div>
     </div>

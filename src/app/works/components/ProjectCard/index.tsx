@@ -110,7 +110,6 @@ export default function ProjectCard({
             className="object-cover transition-transform duration-700 group-hover:scale-105"
             onError={() => setImageError(true)}
             priority
-            quality={90}
             loading="eager"
           />
         ) : (

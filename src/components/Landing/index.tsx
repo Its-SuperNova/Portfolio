@@ -7,7 +7,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { slideUp } from "./animation";
 import { motion } from "framer-motion";
-import Header from "../Header"
+import Header from "../Header";
 const Home: React.FC = () => {
   const firstText = useRef<HTMLParagraphElement>(null);
   const secondText = useRef<HTMLParagraphElement>(null);
@@ -31,6 +31,8 @@ const Home: React.FC = () => {
   }, []);
 
   useLayoutEffect(() => {
+    if (typeof window === "undefined") return;
+
     gsap.registerPlugin(ScrollTrigger);
 
     gsap.to(slider.current, {
@@ -49,7 +51,7 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Header/>
+      <Header />
       <motion.main
         variants={slideUp}
         initial="initial"
