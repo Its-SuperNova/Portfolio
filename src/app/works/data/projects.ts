@@ -3,7 +3,7 @@ export interface Project {
   url: string;
   title: string;
   tags: string[];
-  category: "Frontend" | "Full Stack" | "Design";
+  category: "Frontend" | "Full Stack";
   image: string;
   link: string;
   description: string;

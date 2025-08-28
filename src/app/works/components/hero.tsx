@@ -8,6 +8,7 @@ import RoundButton from "@/components/buttons/roundButton";
 import { motion, AnimatePresence } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 import { projects } from "../data/projects";
+import { caseStudies } from "../data/case-studies";
 
 // Import Inter Tight font with specific weights
 const interTight = Inter_Tight({
@@ -15,15 +16,20 @@ const interTight = Inter_Tight({
   weight: ["400"],
 });
 
-type Category = "Frontend" | "Full Stack" | "Design";
+type Category = "Frontend" | "Full Stack" | "Case Study";
 
 const Hero = () => {
   const [activeTab, setActiveTab] = useState<Category>("Frontend");
 
-  // Filter projects based on category
-  const filteredProjects = projects.filter(
-    (project) => project.category === activeTab
-  );
+  // Filter projects and case studies based on category
+  const getFilteredItems = () => {
+    if (activeTab === "Case Study") {
+      return caseStudies;
+    }
+    return projects.filter((project) => project.category === activeTab);
+  };
+
+  const filteredItems = getFilteredItems();
 
   return (
     <div className="min-h-screen">
@@ -70,14 +76,14 @@ const Hero = () => {
             <p className="z-10">Full Stack</p>
           </RoundButton>
           <RoundButton
-            className="w-[100px] h-[56px] transition-all duration-300"
+            className="w-[140px] h-[56px] transition-all duration-300"
             style={{
-              backgroundColor: activeTab === "Design" ? "black" : "white",
-              color: activeTab === "Design" ? "white" : "black",
+              backgroundColor: activeTab === "Case Study" ? "black" : "white",
+              color: activeTab === "Case Study" ? "white" : "black",
             }}
-            onClick={() => setActiveTab("Design")}
+            onClick={() => setActiveTab("Case Study")}
           >
-            <p className="z-10">Design</p>
+            <p className="z-10">Case Study</p>
           </RoundButton>
           <div className="flex-1" />
           <RoundButton className="w-[56px] h-[56px]">
@@ -95,8 +101,8 @@ const Hero = () => {
               exit={{ opacity: 0, y: -20 }}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
             >
-              {filteredProjects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
+              {filteredItems.map((item) => (
+                <ProjectCard key={item.id} project={item} />
               ))}
             </motion.div>
           </AnimatePresence>

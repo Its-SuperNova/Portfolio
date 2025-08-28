@@ -12,7 +12,7 @@ export interface Project {
   url: string;
   title: string;
   tags: string[];
-  category: "Frontend" | "Full Stack" | "Design";
+  category: "Frontend" | "Full Stack";
   image: string;
   link?: string;
   description?: string;
@@ -23,6 +23,15 @@ export interface Project {
   sourceCode?: string;
   livePreview?: string;
   freelance?: boolean;
+}
+
+export interface CaseStudy {
+  id: number;
+  url: string;
+  title: string;
+  tags: string[];
+  category: "Case Study";
+  image: string;
 }
 
 const StyledFreelanceTag = styled.div`
@@ -62,17 +71,24 @@ const StyledFreelanceTag = styled.div`
   }
 `;
 
-export default function ProjectCard({ project }: { project: Project }) {
+export default function ProjectCard({
+  project,
+}: {
+  project: Project | CaseStudy;
+}) {
   const [imageError, setImageError] = useState(false);
   const router = useRouter();
 
   const handleClick = () => {
-    if (project.link) {
+    if ("link" in project && project.link) {
       if (project.link.startsWith("http")) {
         window.open(project.link, "_blank");
       } else {
         router.push(project.link);
       }
+    } else if ("url" in project) {
+      // For case studies, navigate to the case study page
+      router.push(`/works/case-studies/${project.url}`);
     }
   };
 
@@ -104,7 +120,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         )}
 
         {/* Freelancing Project Tag */}
-        {project.freelance && (
+        {"freelance" in project && project.freelance && (
           <div className="absolute top-4 left-4 z-10">
             <StyledFreelanceTag>
               <button className="freelance-tag">
