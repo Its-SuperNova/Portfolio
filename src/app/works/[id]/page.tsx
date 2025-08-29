@@ -40,7 +40,7 @@ export default function ProjectPage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="container mx-auto px-4 py-12 max-w-[1200px]"
+        className="container mx-auto px-[20px] py-12 max-w-[1200px]"
       >
         <button
           onClick={() => router.push("/works")}
@@ -50,7 +50,7 @@ export default function ProjectPage() {
         </button>
 
         <div className="mb-8">
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex flex-col md:flex-row gap-4 md:gap-0 items-start md:items-center justify-between mb-4">
             <h1 className="text-4xl font-bold">{project.title}</h1>
             <div className="flex gap-3">
               {project.sourceCode && (
@@ -161,7 +161,7 @@ export default function ProjectPage() {
             <p className="text-gray-700 text-lg leading-relaxed mb-8">
               {project.whyIBuiltThis.description}
             </p>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {project.whyIBuiltThis.cards.map((card, index) => (
                 <div
                   key={index}
@@ -207,7 +207,7 @@ export default function ProjectPage() {
             <h2 className="text-2xl font-semibold mb-6 text-black/90">
               Design Principles
             </h2>
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {project.designPrinciples.map((principle, index) => (
                 <div key={index} className="bg-[#f7f7f7] p-8 rounded-2xl">
                   <div className="mb-4" style={{ color: principle.iconColor }}>

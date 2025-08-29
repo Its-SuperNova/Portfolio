@@ -32,7 +32,7 @@ const CaseStudyPage = ({ params }: CaseStudyPageProps) => {
     <div className="min-h-screen">
       <div className="mx-auto pt-16 md:pt-28 ">
         {/* Back Button */}
-        <div className="max-w-[1200px] mx-auto">
+        <div className="max-w-[1200px] md:mx-auto mx-[20px]">
           <motion.button
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -51,7 +51,7 @@ const CaseStudyPage = ({ params }: CaseStudyPageProps) => {
           className="space-y-8"
         >
           {/* Header */}
-          <div className="text-center flex flex-col gap-[32px] max-w-[1200px] mx-auto">
+          <div className="text-center flex flex-col gap-[32px] max-w-[1200px] md:mx-auto mx-[20px]">
             <h1
               className={`text-4xl md:text-6xl leading-[1.2] font-bold text-black text-left max-w-[800px] ${interTight.className}`}
             >

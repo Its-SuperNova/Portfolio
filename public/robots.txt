@@ -1,8 +1,5 @@
 User-agent: *
-Allow: /
-
-# Sitemap
-Sitemap: https://ashhhh-portfolio.vercel.app/sitemap.xml
+Disallow: /
 
 # Crawl-delay
 Crawl-delay: 1
