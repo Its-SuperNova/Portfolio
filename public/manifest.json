@@ -1,0 +1,27 @@
+{
+  "name": "Ashwin Chandrasekar (Ashhhh) - Creative Developer & Designer Portfolio",
+  "short_name": "Ashhhh Portfolio",
+  "description": "Ashwin Chandrasekar's portfolio showcasing creative development and design work",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/ashh.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/ashh.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "en",
+  "dir": "ltr"
+}

@@ -4,17 +4,69 @@ import {
   ThemeToggle,
   GitHubContributionCard,
 } from "@/components/GitHubContributions";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title:
+    "GitHub Contributions - Ashwin Chandrasekar (Ashhhh) Creative Developer",
+  description:
+    "View Ashwin Chandrasekar's (Ashhhh) GitHub contributions and coding activity. Explore open source projects, development activity, and coding expertise through detailed GitHub contribution graphs.",
+  keywords: [
+    "Ashwin Chandrasekar GitHub",
+    "Ashhhh GitHub",
+    "GitHub contributions",
+    "Open source projects",
+    "Coding activity",
+    "Development portfolio",
+    "GitHub profile",
+    "Software development",
+    "Programming projects",
+    "Code contributions",
+    "Developer activity",
+    "GitHub statistics",
+  ],
+  openGraph: {
+    title:
+      "GitHub Contributions - Ashwin Chandrasekar (Ashhhh) Creative Developer",
+    description:
+      "View Ashwin Chandrasekar's (Ashhhh) GitHub contributions and coding activity.",
+    url: "https://ashhhh-portfolio.vercel.app/github-contributions",
+  },
+};
 
 export default function GitHubContributionsPage() {
   return (
     <ThemeProvider>
+      {/* SEO Content - Hidden but accessible to search engines */}
+      <div className="sr-only">
+        <h1>
+          GitHub Contributions - Ashwin Chandrasekar (Ashhhh) Creative Developer
+        </h1>
+        <p>
+          Explore Ashwin Chandrasekar's (Ashhhh) GitHub contributions and coding
+          activity. View detailed GitHub contribution graphs showing development
+          activity, open source projects, and coding expertise.
+        </p>
+        <p>
+          Ashhhh GitHub profile demonstrates active participation in software
+          development with regular contributions to various projects. Track
+          coding activity, project involvement, and development expertise
+          through comprehensive GitHub statistics.
+        </p>
+        <p>
+          Discover Ashwin Chandrasekar's open source contributions, programming
+          projects, and development activity. View GitHub contribution graphs
+          and coding statistics that showcase expertise in web development and
+          creative programming.
+        </p>
+      </div>
+
       <div className="min-h-screen p-8 bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100">
         <div className="max-w-4xl mx-auto">
           <div className="flex justify-between items-center mb-8">
-            <h1 className="text-3xl font-bold">GitHubdc Contributions</h1>
+            <h1 className="text-3xl font-bold">GitHub Contributions</h1>
             <ThemeToggle />
           </div>
-
 
           <h2 className="text-2xl font-semibold mb-4">
             All-in-one Card Component

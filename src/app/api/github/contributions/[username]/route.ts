@@ -102,15 +102,56 @@ export async function GET(request: NextRequest, context: RouteParams) {
       body: JSON.stringify({ query }),
     });
 
+    // Handle different response statuses
+    if (response.status === 403) {
+      console.warn("GitHub API rate limit exceeded or token invalid");
+      return NextResponse.json(
+        {
+          error:
+            "GitHub API rate limit exceeded. Please try again later or set up a GitHub token.",
+          rateLimited: true,
+        },
+        { status: 429 }
+      );
+    }
+
+    if (response.status === 401) {
+      console.warn("GitHub API unauthorized - token may be invalid");
+      return NextResponse.json(
+        {
+          error:
+            "GitHub API unauthorized. Please check your token configuration.",
+          unauthorized: true,
+        },
+        { status: 401 }
+      );
+    }
+
     if (!response.ok) {
-      throw new Error(`GitHub API responded with status: ${response.status}`);
+      console.error(
+        `GitHub API error: ${response.status} ${response.statusText}`
+      );
+      return NextResponse.json(
+        {
+          error: `GitHub API error: ${response.status}`,
+          status: response.status,
+        },
+        { status: response.status }
+      );
     }
 
     const data: GitHubResponse = await response.json();
 
     if (data.errors) {
       const errorMessage = data.errors.map((e) => e.message).join(", ");
-      throw new Error(`GraphQL Error: ${errorMessage}`);
+      console.error("GraphQL errors:", data.errors);
+      return NextResponse.json(
+        {
+          error: `GraphQL Error: ${errorMessage}`,
+          graphqlErrors: data.errors,
+        },
+        { status: 400 }
+      );
     }
 
     if (!data.data?.user) {
@@ -138,8 +179,16 @@ export async function GET(request: NextRequest, context: RouteParams) {
     });
   } catch (error) {
     console.error("Error fetching GitHub contributions:", error);
+
+    // Return a more specific error message
+    const errorMessage =
+      error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { error: "Failed to fetch GitHub contributions" },
+      {
+        error: "Failed to fetch GitHub contributions",
+        details: errorMessage,
+        timestamp: new Date().toISOString(),
+      },
       { status: 500 }
     );
   }

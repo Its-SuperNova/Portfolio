@@ -128,59 +128,104 @@ export default function GitHubContributionGraph({
           GitHub Contributions
         </h2>
         <div
-          className="p-4 rounded"
+          className="p-4 rounded border"
           style={
-            forceLightMode ? { backgroundColor: "#f5f5f5", color: "#333" } : {}
+            forceLightMode
+              ? {
+                  backgroundColor: "#f5f5f5",
+                  color: "#333",
+                  borderColor: "#ddd",
+                }
+              : { borderColor: "#374151" }
           }
         >
-          <p className="mb-2">
-            Unable to load GitHub contributions for {username}.
-          </p>
-          <p className="text-sm">{error}</p>
-
-          {/* Placeholder grid */}
-          <div className="mt-4">
-            <div className="flex">
-              <div
-                className="flex flex-col justify-between text-xs pr-2 pt-2 pb-1"
-                style={forceLightMode ? { color: "#888" } : {}}
+          <div className="flex items-start space-x-3">
+            <div className="flex-shrink-0">
+              <svg
+                className="w-5 h-5 text-yellow-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
               >
-                <span>Mon</span>
-                <span></span>
-                <span>Wed</span>
-                <span></span>
-                <span>Fri</span>
-              </div>
-
-              <div className="flex">
-                {Array.from({ length: 52 }).map((_, weekIndex) => (
-                  <div key={weekIndex} className="flex flex-col">
-                    {Array.from({ length: 7 }).map((_, dayIndex) => {
-                      const level = Math.floor(Math.random() * 5);
-                      return (
-                        <div
-                          key={`${weekIndex}-${dayIndex}`}
-                          className={`w-[10px] h-[10px] m-[1px] rounded-sm ${colorLevels[level]} opacity-30`}
-                        />
-                      );
-                    })}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div
-              className="flex justify-end items-center mt-2 text-xs"
-              style={forceLightMode ? { color: "#888" } : {}}
-            >
-              <span className="mr-2">Less</span>
-              {colorLevels.map((color, i) => (
-                <div
-                  key={i}
-                  className={`w-[10px] h-[10px] m-[1px] rounded-sm ${color} opacity-30`}
+                <path
+                  fillRule="evenodd"
+                  d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                  clipRule="evenodd"
                 />
-              ))}
-              <span className="ml-2">More</span>
+              </svg>
+            </div>
+            <div className="flex-1">
+              <h3 className="font-medium mb-1">
+                Unable to load GitHub contributions
+              </h3>
+              <p className="text-sm mb-3">
+                {error.includes("rate limit") ? (
+                  <>
+                    GitHub API rate limit exceeded. This usually happens when no
+                    GitHub token is configured.
+                    <br />
+                    <a
+                      href="https://github.com/settings/tokens"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:text-blue-700 underline"
+                    >
+                      Create a GitHub token
+                    </a>{" "}
+                    to fix this issue.
+                  </>
+                ) : (
+                  error
+                )}
+              </p>
+
+              {/* Demo contribution grid */}
+              <div className="mt-4">
+                <p className="text-xs mb-2 opacity-70">
+                  Demo contribution graph:
+                </p>
+                <div className="flex">
+                  <div
+                    className="flex flex-col justify-between text-xs pr-2 pt-2 pb-1"
+                    style={forceLightMode ? { color: "#888" } : {}}
+                  >
+                    <span>Mon</span>
+                    <span></span>
+                    <span>Wed</span>
+                    <span></span>
+                    <span>Fri</span>
+                  </div>
+
+                  <div className="flex">
+                    {Array.from({ length: 52 }).map((_, weekIndex) => (
+                      <div key={weekIndex} className="flex flex-col">
+                        {Array.from({ length: 7 }).map((_, dayIndex) => {
+                          const level = Math.floor(Math.random() * 5);
+                          return (
+                            <div
+                              key={`${weekIndex}-${dayIndex}`}
+                              className={`w-[10px] h-[10px] m-[1px] rounded-sm ${colorLevels[level]} opacity-30`}
+                            />
+                          );
+                        })}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div
+                  className="flex justify-end items-center mt-2 text-xs"
+                  style={forceLightMode ? { color: "#888" } : {}}
+                >
+                  <span className="mr-2">Less</span>
+                  {colorLevels.map((color, i) => (
+                    <div
+                      key={i}
+                      className={`w-[10px] h-[10px] m-[1px] rounded-sm ${color} opacity-30`}
+                    />
+                  ))}
+                  <span className="ml-2">More</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

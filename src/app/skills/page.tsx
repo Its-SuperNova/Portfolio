@@ -17,6 +17,29 @@ const Skills = () => {
 
   return (
     <>
+      {/* SEO Content - Hidden but accessible to search engines */}
+      <div className="sr-only">
+        <h1>
+          Skills & Expertise - Ashwin Chandrasekar (Ashhhh) Creative Developer
+        </h1>
+        <p>
+          Explore Ashwin Chandrasekar's comprehensive skills and expertise in
+          web development, design, and modern technologies. Specializing in
+          React, Next.js, Framer Motion, TypeScript, and creative digital
+          solutions.
+        </p>
+        <p>
+          Ashhhh skills include frontend development, UI/UX design, animation,
+          and full-stack web development. View detailed breakdown of technical
+          skills, design capabilities, and development expertise.
+        </p>
+        <p>
+          Expert in modern web technologies including JavaScript, TypeScript,
+          Tailwind CSS, GSAP, Lenis, and various frontend frameworks. Available
+          for hire as a creative developer and designer.
+        </p>
+      </div>
+
       <div className="bg-black overflow-hidden">
         <FloatingDock />
         <Hero />

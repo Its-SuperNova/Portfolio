@@ -49,6 +49,28 @@ export default function Home() {
 
   return (
     <main className="main overflow-hidden m-0">
+      {/* SEO Content - Hidden but accessible to search engines */}
+      <div className="sr-only">
+        <h1>
+          Ashwin Chandrasekar (Ashhhh) - Creative Developer & Designer Portfolio
+        </h1>
+        <p>
+          Welcome to Ashwin Chandrasekar's portfolio. I'm a passionate Creative
+          Designer and Developer, dedicated to crafting innovative solutions and
+          exceptional digital experiences through modern technologies like
+          Next.js, React, Framer Motion, and Tailwind CSS.
+        </p>
+        <p>
+          Ashhhh portfolio showcases my work in web development, UI/UX design,
+          and creative digital solutions. View my projects, case studies, and
+          learn about my expertise in frontend development, React development,
+          and modern web technologies.
+        </p>
+        <p>
+          Contact Ashwin Chandrasekar for freelance web development, design
+          projects, and creative digital solutions.
+        </p>
+      </div>
       <AnimatePresence mode="wait">
         {isLoading && <Preloader />}
       </AnimatePresence>
