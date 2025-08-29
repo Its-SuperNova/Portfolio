@@ -43,9 +43,9 @@ export default function GitHubContributionsPage() {
           GitHub Contributions - Ashwin Chandrasekar (Ashhhh) Creative Developer
         </h1>
         <p>
-          Explore Ashwin Chandrasekar's (Ashhhh) GitHub contributions and coding
-          activity. View detailed GitHub contribution graphs showing development
-          activity, open source projects, and coding expertise.
+          Explore Ashwin Chandrasekar&apos;s (Ashhhh) GitHub contributions and
+          coding activity. View detailed GitHub contribution graphs showing
+          development activity, open source projects, and coding expertise.
         </p>
         <p>
           Ashhhh GitHub profile demonstrates active participation in software
@@ -54,10 +54,10 @@ export default function GitHubContributionsPage() {
           through comprehensive GitHub statistics.
         </p>
         <p>
-          Discover Ashwin Chandrasekar's open source contributions, programming
-          projects, and development activity. View GitHub contribution graphs
-          and coding statistics that showcase expertise in web development and
-          creative programming.
+          Discover Ashwin Chandrasekar&apos;s open source contributions,
+          programming projects, and development activity. View GitHub
+          contribution graphs and coding statistics that showcase expertise in
+          web development and creative programming.
         </p>
       </div>
 

@@ -71,18 +71,18 @@ const About = () => {
             <section className="mb-12">
               <h2 className="text-3xl font-bold text-black mb-6">Who I Am</h2>
               <p className="text-gray-700 mb-4">
-                I'm Ashwin Chandrasekar, a creative developer and designer who
-                believes in the power of combining beautiful design with
+                I&apos;m Ashwin Chandrasekar, a creative developer and designer
+                who believes in the power of combining beautiful design with
                 powerful functionality. Driven by curiosity and a love for
                 design, I create simple, functional, and visually striking
                 digital experiences.
               </p>
               <p className="text-gray-700 mb-4">
-                As a student, I'm always learning and exploring new ideas,
-                pushing the boundaries of what's possible in web development and
-                design. The fusion of my passion for design, development, and
-                seamless user experiences places me at the intersection of
-                creativity and technology in the digital world.
+                As a student, I&apos;m always learning and exploring new ideas,
+                pushing the boundaries of what&apos;s possible in web
+                development and design. The fusion of my passion for design,
+                development, and seamless user experiences places me at the
+                intersection of creativity and technology in the digital world.
               </p>
             </section>
 
@@ -96,10 +96,10 @@ const About = () => {
                     01. Designing
                   </h3>
                   <p className="text-gray-700">
-                    I craft visually striking, immersive interfaces that don't
-                    just look good—they feel alive. Think smooth animations,
-                    intuitive layouts, and razor-sharp attention to detail that
-                    captivate users and keep them hooked.
+                    I craft visually striking, immersive interfaces that
+                    don&apos;t just look good—they feel alive. Think smooth
+                    animations, intuitive layouts, and razor-sharp attention to
+                    detail that captivate users and keep them hooked.
                   </p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg">
@@ -107,7 +107,7 @@ const About = () => {
                     02. Developing
                   </h3>
                   <p className="text-gray-700">
-                    I don't just write code—I engineer powerful, high-speed
+                    I don&apos;t just write code—I engineer powerful, high-speed
                     applications that are as smooth as butter. From next-level
                     frontend magic to rock-solid backend systems, I make sure
                     everything runs blazing fast, bug-free, and future-ready.

@@ -7,7 +7,6 @@ import {
 } from "./components/sidebar";
 import FloatingDock from "@/components/dock/dock";
 import Cooking from "@/components/CookingCourse";
-import { Metadata } from "next";
 
 // Note: Since this is a client component, we'll add metadata in a separate layout file
 // For now, we'll add SEO content directly in the component
@@ -27,7 +26,7 @@ function MainContent() {
           Blog & Resources - Ashwin Chandrasekar (Ashhhh) Creative Developer
         </h1>
         <p>
-          Explore Ashwin Chandrasekar's blog featuring web development
+          Explore Ashwin Chandrasekar&apos;s blog featuring web development
           tutorials, learning resources, and insights into modern web
           technologies. Discover guides on React, Next.js, Framer Motion, and
           creative development techniques.

@@ -23,8 +23,8 @@ const Skills = () => {
           Skills & Expertise - Ashwin Chandrasekar (Ashhhh) Creative Developer
         </h1>
         <p>
-          Explore Ashwin Chandrasekar's comprehensive skills and expertise in
-          web development, design, and modern technologies. Specializing in
+          Explore Ashwin Chandrasekar&apos;s comprehensive skills and expertise
+          in web development, design, and modern technologies. Specializing in
           React, Next.js, Framer Motion, TypeScript, and creative digital
           solutions.
         </p>

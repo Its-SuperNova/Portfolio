@@ -55,10 +55,10 @@ export default function Home() {
           Ashwin Chandrasekar (Ashhhh) - Creative Developer & Designer Portfolio
         </h1>
         <p>
-          Welcome to Ashwin Chandrasekar's portfolio. I'm a passionate Creative
-          Designer and Developer, dedicated to crafting innovative solutions and
-          exceptional digital experiences through modern technologies like
-          Next.js, React, Framer Motion, and Tailwind CSS.
+          Welcome to Ashwin Chandrasekar&apos;s portfolio. I&apos;m a passionate
+          Creative Designer and Developer, dedicated to crafting innovative
+          solutions and exceptional digital experiences through modern
+          technologies like Next.js, React, Framer Motion, and Tailwind CSS.
         </p>
         <p>
           Ashhhh portfolio showcases my work in web development, UI/UX design,

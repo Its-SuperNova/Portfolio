@@ -41,12 +41,12 @@ const Contact = () => {
         </p>
         <p>
           Contact me via email at its.ashwin.23@gmail.com or call (+91)
-          8248669086. I'm passionate about creating exceptional digital
+          8248669086. I&apos;m passionate about creating exceptional digital
           experiences and would love to discuss your project requirements.
         </p>
         <p>
-          Ashhhh creative developer and designer available for hire. Let's work
-          together to bring your digital vision to life with modern web
+          Ashhhh creative developer and designer available for hire. Let&apos;s
+          work together to bring your digital vision to life with modern web
           technologies and innovative design solutions.
         </p>
       </div>
@@ -54,12 +54,12 @@ const Contact = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold text-black mb-8">
-            Let's Talk
+            Let&apos;s Talk
           </h1>
 
           <p className="text-xl text-gray-700 mb-12">
-            Got a project in mind? I'd love to hear about it. Let's create
-            something amazing together.
+            Got a project in mind? I&apos;d love to hear about it. Let&apos;s
+            create something amazing together.
           </p>
 
           <div className="grid md:grid-cols-2 gap-12">
@@ -89,7 +89,7 @@ const Contact = () => {
                     <h3 className="text-lg font-bold text-black mb-2">Email</h3>
                     <p className="text-gray-700">its.ashwin.23@gmail.com</p>
                     <p className="text-sm text-gray-500">
-                      I'll get back to you within 24 hours
+                      I&apos;ll get back to you within 24 hours
                     </p>
                   </div>
                 </div>
@@ -251,7 +251,7 @@ const Contact = () => {
                   Ready to start your project?
                 </h3>
                 <p className="text-sm mb-4">
-                  Let's discuss your ideas and create something amazing
+                  Let&apos;s discuss your ideas and create something amazing
                   together.
                 </p>
                 <a
