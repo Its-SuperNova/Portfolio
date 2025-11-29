@@ -19,18 +19,28 @@
     p{
         display: flex;
         color: white;
-        font-size: 80px;
+        font-size: 32px;
         align-items: center;
         position: absolute;
         z-index: 1;
+        margin-bottom: 100px;
         font-weight: 300;
+        @media (min-width: 768px) {
+            font-size: 80px;
+            margin-bottom:0px;
+        }
         span{
             display: block;
-            width: 10px;
-            height: 10px;
+            width: 6px;
+            height: 6px;
             background-color: white;
             border-radius: 50%;
-            margin-right: 10px;
+            margin-right: 6px;
+            @media (min-width: 768px) {
+                width: 10px;
+                height: 10px;
+                margin-right: 10px;
+            }
         }
     }
 }

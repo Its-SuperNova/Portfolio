@@ -41,7 +41,7 @@ const dock = () => {
             alt="Work"
             width={24}
             height={24}
-            className="text-white w-6 h-6"
+            className="text-white w-6 h-4"
           />
         </motion.div>
       ),
@@ -70,12 +70,12 @@ const dock = () => {
     {
       title: "Asshhh",
       icon: (
-        <div className="relative w-12 h-12">
+        <div className="relative w-full h-full">
           <Image
             src="/images/ashh.jpeg"
             alt="Blog"
             fill
-            sizes="48px"
+            sizes="(max-width: 768px) 40px, 48px"
             className="object-cover rounded-full"
           />
         </div>
@@ -111,7 +111,7 @@ const dock = () => {
           transition={{ stiffness: 200 }}
           className="flex items-center justify-center"
         >
-          <FaFigma size={20} />
+          <FaFigma size={20} className="text-white" />
         </motion.div>
       ),
       href: "https://www.figma.com/@ashhhh",
@@ -139,7 +139,7 @@ const dock = () => {
   ];
   return (
     <div>
-      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
+      <div className="fixed bottom-4 right-4 md:left-1/2 md:-translate-x-1/2 md:right-auto z-50">
         <FloatingDock items={items} />
       </div>
     </div>

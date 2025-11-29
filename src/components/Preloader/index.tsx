@@ -72,7 +72,7 @@ const Introduction: React.FC = () => {
             variants={opacity}
             initial="initial"
             animate="enter"
-            className={`${bricolage.className} text-4xl font-semibold`} // ✅ Applied Font
+            className={bricolage.className}
           >
             {words[index]}
           </motion.p>
