@@ -4,25 +4,31 @@ import { FloatingDock } from "../dock";
 
 import Image from "next/image"; // Import next/image
 import { motion } from "framer-motion";
-import { FaFigma } from "react-icons/fa6";
+import {
+  SolarBox,
+  SolarCode,
+  SolarDocument,
+  SolarFigma,
+  SolarHome,
+  SolarLetter,
+} from "./solarIcons";
+
+const iconMotion = {
+  initial: { scale: 1 },
+  whileHover: { scale: 1.5 },
+  transition: { stiffness: 200 },
+};
+
 const dock = () => {
   const items = [
     {
       title: "Home",
       icon: (
         <motion.div
-          initial={{ scale: 1 }}
-          whileHover={{ scale: 1.5 }}
-          transition={{ stiffness: 200 }}
+          {...iconMotion}
           className="flex items-center justify-center"
         >
-          <Image
-            src="/icons/home.svg"
-            alt="Home"
-            width={24}
-            height={24}
-            className="invert"
-          />
+          <SolarHome className="h-6 w-6" />
         </motion.div>
       ),
       href: "/",
@@ -31,18 +37,10 @@ const dock = () => {
       title: "Skills",
       icon: (
         <motion.div
-          initial={{ scale: 1 }}
-          whileHover={{ scale: 1.5 }}
-          transition={{ stiffness: 200 }}
+          {...iconMotion}
           className="flex items-center justify-center"
         >
-          <Image
-            src="/icons/skill.svg"
-            alt="Work"
-            width={24}
-            height={24}
-            className="text-white w-6 h-4"
-          />
+          <SolarCode className="h-6 w-6" />
         </motion.div>
       ),
       href: "/skills",
@@ -51,18 +49,10 @@ const dock = () => {
       title: "Projects",
       icon: (
         <motion.div
-          initial={{ scale: 1 }}
-          whileHover={{ scale: 1.5 }}
-          transition={{ stiffness: 200 }}
+          {...iconMotion}
           className="flex items-center justify-center"
         >
-          <Image
-            src="/icons/cube.svg"
-            alt="About"
-            width={24}
-            height={24}
-            className="text-white"
-          />
+          <SolarBox className="h-6 w-6" />
         </motion.div>
       ),
       href: "/works",
@@ -86,18 +76,10 @@ const dock = () => {
       title: "Blog",
       icon: (
         <motion.div
-          initial={{ scale: 1 }}
-          whileHover={{ scale: 1.5 }}
-          transition={{ stiffness: 200 }}
+          {...iconMotion}
           className="flex items-center justify-center"
         >
-          <Image
-            src="/icons/File.svg"
-            alt="About"
-            width={24}
-            height={24}
-            className="text-white"
-          />
+          <SolarDocument className="h-6 w-6" />
         </motion.div>
       ),
       href: "/blog",
@@ -106,12 +88,10 @@ const dock = () => {
       title: "Figma",
       icon: (
         <motion.div
-          initial={{ scale: 1 }}
-          whileHover={{ scale: 1.5 }}
-          transition={{ stiffness: 200 }}
+          {...iconMotion}
           className="flex items-center justify-center"
         >
-          <FaFigma size={20} className="text-white" />
+          <SolarFigma className="h-6 w-6" />
         </motion.div>
       ),
       href: "https://www.figma.com/@ashhhh",
@@ -120,18 +100,10 @@ const dock = () => {
       title: "Contact",
       icon: (
         <motion.div
-          initial={{ scale: 1 }}
-          whileHover={{ scale: 1.5 }}
-          transition={{ stiffness: 200 }}
+          {...iconMotion}
           className="flex items-center justify-center"
         >
-          <Image
-            src="/icons/arrow-up.svg"
-            alt="About"
-            width={24}
-            height={24}
-            className="text-white"
-          />
+          <SolarLetter className="h-6 w-6" />
         </motion.div>
       ),
       href: "/contact",

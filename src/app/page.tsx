@@ -12,12 +12,15 @@ import Course from "../components/course";
 import GetToKnow from "@/components/GetToKnow";
 export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [introReady, setIntroReady] = useState(false);
   useEffect(() => {
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       setIsLoading(false);
-      document.body.style.cursor = "default";
+      setIntroReady(true);
       window.scrollTo(0, 0);
     }, 2000);
+
+    return () => clearTimeout(timeout);
   }, []);
 
   return (
@@ -48,7 +51,7 @@ export default function Home() {
         {isLoading && <Preloader />}
       </AnimatePresence>
       <FloatingDock />
-      <Landing />
+      <Landing introReady={introReady} />
       <Description />
       <Course />
       <div className="min-h-screen md:px-[170px] mt-[50px] mb-16 md:mb-[100px] relative z-10">
