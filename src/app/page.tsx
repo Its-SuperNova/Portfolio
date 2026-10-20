@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import FloatingDock from "../components/dock/dock";
+import FloatingDock from "../dock/dock";
 import Landing from "../components/Landing";
 import Preloader from "../components/Preloader";
 import { AnimatePresence } from "framer-motion";
@@ -10,6 +10,7 @@ import SlidingImages from "../components/Projects";
 import Footer from "../components/Footer";
 import Course from "../components/course";
 import GetToKnow from "@/components/GetToKnow";
+import Sidebar from "../components/sidebar";
 export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [introReady, setIntroReady] = useState(false);
@@ -50,6 +51,7 @@ export default function Home() {
       <AnimatePresence mode="wait">
         {isLoading && <Preloader />}
       </AnimatePresence>
+      <Sidebar />
       <FloatingDock />
       <Landing introReady={introReady} />
       <Description />

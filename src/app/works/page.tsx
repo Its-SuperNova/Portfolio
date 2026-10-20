@@ -1,5 +1,5 @@
 import React from "react";
-import FloatingDock from "@/components/dock/dock";
+import FloatingDock from "@/dock/dock";
 import Hero from "./components/hero";
 import { Metadata } from "next";
 

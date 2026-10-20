@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { FloatingDock } from "../dock";
+import { FloatingDock } from ".";
 
 import Image from "next/image"; // Import next/image
 import { motion } from "framer-motion";
@@ -111,7 +111,7 @@ const dock = () => {
   ];
   return (
     <div>
-      <div className="fixed bottom-4 right-4 md:left-1/2 md:-translate-x-1/2 md:right-auto z-50">
+      <div className="fixed bottom-4 right-4 md:left-[calc(50%_-_var(--sidebar-offset,0px)/2)] md:-translate-x-1/2 md:right-auto z-50 transition-[left] duration-[800ms] ease-[cubic-bezier(0.76,0,0.24,1)]">
         <FloatingDock items={items} />
       </div>
     </div>

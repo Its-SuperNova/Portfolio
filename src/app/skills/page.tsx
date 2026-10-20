@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Hero from "./components/hero";
 import Grid from "./components/bentoGrid";
-import FloatingDock from "@/components/dock/dock";
+import FloatingDock from "@/dock/dock";
 import Hire from "./components/Hire";
 import SlidingImages from "../../components/Projects";
 import Footer from "../../components/Footer";

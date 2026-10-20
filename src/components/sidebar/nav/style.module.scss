@@ -1,0 +1,17 @@
+.menu{
+    height: 100vh;
+    width: 320px;
+    max-width: 100vw;
+    background-color: rgb(41, 41, 41);
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 60;
+    color: white;
+
+    .body{
+        box-sizing: border-box;
+        height: 100%;
+        padding: 80px 40px;
+    }
+}

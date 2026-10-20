@@ -5,7 +5,7 @@ import {
   SidebarToggle,
   useSidebar,
 } from "./components/sidebar";
-import FloatingDock from "@/components/dock/dock";
+import FloatingDock from "@/dock/dock";
 import Cooking from "@/components/CookingCourse";
 
 // Note: Since this is a client component, we'll add metadata in a separate layout file
@@ -16,9 +16,8 @@ function MainContent() {
 
   return (
     <main
-      className={`min-h-screen bg-white transition-all duration-300 ${
-        isOpen ? "ml-64" : "ml-0"
-      }`}
+      className={`min-h-screen bg-white transition-all duration-300 ${isOpen ? "ml-64" : "ml-0"
+        }`}
     >
       {/* SEO Content - Hidden but accessible to search engines */}
       <div className="sr-only">

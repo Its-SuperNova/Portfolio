@@ -5,7 +5,7 @@ import {
   SidebarToggle,
   useSidebar,
 } from "../components/sidebar";
-import FloatingDock from "@/components/dock/dock";
+import FloatingDock from "@/dock/dock";
 import { ResourcesContent } from "../components/resourses-tabs";
 
 function MainContent() {
@@ -13,9 +13,8 @@ function MainContent() {
 
   return (
     <main
-      className={`min-h-screen bg-white transition-all duration-300 ${
-        isOpen ? "ml-64" : "ml-0"
-      }`}
+      className={`min-h-screen bg-white transition-all duration-300 ${isOpen ? "ml-64" : "ml-0"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-12 lg:px-12 pt-20">
         <ResourcesContent />

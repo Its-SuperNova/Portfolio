@@ -22,7 +22,7 @@ interface SidebarContextType {
 
 const SidebarContext = createContext<SidebarContextType>({
   isOpen: false,
-  setIsOpen: () => {},
+  setIsOpen: () => { },
 });
 
 export function SidebarProvider({ children }: { children: React.ReactNode }) {
@@ -73,9 +73,8 @@ export function Sidebar() {
 
   return (
     <aside
-      className={`fixed left-0 top-0 h-full  border-r border-gray-200 transition-all duration-300 ease-in-out z-10 ${
-        isOpen ? "w-64" : "w-0"
-      } overflow-hidden`}
+      className={`fixed left-0 top-0 h-full  border-r border-gray-200 transition-all duration-300 ease-in-out z-10 ${isOpen ? "w-64" : "w-0"
+        } overflow-hidden`}
     >
       <div className="w-64 p-8 pt-20">
         <nav>
@@ -85,11 +84,10 @@ export function Sidebar() {
                 <Link
                   href={item.href}
                   onClick={() => setIsOpen(false)} // Close sidebar on navigation
-                  className={`block w-full text-left py-2 px-3 rounded-lg text-sm font-light transition-colors duration-200 ${
-                    activeTab === item.id
+                  className={`block w-full text-left py-2 px-3 rounded-lg text-sm font-light transition-colors duration-200 ${activeTab === item.id
                       ? " text-black font-semibold"
                       : "text-gray-600 hover:text-black"
-                  }`}
+                    }`}
                 >
                   {item.name}
                 </Link>

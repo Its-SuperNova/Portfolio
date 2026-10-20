@@ -1,15 +1,11 @@
 "use client";
 
 import styles from "./style.module.scss";
-import { useRef, useLayoutEffect, useCallback, useState, useEffect } from "react";
+import { useRef, useLayoutEffect, useState, useEffect } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
 import { slideUp } from "./animation";
 import { motion } from "framer-motion";
 import GridDistortion from "../GridDistortion";
-
-const COLUMN_LINES = [20, 40, 60, 80];
-
 const HERO_FACE_LOGOS = [
   "/images/ashhh-logos/Ashwin.png",
   "/images/ashhh-logos/artist.png",
@@ -19,93 +15,80 @@ const HERO_FACE_LOGOS = [
 ] as const;
 
 const LOGO_CYCLE_MS = 3500;
+const SHUFFLE_GLYPHS = "acenosuvxz*+?";
+const SHUFFLE_STEP_S = 0.06;
+const CLIP_SHOWN = "inset(0% 0% 0% 0%)";
+const CLIP_HIDDEN_RIGHT = "inset(0% 100% 0% 0%)";
+const CLIP_HIDDEN_LEFT = "inset(0% 0% 0% 100%)";
+const IMG_GAP_LEFT = "0.14em";
+const IMG_GAP_RIGHT = "0.03em";
+const PETAL_HOLD_S = 2.5;
+const PILL_HOLD_S = 2.5;
+const WHEEL_SIZE = "0.54em";
+const WHEEL_GAP = "0.19em";
 
-const settleEase = (progress: number) => {
-  const tension = 5.5;
-  return 1 - Math.exp(-tension * progress) * (1 + tension * progress);
+const istFormatter = new Intl.DateTimeFormat("en-IN", {
+  timeZone: "Asia/Kolkata",
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+  hour12: true,
+});
+
+const IstClock: React.FC<{ className?: string }> = ({ className }) => {
+  const [now, setNow] = useState<Date | null>(null);
+
+  useEffect(() => {
+    setNow(new Date());
+    const interval = window.setInterval(() => setNow(new Date()), 1000);
+    return () => window.clearInterval(interval);
+  }, []);
+
+  return (
+    <time
+      className={className}
+      dateTime={now?.toISOString()}
+      suppressHydrationWarning
+    >
+      {now ? `${istFormatter.format(now).toUpperCase()} IST` : "\u00a0"}
+    </time>
+  );
 };
 
 const Home: React.FC<{ introReady?: boolean }> = ({ introReady = false }) => {
-  const firstText = useRef<HTMLParagraphElement>(null);
-  const secondText = useRef<HTMLParagraphElement>(null);
-  const slider = useRef<HTMLDivElement>(null);
-  const columnLines = useRef<Array<HTMLSpanElement | null>>([]);
   const heroNameBackdrop = useRef<HTMLImageElement>(null);
+  const roleO = useRef<HTMLSpanElement>(null);
+  const productO = useRef<HTMLSpanElement>(null);
+  const productOChar = useRef<HTMLSpanElement>(null);
+  const productOImg = useRef<HTMLImageElement>(null);
+  const pinwheel = useRef<HTMLSpanElement>(null);
+  const pinwheelImg = useRef<HTMLImageElement>(null);
   const heroLogo = useRef<HTMLImageElement>(null);
-  const xPercent = useRef(0);
-  const direction = useRef(-1);
-  const [landed, setLanded] = useState(false);
   const [logoIndex, setLogoIndex] = useState(0);
   const isFirstLogoRender = useRef(true);
 
-  // ✅ Move animate ABOVE useLayoutEffect to prevent "used before declaration" error
-  const animate = useCallback(() => {
-    if (xPercent.current < -100) {
-      xPercent.current = 0;
-    } else if (xPercent.current > 0) {
-      xPercent.current = -100;
-    }
-
-    gsap.set(firstText.current, { xPercent: xPercent.current });
-    gsap.set(secondText.current, { xPercent: xPercent.current });
-
-    requestAnimationFrame(animate);
-    xPercent.current += 0.1 * direction.current;
-  }, []);
-
-  useLayoutEffect(() => {
-    if (typeof window === "undefined") return;
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    gsap.to(slider.current, {
-      scrollTrigger: {
-        trigger: document.documentElement,
-        scrub: 0.25,
-        start: 0,
-        end: window.innerHeight,
-        onUpdate: (e) => (direction.current = e.direction * -1),
-      },
-      x: "-500px",
-    });
-
-    requestAnimationFrame(animate); // ✅ No more "used before declaration" error
-  }, [animate]);
-
-  useLayoutEffect(() => {
-    if (!landed) return;
-
-    const lines = columnLines.current.filter(Boolean);
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    if (reduceMotion) {
-      gsap.set(lines, { scaleY: 1 });
-      return;
-    }
-
-    const timeline = gsap.timeline();
-    lines.forEach((line, index) => {
-      timeline.to(
-        line,
-        {
-          scaleY: 1,
-          duration: 3.6,
-          ease: settleEase,
-        },
-        index * 0.95
-      );
-    });
-
-    return () => {
-      timeline.kill();
-    };
-  }, [landed]);
-
   useLayoutEffect(() => {
     const el = heroNameBackdrop.current;
-    if (!el || typeof window === "undefined") return;
+    const pill = roleO.current;
+    const oSlot = productO.current;
+    const oChar = productOChar.current;
+    const oText = oChar?.firstChild;
+    const oImg = productOImg.current;
+    const wheelSlot = pinwheel.current;
+    const wheelImg = pinwheelImg.current;
+    if (
+      !el ||
+      !pill ||
+      !oSlot ||
+      !oChar ||
+      !oText ||
+      !oImg ||
+      !wheelSlot ||
+      !wheelImg ||
+      typeof window === "undefined"
+    ) {
+      return;
+    }
 
     const reduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
@@ -114,29 +97,172 @@ const Home: React.FC<{ introReady?: boolean }> = ({ introReady = false }) => {
       ? "-5%"
       : "-8%";
 
+    oText.nodeValue = "o";
+
     if (!introReady) {
       gsap.set(el, { y: "52vh", force3D: true });
+      gsap.set(pill, { width: "0.54em" });
+      gsap.set(oSlot, { marginLeft: "0em", marginRight: "0em" });
+      gsap.set(oChar, { clipPath: CLIP_SHOWN });
+      gsap.set(oImg, { clipPath: CLIP_HIDDEN_RIGHT });
+      gsap.set(wheelSlot, { width: "0em", marginRight: "0em", overflow: "hidden" });
+      gsap.set(wheelImg, { yPercent: 105, rotation: 0 });
       return;
     }
 
     if (reduceMotion) {
       gsap.set(el, { y: finalY });
+      gsap.set(pill, { width: "1.7em" });
+      gsap.set(oSlot, { marginLeft: IMG_GAP_LEFT, marginRight: IMG_GAP_RIGHT });
+      gsap.set(oChar, { clipPath: CLIP_HIDDEN_LEFT });
+      gsap.set(oImg, { clipPath: CLIP_SHOWN });
+      gsap.set(wheelSlot, { width: WHEEL_SIZE, marginRight: WHEEL_GAP });
+      gsap.set(wheelImg, { yPercent: 0 });
       return;
     }
 
-    const tween = gsap.fromTo(
-      el,
-      { y: "52vh" },
-      {
-        y: finalY,
-        duration: 1.75,
-        ease: "power3.out",
-        delay: 0.4,
-      }
-    );
+    const shuffleGlyph = (duration: number) => {
+      const progress = { t: 0 };
+      let lastStep = -1;
+      return gsap.to(progress, {
+        t: 1,
+        duration,
+        ease: "none",
+        onUpdate: () => {
+          const step = Math.floor((progress.t * duration) / SHUFFLE_STEP_S);
+          if (step === lastStep) return;
+          lastStep = step;
+          oText.nodeValue =
+            SHUFFLE_GLYPHS[Math.floor(Math.random() * SHUFFLE_GLYPHS.length)];
+        },
+        onComplete: () => {
+          oText.nodeValue = "o";
+        },
+      });
+    };
+
+    const swapToImage = () =>
+      gsap
+        .timeline()
+        .add(shuffleGlyph(1.1), 0)
+        .fromTo(
+          oChar,
+          { clipPath: CLIP_SHOWN },
+          { clipPath: CLIP_HIDDEN_LEFT, duration: 0.7, ease: "power2.inOut" },
+          0.45
+        )
+        .fromTo(
+          oImg,
+          { clipPath: CLIP_HIDDEN_RIGHT },
+          { clipPath: CLIP_SHOWN, duration: 0.7, ease: "power2.inOut" },
+          0.45
+        )
+        .fromTo(
+          oSlot,
+          { marginLeft: "0em", marginRight: "0em" },
+          {
+            marginLeft: IMG_GAP_LEFT,
+            marginRight: IMG_GAP_RIGHT,
+            duration: 0.7,
+            ease: "power2.inOut",
+          },
+          0.45
+        );
+
+    const swapToChar = () =>
+      gsap
+        .timeline({ defaults: { immediateRender: false } })
+        .add(shuffleGlyph(1.1), 0)
+        .fromTo(
+          oImg,
+          { clipPath: CLIP_SHOWN },
+          { clipPath: CLIP_HIDDEN_LEFT, duration: 0.7, ease: "power2.inOut" },
+          0
+        )
+        .fromTo(
+          oChar,
+          { clipPath: CLIP_HIDDEN_RIGHT },
+          { clipPath: CLIP_SHOWN, duration: 0.7, ease: "power2.inOut" },
+          0
+        )
+        .fromTo(
+          oSlot,
+          { marginLeft: IMG_GAP_LEFT, marginRight: IMG_GAP_RIGHT },
+          {
+            marginLeft: "0em",
+            marginRight: "0em",
+            duration: 0.7,
+            ease: "power2.inOut",
+          },
+          0
+        );
+
+    const petalLoop = gsap
+      .timeline({ repeat: -1 })
+      .add(swapToChar(), PETAL_HOLD_S)
+      .add(swapToImage(), `>${PETAL_HOLD_S}`);
+
+    const timeline = gsap.timeline({ delay: 0.4 });
+    timeline
+      .fromTo(
+        el,
+        { y: "52vh" },
+        { y: finalY, duration: 1.75, ease: "power3.out" }
+      )
+      .addLabel("stretch", "-=0.6")
+      .fromTo(
+        pill,
+        { width: "0.54em" },
+        { width: "1.7em", duration: 1.2, ease: "power3.inOut" },
+        "stretch"
+      )
+      .add(swapToImage(), "stretch")
+      .addLabel("pinwheel", "stretch+=1.25")
+      .fromTo(
+        wheelSlot,
+        { width: "0em", marginRight: "0em" },
+        {
+          width: WHEEL_SIZE,
+          marginRight: WHEEL_GAP,
+          duration: 0.9,
+          ease: "power3.inOut",
+        },
+        "pinwheel"
+      )
+      .fromTo(
+        wheelImg,
+        { yPercent: 105, rotation: 0 },
+        { yPercent: 0, duration: 0.8, ease: "power3.out" },
+        "pinwheel+=0.3"
+      )
+      .set(wheelSlot, { overflow: "visible" })
+      .to(wheelImg, {
+        rotation: "+=90",
+        duration: 1,
+        ease: "back.inOut(2.2)",
+        delay: 0.6,
+        repeat: -1,
+        repeatDelay: 1.2,
+        repeatRefresh: true,
+      })
+      .add(petalLoop, "stretch+=1.15")
+      .to(
+        pill,
+        {
+          width: "0.54em",
+          duration: 1.2,
+          ease: "power3.inOut",
+          delay: PILL_HOLD_S,
+          repeat: -1,
+          yoyo: true,
+          repeatDelay: PILL_HOLD_S,
+        },
+        "stretch+=1.2"
+      );
 
     return () => {
-      tween.kill();
+      timeline.kill();
+      oText.nodeValue = "o";
     };
   }, [introReady]);
 
@@ -189,49 +315,93 @@ const Home: React.FC<{ introReady?: boolean }> = ({ introReady = false }) => {
 
   return (
     <>
+      <motion.div
+        variants={slideUp}
+        initial="initial"
+        animate="enter"
+        className={styles.heroBrand}
+      >
+        <div className={styles.heroLogoWrap}>
+          <img
+            ref={heroLogo}
+            className={styles.heroLogo}
+            src={HERO_FACE_LOGOS[logoIndex]}
+            alt="Ashwin"
+          />
+        </div>
+        <img
+          className={styles.heroName}
+          src="/images/logos/ashwin-name.png"
+          alt=""
+        />
+      </motion.div>
       <motion.main
         variants={slideUp}
         initial="initial"
         animate="enter"
         className={styles.landing}
-        onAnimationComplete={(definition) => {
-          if (definition === "enter") setLanded(true);
-        }}
       >
-        <div className={styles.heroBrand}>
-          <div className={styles.heroLogoWrap}>
-            <img
-              ref={heroLogo}
-              className={styles.heroLogo}
-              src={HERO_FACE_LOGOS[logoIndex]}
-              alt="Ashwin"
-            />
+        <div className={styles.heroNameBackdrop}>
+          <div ref={heroNameBackdrop} className={styles.heroNameGroup}>
+            <h2 className={styles.heroRole}>
+              <span>
+                Pr
+                <span
+                  ref={productO}
+                  className={styles.productO}
+                  aria-hidden="true"
+                >
+                  <span ref={productOChar} className={styles.productOChar}>
+                    o
+                  </span>
+                  <img
+                    ref={productOImg}
+                    className={styles.productOImg}
+                    src="/svg/four-petal.webp"
+                    alt=""
+                  />
+                </span>
+                <span className="sr-only">o</span>
+                duct{" "}
+                <span
+                  ref={pinwheel}
+                  className={styles.pinwheel}
+                  aria-hidden="true"
+                >
+                  <img
+                    ref={pinwheelImg}
+                    className={styles.pinwheelImg}
+                    src="/svg/Quarter-circle%20pinwheel.webp"
+                    alt=""
+                  />
+                </span>
+                Designer
+              </span>
+              <span>
+                &amp; Devel
+                <span ref={roleO} className={styles.roleO} aria-hidden="true" />
+                <span className="sr-only">o</span>
+                per
+              </span>
+            </h2>
+            <p className={styles.heroTagline}>
+              From the first sketch to the final line of code,
+              <br />I bring ideas to life.{" "}
+              <img
+                className={styles.heroTaglineHeart}
+                src="/svg/heart.webp"
+                alt=""
+              />
+            </p>
           </div>
-          <img
-            className={styles.heroName}
-            src="/images/logos/ashwin-name.png"
-            alt=""
-          />
         </div>
-        <div className={styles.columnLines} aria-hidden="true">
-          {COLUMN_LINES.map((x, index) => (
-            <span
-              key={x}
-              ref={(node) => {
-                columnLines.current[index] = node;
-              }}
-              className={styles.columnLine}
-              style={{ left: `${x}%` }}
-            />
-          ))}
-        </div>
-        <div className={styles.heroNameBackdrop} aria-hidden="true">
-          <img
-            ref={heroNameBackdrop}
-            className={styles.heroNameBackdropImg}
-            src="/images/logos/ashwin-name.png"
-            alt=""
-          />
+        <div className={styles.heroLocation}>
+          <p>
+            [ Based In
+            <br />
+            Coimbatore, India ]
+          </p>
+          <IstClock className={styles.heroClock} />
         </div>
         <div className={styles.heroMountain}>
           <GridDistortion
@@ -262,12 +432,6 @@ const Home: React.FC<{ introReady?: boolean }> = ({ introReady = false }) => {
             clickRipple
             intro={introReady}
           />
-        </div>
-        <div className={styles.sliderContainer}>
-          <div ref={slider} className={styles.slider}>
-            <p ref={firstText}>Creative Developer & Designer-</p>
-            <p ref={secondText}>Creative Developer & Designer-</p>
-          </div>
         </div>
       </motion.main>
     </>
